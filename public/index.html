@@ -599,7 +599,7 @@ function aplica(k,v){var a=KEYS[k];if(v===a[2]){delete R.dataset[a[1]];S.set(a[0
 function marca(){pn.querySelectorAll('[data-k]').forEach(function(c){var a=KEYS[c.dataset.k];c.setAttribute('aria-pressed',(R.dataset[a[1]]||a[2])===c.dataset.v)})}
 pn.addEventListener('click',function(e){var c=e.target.closest('[data-k]');if(c)aplica(c.dataset.k,c.dataset.v)});marca();
 /* pontos e lojinha de contas */
-var CONTAS={padrao:['Padrão',0,''],perola:['Pérola',10,'radial-gradient(circle at 35% 30%,#fff,#e8e4dc 55%,#c9c1b2)'],madeira:['Madeira',15,'radial-gradient(circle at 35% 30%,#d9a56e,#9a6234 60%,#6b3f1d)'],cristal:['Cristal',20,'radial-gradient(circle at 35% 30%,#fff,#bfe6ff 55%,#6fb9ee)'],rosa:['Rosa',20,'radial-gradient(circle at 35% 30%,#fff,#f6c6d4 55%,#d98aa6)'],ouro:['Ouro',30,'radial-gradient(circle at 35% 30%,#fff3b0,#e0b84f 55%,#a77c1d)'],safira:['Safira',40,'radial-gradient(circle at 35% 30%,#d3e5ff,#4d7fd1 55%,#1b3a8a)']};
+var CONTAS={padrao:['Padrão',0,''],perola:['Pérola',15,'radial-gradient(circle at 35% 30%,#fff,#e8e4dc 55%,#c9c1b2)'],madeira:['Madeira',20,'radial-gradient(circle at 35% 30%,#d9a56e,#9a6234 60%,#6b3f1d)'],cristal:['Cristal',30,'radial-gradient(circle at 35% 30%,#fff,#bfe6ff 55%,#6fb9ee)'],rosa:['Rosa',40,'radial-gradient(circle at 35% 30%,#fff,#f6c6d4 55%,#d98aa6)'],ouro:['Ouro',50,'radial-gradient(circle at 35% 30%,#fff3b0,#e0b84f 55%,#a77c1d)'],safira:['Safira',70,'radial-gradient(circle at 35% 30%,#d3e5ff,#4d7fd1 55%,#1b3a8a)']};
 function lerP(){try{var o=JSON.parse(S.get('fm-p'));if(o&&typeof o.p==='number'&&o.own&&CONTAS[o.sel])return o}catch(e){}return{p:0,own:['padrao'],sel:'padrao',d:'',g:[]}}
 var P=lerP();
 function salvaP(){S.set('fm-p',JSON.stringify(P))}
@@ -612,9 +612,9 @@ $('loja').innerHTML=h}
 $('loja').addEventListener('click',function(e){var b=e.target.closest('[data-loja]');if(!b)return;var k=b.dataset.v;
 if(b.dataset.loja==='comprar'){var pr=CONTAS[k][1];if(P.p<pr||P.own.indexOf(k)>-1)return;P.p-=pr;P.own.push(k);aviso('Contas '+CONTAS[k][0].toLowerCase()+' conquistadas')}
 P.sel=k;salvaP();usaConta();desenhaLoja()});
-function dia(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
+function dia(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+2)+'-'+d.getDate()}
 window.fmGanha=function(k){if(P.d!==dia()){P.d=dia();P.g=[]}if(P.g.indexOf(k)>-1)return;P.g.push(k);var set=k.split(':')[0],g=1,n=P.g.filter(function(x){return x.indexOf(set+':')===0}).length;
-if(n===5)g+=2;P.p+=g;salvaP();desenhaLoja();aviso(g>1?'+'+g+' pontos: rosário completo':'+1 ponto')};
+if(n===5)g+=2;P.p+=g;salvaP();desenhaLoja();aviso(g>1?'+'+g+' pontos: rosário completo':'+5 ponto')};
 usaConta();desenhaLoja();
 /* menu lateral */
 var mn=$('menu'),fd=$('fundo'),hb=$('hb'),ult=null;
