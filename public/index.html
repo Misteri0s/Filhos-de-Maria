@@ -258,6 +258,8 @@ details.ex{border-top:1px solid var(--bd)}
 textarea#pec{width:100%;margin-top:.3rem;padding:.6rem .8rem;background:none;color:var(--ink);border:1px dashed var(--line);border-radius:.8rem;font:inherit;font-size:.95rem;line-height:1.5;resize:vertical}
 .exb{display:flex;flex-wrap:wrap;gap:.2rem;margin:.6rem 0 1rem}
 .atalhos{margin:.6rem 0 .2rem}
+.mais{position:fixed;z-index:35;padding:.05rem .5rem;border:1px solid var(--glow);border-radius:999px;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:.8rem;pointer-events:none;animation:sobe 1s ease forwards}
+@keyframes sobe{0%{opacity:0;transform:translateY(6px)}20%{opacity:1}100%{opacity:0;transform:translateY(-24px)}}
 </style>
 </head>
 <body>
@@ -718,7 +720,7 @@ if('serviceWorker' in navigator)addEventListener('load',function(){navigator.ser
 var KC='fm-c',cl=$('cont');
 function chave(a){var sc=a.closest('section');return sc.id+':'+artigos('#'+sc.id).indexOf(a)}
 function lerC(){try{var o=JSON.parse(S.get(KC));if(o&&Date.now()-o.t<43200000)return o}catch(e){}return{t:Date.now(),u:null,v:{}}}
-function salva(a){var o=lerC(),n=cont.get(a)||0;o.t=Date.now();o.u=chave(a);o.v[o.u]=n;S.set(KC,JSON.stringify(o));mostraCont(o);if(n>0&&window.fmTap)window.fmTap(o.u,n)}
+function salva(a){var o=lerC(),n=cont.get(a)||0;o.t=Date.now();o.u=chave(a);o.v[o.u]=n;S.set(KC,JSON.stringify(o));mostraCont(o);if(n>0&&window.fmTap)window.fmTap(o.u,n,a)}
 function mostraCont(o){if(!o.u){cl.hidden=true;return}var p=o.u.split(':'),lista=artigos('#'+p[0]),i=+p[1],n=o.v[o.u]||0;
 if(n>=10){if(i+1>=lista.length){cl.hidden=true;return}i++;n=0}
 var a=lista[i];cl.textContent='Continuar de onde parou: '+(i+1)+'º Mistério '+SING[p[0]]+(n?' ('+n+' de 10)':'');cl.hidden=false;
@@ -788,7 +790,8 @@ if(a==='forma'){P.fo=k}else{if(a==='comprar'){var pr=CORES[k][1];if(P.p<pr||P.ow
 salvaP();usaConta();usaForma();desenhaLoja()});
 function dia(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
 var NOMES={gozosos:'Gozosos',luminosos:'Luminosos',dolorosos:'Dolorosos',gloriosos:'Gloriosos'};
-window.fmTap=function(k,n){var set=k.split(':')[0],sab=new Date().getDay()===6,hs=window.abaHoje,agora=Date.now();
+function flutua(a,t){var b=a&&a.querySelector('.cta');if(!b)return;var r=b.getBoundingClientRect(),m=document.createElement('span');m.className='mais';m.textContent=t;m.style.left=Math.max(8,r.right-44)+'px';m.style.top=(r.top+6)+'px';document.body.appendChild(m);setTimeout(function(){m.remove()},1000)}
+window.fmTap=function(k,n,a){var set=k.split(':')[0],sab=new Date().getDay()===6,hs=window.abaHoje,agora=Date.now();
 if(P.d!==dia()){P.d=dia();P.t={};P.b=[]}
 P.t=P.t||{};P.b=P.b||[];
 if(!sab&&set!==hs){if(n===1)aviso('Hoje os pontos valem só para os Mistérios '+NOMES[hs]+'. Você pode rezar este sem pontos.',3400);return}
@@ -800,7 +803,7 @@ var feitas=Object.keys(P.t).filter(function(x){return x.indexOf(set+':')===0&&P.
 if(feitas===5&&P.b.indexOf('t:'+set)<0){P.b.push('t:'+set);g+=5;msg='+'+g+' pontos: terço completo'}
 var tot=Object.keys(P.t).filter(function(x){return P.t[x]>=10}).length;
 if(sab&&tot>=20&&P.b.indexOf('r')<0){P.b.push('r');g+=10;msg='+'+g+' pontos: rosário completo'}}
-P.p+=g;salvaP();desenhaLoja();aviso(msg+' (total: '+P.p+')',n===10?3200:1200)};
+P.p+=g;salvaP();desenhaLoja();if(msg.indexOf('terço')>-1||msg.indexOf('rosário')>-1)aviso(msg,2800);else flutua(a,'+'+g)};
 usaConta();usaForma();desenhaLoja();
 /* menu lateral */
 var mn=$('menu'),fd=$('fundo'),hb=$('hb'),ult=null;
