@@ -257,6 +257,7 @@ details.ex{border-top:1px solid var(--bd)}
 .q input{flex:none;width:1.1rem;height:1.1rem;margin-top:.2rem;accent-color:var(--glow)}
 textarea#pec{width:100%;margin-top:.3rem;padding:.6rem .8rem;background:none;color:var(--ink);border:1px dashed var(--line);border-radius:.8rem;font:inherit;font-size:.95rem;line-height:1.5;resize:vertical}
 .exb{display:flex;flex-wrap:wrap;gap:.2rem;margin:.6rem 0 1rem}
+.atalhos{margin:.6rem 0 .2rem}
 </style>
 </head>
 <body>
@@ -467,10 +468,11 @@ textarea#pec{width:100%;margin-top:.3rem;padding:.6rem .8rem;background:none;col
 <div id="fundo" hidden></div>
 <aside id="menu" role="dialog" aria-label="Menu" tabindex="-1" hidden>
   <div class="mh"><h2>Menu</h2><button type="button" id="mx" aria-label="Fechar menu">×</button></div>
+  <div class="atalhos"><button type="button" class="chip" data-ir="nov-t">Novenas</button><button type="button" class="chip" data-ir="m-ex">Exame de consciência</button><button type="button" class="chip" data-ir="m-or">Orações</button><button type="button" class="chip" data-ir="m-la">Ladainhas</button></div>
   <h3 id="nov-t">Novenas do mês</h3>
   <p class="nota">As datas mudam sozinhas a cada mês e seguem o calendário da Minha Biblioteca Católica. “Rezar a novena” leva direto ao texto no site deles. Onde aparecer “Buscar no site”, o link abre a busca deles por aquela novena.</p>
   <ul id="nov"></ul>
-  <h3>Exame de consciência</h3>
+  <h3 id="m-ex">Exame de consciência</h3>
   <p class="nota">Roteiro para preparar a confissão. Marque o que reconhecer e escreva o que quiser no campo final. Nada é enviado nem guardado: ao fechar a página, tudo se apaga. A confissão é feita ao padre, no sacramento.</p>
   <details class="ex"><summary>Abrir o exame de consciência</summary>
     <p class="nota">Para a boa confissão: examinar a consciência, arrepender-se, ter o propósito de não pecar mais, confessar os pecados ao padre e cumprir a penitência. Um pecado é grave quando há matéria grave, plena consciência e consentimento deliberado. Ao confessar, diga os pecados graves e quantas vezes os cometeu. Em caso de dúvida, pergunte ao padre.</p>
@@ -479,7 +481,7 @@ textarea#pec{width:100%;margin-top:.3rem;padding:.6rem .8rem;background:none;col
     <textarea id="pec" rows="6" placeholder="Escreva aqui o que deseja confessar..."></textarea>
     <div class="exb"><button type="button" class="chip" id="ex-c">Copiar</button><button type="button" class="chip" id="ex-b">Exportar (.txt)</button><button type="button" class="chip" id="ex-l">Limpar tudo</button></div>
   </details>
-  <h3>Orações comuns</h3>
+  <h3 id="m-or">Orações comuns</h3>
   <details><summary>Credo Niceno-Constantinopolitano</summary>
     <p>Creio em um só Deus, Pai todo-poderoso, criador do céu e da terra, de todas as coisas visíveis e invisíveis. Creio em um só Senhor, Jesus Cristo, Filho Unigênito de Deus, nascido do Pai antes de todos os séculos: Deus de Deus, luz da luz, Deus verdadeiro de Deus verdadeiro; gerado, não criado, consubstancial ao Pai. Por Ele todas as coisas foram feitas. E por nós, homens, e para nossa salvação, desceu dos céus: e se encarnou pelo Espírito Santo, no seio da Virgem Maria, e se fez homem. Também por nós foi crucificado sob Pôncio Pilatos; padeceu e foi sepultado. Ressuscitou ao terceiro dia, conforme as Escrituras, e subiu aos céus, onde está sentado à direita do Pai. E de novo há de vir em sua glória, para julgar os vivos e os mortos; e o seu reino não terá fim. Creio no Espírito Santo, Senhor que dá a vida, e procede do Pai e do Filho; e com o Pai e o Filho é adorado e glorificado: Ele que falou pelos profetas. Creio na Igreja, una, santa, católica e apostólica. Professo um só batismo para remissão dos pecados. E espero a ressurreição dos mortos e a vida do mundo que há de vir. Amém.</p></details>
   <details><summary>Ângelus</summary>
@@ -491,7 +493,7 @@ textarea#pec{width:100%;margin-top:.3rem;padding:.6rem .8rem;background:none;col
   <details><summary>Ato de Contrição</summary>
     <p>Meu Deus, porque sois tão bom, eu me arrependo de todo o coração de ter pecado e, com o auxílio da vossa graça, proponho firmemente emendar-me e nunca mais vos ofender. Peço-vos perdão e confio que, pela vossa infinita misericórdia, me concedereis o perdão das minhas culpas e me levareis à vida eterna. Amém.</p></details>
   <p class="lk"><b>Via Sacra com meditações</b> (site do Padre Paulo Ricardo)<br><a href="https://padrepauloricardo.org/blog/reze-a-via-sacra-com-o-cardeal-newman" target="_blank" rel="noopener">Com São John Henry Newman ↗</a><br><a href="https://padrepauloricardo.org/blog/rezando-a-via-sacra-com-santo-afonso-de-ligorio" target="_blank" rel="noopener">Com Santo Afonso de Ligório ↗</a></p>
-  <h3>Ladainhas</h3>
+  <h3 id="m-la">Ladainhas</h3>
   <details><summary>Ladainha do Sagrado Coração de Jesus</summary>
     <p class="lad">Senhor, tende piedade de nós.<br>Cristo, tende piedade de nós.<br>Senhor, tende piedade de nós.<br>Jesus Cristo, ouvi-nos.<br>Jesus Cristo, atendei-nos.<br>Deus Pai do Céu, tende piedade de nós.<br>Deus Filho, Redentor do mundo, tende piedade de nós.<br>Deus Espírito Santo, tende piedade de nós.<br>Santíssima Trindade, que sois um só Deus, tende piedade de nós.</p>
     <p class="lad"><i>A cada invocação a seguir, responda: “Tende piedade de nós”.</i><br>Coração de Jesus, Filho do Pai eterno<br>Coração de Jesus, formado pelo Espírito Santo no seio da Virgem Mãe<br>Coração de Jesus, substancialmente unido ao Verbo de Deus<br>Coração de Jesus, de majestade infinita<br>Coração de Jesus, templo santo de Deus<br>Coração de Jesus, tabernáculo do Altíssimo<br>Coração de Jesus, casa de Deus e porta do céu<br>Coração de Jesus, fornalha ardente de caridade<br>Coração de Jesus, santuário da justiça e do amor<br>Coração de Jesus, cheio de bondade e de amor<br>Coração de Jesus, abismo de todas as virtudes<br>Coração de Jesus, digníssimo de todo louvor<br>Coração de Jesus, rei e centro de todos os corações<br>Coração de Jesus, em que estão todos os tesouros da sabedoria e da ciência<br>Coração de Jesus, em que habita toda a plenitude da divindade<br>Coração de Jesus, em que o Pai pôs as suas complacências<br>Coração de Jesus, de cuja plenitude todos nós recebemos<br>Coração de Jesus, desejo das colinas eternas<br>Coração de Jesus, paciente e cheio de misericórdia<br>Coração de Jesus, generoso para todos os que vos invocam<br>Coração de Jesus, fonte de vida e de santidade<br>Coração de Jesus, propiciação pelos nossos pecados<br>Coração de Jesus, saturado de opróbrios<br>Coração de Jesus, esmagado por causa dos nossos pecados<br>Coração de Jesus, feito obediente até à morte<br>Coração de Jesus, transpassado pela lança<br>Coração de Jesus, fonte de toda a consolação<br>Coração de Jesus, nossa vida e ressurreição<br>Coração de Jesus, nossa paz e reconciliação<br>Coração de Jesus, vítima dos pecadores<br>Coração de Jesus, salvação dos que em vós esperam<br>Coração de Jesus, esperança dos que morrem em vós<br>Coração de Jesus, delícia de todos os santos</p>
@@ -627,7 +629,7 @@ Estou disposto a reparar os danos que causei, devolvendo, corrigindo ou pedindo 
   <p class="rot">Fonte</p>
   <div><button type="button" class="chip" data-k="letra" data-v="padrao">Cursiva</button><button type="button" class="chip" data-k="letra" data-v="simples">Simples</button><button type="button" class="chip" data-k="letra" data-v="classica">Clássica</button><button type="button" class="chip" data-k="letra" data-v="elegante">Elegante</button><button type="button" class="chip" data-k="letra" data-v="legivel">Legível</button><button type="button" class="chip" data-k="letra" data-v="manuscrita">Manuscrita</button></div>
   <p class="rot">Lojinha de contas do terço</p>
-  <p class="nota">Cada dezena (10 Ave-Marias contadas, com pelo menos 1 minuto) vale 1 ponto. Completar os 5 mistérios do dia vale mais 5. Nos dias comuns, valem só os mistérios do dia. Aos sábados vale qualquer mistério, e rezar o rosário inteiro (os 4 conjuntos) vale mais 10. As formas são grátis e as cores se conquistam com pontos. Os pontos ficam só neste aparelho e nunca se perdem.</p>
+  <p class="nota">Cada Ave-Maria contada vale 1 ponto (com pelo menos 4 segundos entre uma e outra). Completar as 10 dá mais 10, e completar os 5 mistérios do dia dá mais 5. Nos dias comuns valem só os mistérios do dia. Aos sábados vale qualquer mistério, e rezar o rosário inteiro (os 4 conjuntos) dá mais 10. Cada mistério pontua uma vez por dia. As formas são grátis e as cores se conquistam com pontos. Os pontos ficam só neste aparelho e nunca se perdem.</p>
   <div id="loja"></div>
 </div>
 <div id="aviso" role="status" aria-live="polite"></div>
@@ -716,7 +718,7 @@ if('serviceWorker' in navigator)addEventListener('load',function(){navigator.ser
 var KC='fm-c',cl=$('cont');
 function chave(a){var sc=a.closest('section');return sc.id+':'+artigos('#'+sc.id).indexOf(a)}
 function lerC(){try{var o=JSON.parse(S.get(KC));if(o&&Date.now()-o.t<43200000)return o}catch(e){}return{t:Date.now(),u:null,v:{}}}
-function salva(a){var o=lerC(),n=cont.get(a)||0;o.t=Date.now();o.u=chave(a);o.v[o.u]=n;o.f=o.f||{};if(n===1)o.f[o.u]=Date.now();S.set(KC,JSON.stringify(o));mostraCont(o);if(n>=10&&window.fmGanha)window.fmGanha(o.u,Date.now()-(o.f[o.u]||Date.now()))}
+function salva(a){var o=lerC(),n=cont.get(a)||0;o.t=Date.now();o.u=chave(a);o.v[o.u]=n;S.set(KC,JSON.stringify(o));mostraCont(o);if(n>0&&window.fmTap)window.fmTap(o.u,n)}
 function mostraCont(o){if(!o.u){cl.hidden=true;return}var p=o.u.split(':'),lista=artigos('#'+p[0]),i=+p[1],n=o.v[o.u]||0;
 if(n>=10){if(i+1>=lista.length){cl.hidden=true;return}i++;n=0}
 var a=lista[i];cl.textContent='Continuar de onde parou: '+(i+1)+'º Mistério '+SING[p[0]]+(n?' ('+n+' de 10)':'');cl.hidden=false;
@@ -754,7 +756,7 @@ if(intro){var im=intro.querySelector('img'),lg=document.querySelector('header im
 intro.addEventListener('click',function(){intro.classList.add('fim')});setTimeout(function(){intro.classList.add('fim')},2800)}
 /* aviso rápido */
 var av=$('aviso'),tav=null;
-function aviso(t){av.textContent=t;av.classList.add('on');clearTimeout(tav);tav=setTimeout(function(){av.classList.remove('on')},2400)}
+function aviso(t,ms){av.textContent=t;av.classList.add('on');clearTimeout(tav);tav=setTimeout(function(){av.classList.remove('on')},ms||2400)}
 /* painel de personalização */
 var pn=$('painel'),pz=$('pz');
 function abrePn(v){pn.hidden=!v;pz.setAttribute('aria-expanded',v)}
@@ -766,8 +768,8 @@ function marca(){pn.querySelectorAll('[data-k]').forEach(function(c){var a=KEYS[
 pn.addEventListener('click',function(e){var c=e.target.closest('[data-k]');if(c)aplica(c.dataset.k,c.dataset.v)});marca();
 /* pontos e lojinha de contas */
 var CORES={padrao:['Padrão',0,''],perola:['Pérola',30,'radial-gradient(circle at 35% 30%,#fff,#e8e4dc 55%,#c9c1b2)'],madeira:['Madeira',50,'radial-gradient(circle at 35% 30%,#d9a56e,#9a6234 60%,#6b3f1d)'],ebano:['Ébano',70,'radial-gradient(circle at 35% 30%,#8a8a8a,#2b2b2b 55%,#050505)'],cristal:['Cristal',90,'radial-gradient(circle at 35% 30%,#fff,#bfe6ff 55%,#6fb9ee)'],rosa:['Rosa',110,'radial-gradient(circle at 35% 30%,#fff,#f6c6d4 55%,#d98aa6)'],prata:['Prata',130,'radial-gradient(circle at 35% 30%,#fff,#d9dde2 55%,#8c949e)'],turquesa:['Turquesa',150,'radial-gradient(circle at 35% 30%,#e6fffb,#5fd6c9 55%,#1f8f86)'],ambar:['Âmbar',170,'radial-gradient(circle at 35% 30%,#ffe9b0,#f0a82e 55%,#a35f0a)'],coral:['Coral',190,'radial-gradient(circle at 35% 30%,#ffe3dc,#f48a77 55%,#c0432f)'],esmeralda:['Esmeralda',210,'radial-gradient(circle at 35% 30%,#d9ffe8,#3fbf7b 55%,#12683b)'],ametista:['Ametista',230,'radial-gradient(circle at 35% 30%,#f1e4ff,#a77bdc 55%,#5d3a96)'],ouro:['Ouro',250,'radial-gradient(circle at 35% 30%,#fff3b0,#e0b84f 55%,#a77c1d)'],rubi:['Rubi',270,'radial-gradient(circle at 35% 30%,#ffd6dc,#d6304a 55%,#7a0f23)'],safira:['Safira',290,'radial-gradient(circle at 35% 30%,#d3e5ff,#4d7fd1 55%,#1b3a8a)']},
-FORMAS={circulo:['●','Círculo',''],quadrado:['■','Quadrado',''],losango:['◆','Losango','polygon(50% 0,100% 50%,50% 100%,0 50%)'],coracao:['♥','Coração','polygon(50% 90%,10% 50%,5% 30%,15% 12%,32% 8%,50% 25%,68% 8%,85% 12%,95% 30%,90% 50%)'],estrela:['★','Estrela','polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)'],cruz:['✚','Cruz','polygon(35% 0,65% 0,65% 35%,100% 35%,100% 65%,65% 65%,65% 100%,35% 100%,35% 65%,0 65%,0 35%,35% 35%)']};
-function lerP(){try{var o=JSON.parse(S.get('fm-p'));if(o&&typeof o.p==='10'&&o.own&&CONTAS_OK(o)){if(!FORMAS[o.fo])o.fo='circulo';if(!o.b)o.b=[];return o}}catch(e){}return{p:0,own:['padrao'],sel:'padrao',fo:'circulo',d:'',g:[],b:[]}}
+FORMAS={circulo:['●','Círculo',''],arredondada:['■','Arredondada',''],losango:['◆','Losango','polygon(50% 0,100% 50%,50% 100%,0 50%)'],coracao:['♥','Coração','polygon(50% 90%,10% 50%,5% 30%,15% 12%,32% 8%,50% 25%,68% 8%,85% 12%,95% 30%,90% 50%)'],estrela:['★','Estrela','polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)'],cruz:['✚','Cruz','polygon(35% 0,65% 0,65% 35%,100% 35%,100% 65%,65% 65%,65% 100%,35% 100%,35% 65%,0 65%,0 35%,35% 35%)']};
+function lerP(){try{var o=JSON.parse(S.get('fm-p'));if(o&&typeof o.p==='number'&&o.own&&CONTAS_OK(o)){if(!FORMAS[o.fo])o.fo='circulo';if(!o.b)o.b=[];if(!o.t)o.t={};return o}}catch(e){}return{p:0,own:['padrao'],sel:'padrao',fo:'circulo',d:'',t:{},b:[]}}
 function CONTAS_OK(o){return !!CORES[o.sel]}
 var P=lerP();
 function salvaP(){S.set('fm-p',JSON.stringify(P))}
@@ -786,20 +788,25 @@ if(a==='forma'){P.fo=k}else{if(a==='comprar'){var pr=CORES[k][1];if(P.p<pr||P.ow
 salvaP();usaConta();usaForma();desenhaLoja()});
 function dia(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
 var NOMES={gozosos:'Gozosos',luminosos:'Luminosos',dolorosos:'Dolorosos',gloriosos:'Gloriosos'};
-window.fmGanha=function(k,ms){var set=k.split(':')[0],sab=new Date().getDay()===6,hs=window.abaHoje;
-if(P.d!==dia()){P.d=dia();P.g=[];P.b=[]}
-if(P.g.indexOf(k)>-1)return;
-if(!sab&&set!==hs){aviso('Hoje os pontos valem só para os Mistérios '+NOMES[hs]+'.');return}
-if(!(ms>=60000)){aviso('Reze com calma: cada dezena precisa de pelo menos 1 minuto para valer ponto.');return}
-P.g.push(k);var g=1,msg='+1 ponto',n=P.g.filter(function(x){return x.indexOf(set+':')===0}).length;
-if(n===5&&P.b.indexOf('t:'+set)<0){P.b.push('t:'+set);g+=5;msg='+'+g+' pontos: terço completo'}
-if(sab&&P.g.length>=20&&P.b.indexOf('r')<0){P.b.push('r');g+=10;msg='+'+g+' pontos: rosário completo'}
-P.p+=g;salvaP();desenhaLoja();aviso(msg)};
+window.fmTap=function(k,n){var set=k.split(':')[0],sab=new Date().getDay()===6,hs=window.abaHoje,agora=Date.now();
+if(P.d!==dia()){P.d=dia();P.t={};P.b=[]}
+P.t=P.t||{};P.b=P.b||[];
+if(!sab&&set!==hs){if(n===1)aviso('Hoje os pontos valem só para os Mistérios '+NOMES[hs]+'. Você pode rezar este sem pontos.',3400);return}
+if(n<=(P.t[k]||0))return;
+if(agora-(P.l||0)<4000){if(agora-(P.w||0)>3000){P.w=agora;aviso('Reze com calma: 1 ponto a cada 4 segundos, no mínimo.',2600)}return}
+P.l=agora;P.t[k]=n;var g=1,msg='+1 ponto';
+if(n===10){g=11;msg='+11 pontos: dezena completa';
+var feitas=Object.keys(P.t).filter(function(x){return x.indexOf(set+':')===0&&P.t[x]>=10}).length;
+if(feitas===5&&P.b.indexOf('t:'+set)<0){P.b.push('t:'+set);g+=5;msg='+'+g+' pontos: terço completo'}
+var tot=Object.keys(P.t).filter(function(x){return P.t[x]>=10}).length;
+if(sab&&tot>=20&&P.b.indexOf('r')<0){P.b.push('r');g+=10;msg='+'+g+' pontos: rosário completo'}}
+P.p+=g;salvaP();desenhaLoja();aviso(msg+' (total: '+P.p+')',n===10?3200:1200)};
 usaConta();usaForma();desenhaLoja();
 /* menu lateral */
 var mn=$('menu'),fd=$('fundo'),hb=$('hb'),ult=null;
 function abreMenu(){abrePn(false);ult=document.activeElement;mn.hidden=false;fd.hidden=false;document.body.style.overflow='hidden';mn.focus()}
 function fechaMenu(){if(mn.hidden)return;mn.hidden=true;fd.hidden=true;document.body.style.overflow='';if(ult&&ult.focus)ult.focus()}
+mn.querySelectorAll('[data-ir]').forEach(function(b){b.addEventListener('click',function(){var t=$(b.dataset.ir);if(t){t.scrollIntoView({behavior:'smooth',block:'start'});var d=t.nextElementSibling;while(d&&d.tagName!=='DETAILS'&&d.tagName!=='H3')d=d.nextElementSibling;if(b.dataset.ir==='m-ex'&&d&&d.tagName==='DETAILS')d.open=true}})});
 hb.addEventListener('click',abreMenu);$('mx').addEventListener('click',fechaMenu);fd.addEventListener('click',fechaMenu);
 mn.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){fechaMenu();var o=$('opcionais');if(o){var d=o.querySelector('details');if(d)d.open=true}})});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){abrePn(false);fechaMenu()}});
