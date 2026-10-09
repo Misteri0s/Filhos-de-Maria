@@ -212,6 +212,43 @@ footer .grupo span{font-family:var(--sans);font-weight:400;font-size:.95rem;disp
 .pts b{font-weight:400;font-size:1.2rem}
 #aviso{position:fixed;left:50%;top:max(14px,env(safe-area-inset-top));transform:translateX(-50%);z-index:40;padding:.4rem 1rem;background:var(--bg);color:var(--ink);border:1px solid var(--glow);border-radius:999px;font-size:.9rem;box-shadow:0 0 18px rgba(90,180,240,.4);opacity:0;pointer-events:none;transition:opacity .3s}
 #aviso.on{opacity:1}
+:root[data-tema=branco]{--bg:#fff;--bg2:#f1f5f9;--ink:#1a2b3c;--soft:#58708a;--line:#d5dee8;--glow:#5ab4f0;--panel:rgba(255,255,255,.8);--halo:rgba(90,180,240,.2);--bd:rgba(143,196,232,.6);--acc:#215b86;--lnk:#1b7fc4;--barra:rgba(255,255,255,.95)}
+:root[data-tema=rosa]{--bg:#fbf3f6;--bg2:#f3e4ea;--ink:#4a2b3a;--soft:#8a6577;--line:#e3c9d3;--glow:#d98aa6;--panel:rgba(255,255,255,.65);--halo:rgba(217,138,166,.25);--bd:rgba(217,138,166,.5);--acc:#9a4d6a;--lnk:#a2476a;--barra:rgba(251,243,246,.94)}
+:root[data-tema=verde]{--bg:#f1f7f2;--bg2:#dfeee3;--ink:#1f4a33;--soft:#5a7d68;--line:#c3dccb;--glow:#5fb287;--panel:rgba(255,255,255,.65);--halo:rgba(95,178,135,.25);--bd:rgba(95,178,135,.5);--acc:#2f6b4b;--lnk:#2a7a52;--barra:rgba(241,247,242,.94)}
+:root[data-tema=lilas]{--bg:#f6f3fb;--bg2:#e8e1f4;--ink:#2f2552;--soft:#6f6590;--line:#d4cbea;--glow:#9a85cf;--panel:rgba(255,255,255,.65);--halo:rgba(154,133,207,.25);--bd:rgba(154,133,207,.5);--acc:#5a4a9a;--lnk:#5a48a6;--barra:rgba(246,243,251,.94)}
+:root[data-tema=vermelho]{--bg:#fcf4f2;--bg2:#f4e0dc;--ink:#4a1c1c;--soft:#8a5a58;--line:#e6c9c5;--glow:#d9594f;--panel:rgba(255,255,255,.65);--halo:rgba(217,89,79,.22);--bd:rgba(217,89,79,.45);--acc:#9c2f2a;--lnk:#a63530;--barra:rgba(252,244,242,.94)}
+:root[data-tema=sepia]{--bg:#f7f1e4;--bg2:#eadfc6;--ink:#3e2f1c;--soft:#7a6648;--line:#d9c9a6;--glow:#b08a4a;--panel:rgba(255,252,244,.7);--halo:rgba(176,138,74,.25);--bd:rgba(176,138,74,.5);--acc:#7a5a22;--lnk:#8a6422;--barra:rgba(247,241,228,.94)}
+:root[data-tema=noite]{--bg:#0f1420;--bg2:#1a2030;--ink:#f3ead2;--soft:#c2b58f;--line:#3a4056;--glow:#d9ad4f;--panel:rgba(26,32,48,.62);--halo:rgba(217,173,79,.2);--bd:rgba(217,173,79,.4);--acc:#e6c878;--lnk:#e6c878;--barra:rgba(15,20,32,.94);color-scheme:dark}
+:root[data-tema=preto]{--bg:#000;--bg2:#0a0d12;--ink:#e8f0f6;--soft:#9cb0c0;--line:#2a3440;--glow:#5ab4f0;--panel:rgba(14,20,28,.7);--halo:rgba(60,140,210,.18);--bd:rgba(90,150,200,.4);--acc:#a9d4f5;--lnk:#7cc4f7;--barra:rgba(0,0,0,.94);color-scheme:dark}
+:root[data-tema=noite][data-texto=alto],:root[data-tema=preto][data-texto=alto]{--ink:#fff;--soft:#c8e0f2}
+:root[data-tema=noite][data-texto=sepia],:root[data-tema=preto][data-texto=sepia]{--ink:#f1e4d0;--soft:#cdb99c}
+:root[data-texto=grafite]{--ink:#2b2f36;--soft:#5d636d}
+:root[data-tema=escuro][data-texto=grafite],:root[data-tema=noite][data-texto=grafite],:root[data-tema=preto][data-texto=grafite]{--ink:#e6e8ea;--soft:#aab0b8}
+:root[data-letra=elegante]{--cursive:"Palatino Linotype",Palatino,"Book Antiqua","Times New Roman",serif}
+:root[data-letra=legivel]{--cursive:Verdana,Geneva,Tahoma,sans-serif;--sans:Verdana,Geneva,Tahoma,sans-serif}
+:root[data-letra=legivel] body{letter-spacing:.01em;line-height:1.85}
+:root[data-letra=manuscrita]{--cursive:"Segoe Script","Bradley Hand","Lucida Handwriting","Comic Sans MS","Brush Script MT",cursive}
+:root[data-forma] .cta span{border:0;background:var(--conta,var(--glow));opacity:.38;border-radius:0}
+:root[data-forma] .cta span.on{opacity:1}
+:root[data-forma=arredondada] .cta span{border-radius:30%}
+:root[data-forma]:not([data-forma=arredondada]) .cta span{clip-path:var(--forma)}
+:root[data-forma]:not([data-forma=arredondada]) .cta span.on{box-shadow:none}
+.cores{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.cor{display:flex;flex-direction:column;align-items:flex-start;gap:.2rem;padding:.4rem .5rem;border:1px solid var(--bd);border-radius:.6rem}
+.cor .chip{margin:0}
+article small.mini{font-family:var(--cursive);font-weight:500;font-size:1.05rem;line-height:1.4;color:var(--acc);margin:.15rem 0 0}
+article small.mini:last-of-type{margin-bottom:.6rem}
+.rec{border-top:0;padding:0}
+.rec>summary{text-align:center;font-size:1.3rem;padding:.4rem 0 1rem}
+.nome{width:min(100%,380px)}
+article>div{position:relative}
+article h3{padding-right:2.4rem}
+article .ouvir{position:absolute;top:.15rem;right:0;margin:0;padding:.35rem;border-radius:50%}
+article .ouvir span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.abas .ic{opacity:.85;stroke-width:1.8}
+#gloriosos,#t-gloriosos{--glow:#8aa4c4}
+
+#menu .exame h4{font-size:1rem;margin:1.1rem 0 .35rem;color:var(--ink)}#menu .exame ul{padding-left:1.2rem;margin:.35rem 0 .8rem}#menu .exame li{margin:.38rem 0;line-height:1.45}#menu .exame textarea{display:block;width:100%;box-sizing:border-box;min-height:180px;margin:.7rem 0;padding:.75rem;border:1px solid var(--bd);border-radius:.8rem;background:var(--bg);color:var(--ink);font:inherit;resize:vertical}#menu .exame-botoes{display:flex;flex-wrap:wrap;gap:.2rem}
 </style>
 </head>
 <body>
@@ -248,6 +285,7 @@ footer .grupo span{font-family:var(--sans);font-weight:400;font-size:.95rem;disp
   <svg class="ic" aria-hidden="true"><use href="#i-cruz"/></svg>
   <h2>Orações Iniciais</h2>
   <p class="dias">Para começar o Rosário</p>
+  <details class="rec"><summary>Abrir as orações iniciais</summary>
   <article><b>1</b><div><h3>Sinal da Cruz</h3>
     <p>Pelo sinal da santa Cruz, livrai-nos, Deus, nosso Senhor, dos nossos inimigos. Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p></div></article>
   <article><b>2</b><div><h3>Intenções</h3><textarea id="int" rows="3" placeholder="Escreva aqui as suas intenções. Ficam salvas só neste aparelho." aria-label="Minhas intenções"></textarea></div></article>
@@ -258,9 +296,13 @@ footer .grupo span{font-family:var(--sans);font-weight:400;font-size:.95rem;disp
   <article><b>5</b><div><h3>Pai-Nosso (1 vez)</h3>
     <p>Pai nosso que estais nos céus, santificado seja o vosso nome, venha a nós o vosso reino, seja feita a vossa vontade assim na terra como no céu. O pão nosso de cada dia nos dai hoje, perdoai-nos as nossas ofensas assim como nós perdoamos a quem nos tem ofendido, e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.</p></div></article>
   <article><b>6</b><div><h3>Ave-Maria (3 vezes)</h3>
+    <small class="mini">1. Louvemos a Maria, filha bem-amada do Pai Eterno. Ave-Maria…</small>
+    <small class="mini">2. Louvemos a Maria, mãe admirável de Deus Filho. Ave-Maria…</small>
+    <small class="mini">3. Louvemos a Maria, esposa fidelíssima do Espírito Santo. Ave-Maria…</small>
     <p>Ave Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora de nossa morte. Amém.</p></div></article>
   <article><b>7</b><div><h3>Glória ao Pai</h3>
     <p>Glória ao Pai, ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.</p></div></article>
+  </details>
 </section>
 
 <p class="guia dica">Escolha uma aba para ver os mistérios. O mistério de hoje já vem aberto. Toque na referência bíblica de cada mistério para ler o trecho na Bíblia Ave-Maria.</p>
@@ -339,6 +381,7 @@ footer .grupo span{font-family:var(--sans);font-weight:400;font-size:.95rem;disp
   <svg class="ic" aria-hidden="true"><use href="#i-vela"/></svg>
   <h2>Orações Finais</h2>
   <p class="dias">Para concluir o Rosário</p>
+  <details class="rec"><summary>Abrir as orações finais</summary>
   <article><b>1</b><div><h3>Eterno Pai</h3>
     <p>Eterno Pai, eu Vos ofereço, pelas mãos de Maria Santíssima, o preciosíssimo Sangue de vosso Filho. Ofereço-Vos também as lágrimas de Nossa Senhora pela purificação da Terra e conversão dos homens, pela fidelidade dos vossos escolhidos, pela vitória da Santa Igreja e triunfo do Imaculado Coração de Maria.</p>
     <small class="sub">3x Ave-Marias nas intenções do Santo Padre, o Papa</small></div></article>
@@ -355,7 +398,10 @@ footer .grupo span{font-family:var(--sans);font-weight:400;font-size:.95rem;disp
   <article><b>7</b><div><h3>Oração de Santa Gertrudes pelas almas do Purgatório</h3>
     <p>Eterno Pai, eu Vos ofereço o Preciosíssimo Sangue de Vosso Divino Filho Jesus, em união com todas as Missas que hoje são celebradas em todo o mundo; por todas as Santas Almas do Purgatório, pelos pecadores de todos os lugares, pelos pecadores de toda a Igreja, pelos de minha casa e de meus vizinhos. Amém.</p></div></article>
   <article><b>8</b><div><h3>Bênção de Santa Clara</h3>
-    <p>O Senhor te abençoe e te proteja, faça resplandecer sobre ti a sua face e te dê a sua misericórdia. Volte para ti o seu olhar e te dê a paz. Derrame sobre ti as suas bênçãos e no céu te coloque entre os seus Santos e Santas. O Senhor esteja sempre contigo e que tu estejas sempre com Ele. Ó Doce Senhora minha, dai-nos a Vossa benção para não cairmos em tentação, pois toda feliz sorte está, Maria, em vossas mãos! Fazei, Senhora, que consigamos, vossos filhos, uma boa morte. A benção do Pai, o amor do Filho e a graça do Espírito Santo, estejam conosco agora e para sempre. Amém!</p></div></article>
+    <p>O Senhor te abençoe e te proteja, faça resplandecer sobre ti a sua face e te dê a sua misericórdia. Volte para ti o seu olhar e te dê a paz. Derrame sobre ti as suas bênçãos e no céu te coloque entre os seus Santos e Santas. O Senhor esteja sempre contigo e que tu estejas sempre com Ele.</p></div></article>
+  <article><b>9</b><div><h3>Bênção de Nossa Senhora</h3>
+    <p>Ó Doce Senhora minha, dai-nos a Vossa benção para não cairmos em tentação, pois toda feliz sorte está, Maria, em vossas mãos! Fazei, Senhora, que consigamos, vossos filhos, uma boa morte. A benção do Pai, o amor do Filho e a graça do Espírito Santo, estejam conosco agora e para sempre. Amém!</p></div></article>
+  </details>
 </section>
 <section id="opcionais">
   <svg class="ic" aria-hidden="true"><use href="#i-estrela"/></svg>
@@ -414,7 +460,7 @@ footer .grupo span{font-family:var(--sans);font-weight:400;font-size:.95rem;disp
 <aside id="menu" role="dialog" aria-label="Menu" tabindex="-1" hidden>
   <div class="mh"><h2>Menu</h2><button type="button" id="mx" aria-label="Fechar menu">×</button></div>
   <h3 id="nov-t">Novenas do mês</h3>
-  <p class="nota">As datas mudam sozinhas a cada mês. A novena começa nove dias antes da festa e termina na véspera. Ao tocar em “Ver novena”, abre uma busca com opções de textos para rezar.</p>
+  <p class="nota">As datas mudam sozinhas a cada mês e seguem o calendário da Minha Biblioteca Católica. “Rezar a novena” leva direto ao texto no site deles. Onde aparecer “Buscar no site”, o link abre a busca deles por aquela novena.</p>
   <ul id="nov"></ul>
   <h3>Orações comuns</h3>
   <details><summary>Credo Niceno-Constantinopolitano</summary>
@@ -428,21 +474,8 @@ footer .grupo span{font-family:var(--sans);font-weight:400;font-size:.95rem;disp
   <details><summary>Ato de Contrição</summary>
     <p>Meu Deus, porque sois tão bom, eu me arrependo de todo o coração de ter pecado e, com o auxílio da vossa graça, proponho firmemente emendar-me e nunca mais vos ofender. Peço-vos perdão e confio que, pela vossa infinita misericórdia, me concedereis o perdão das minhas culpas e me levareis à vida eterna. Amém.</p></details>
   <details><summary>Via Sacra</summary>
-    <p>Em cada estação, reze: <b>V.</b> Nós vos adoramos, Senhor Jesus Cristo, e vos bendizemos. <b>R.</b> Porque pela vossa santa cruz remistes o mundo. Depois, um Pai-Nosso, uma Ave-Maria e um Glória.</p>
-    <p><b>1ª estação. Jesus é condenado à morte.</b> Pilatos cede à pressão da multidão e entrega Jesus para ser crucificado. O inocente aceita a sentença por amor a nós.</p>
-    <p><b>2ª estação. Jesus carrega a cruz.</b> Jesus abraça a cruz e começa o caminho do Calvário. Ele nos ensina a carregar com amor as nossas cruzes.</p>
-    <p><b>3ª estação. Jesus cai pela primeira vez.</b> O peso da cruz e dos nossos pecados o derruba. Ele se levanta e nos ensina a recomeçar depois de cada queda.</p>
-    <p><b>4ª estação. Jesus encontra sua Mãe.</b> O olhar de Jesus e o de Maria se cruzam em silêncio. Maria sofre com o Filho e nos ensina a permanecer fiéis na dor.</p>
-    <p><b>5ª estação. Simão de Cirene ajuda Jesus a carregar a cruz.</b> Um estranho é obrigado a ajudar e encontra a graça. Somos chamados a aliviar o peso de quem sofre.</p>
-    <p><b>6ª estação. Verônica enxuga o rosto de Jesus.</b> Uma mulher corajosa se aproxima e enxuga o rosto ferido do Senhor. Cada gesto de compaixão alcança o próprio Cristo.</p>
-    <p><b>7ª estação. Jesus cai pela segunda vez.</b> Mais uma vez Jesus cai, exausto. Dá-nos coragem para não desanimar diante das nossas recaídas.</p>
-    <p><b>8ª estação. Jesus consola as mulheres de Jerusalém.</b> Mesmo sofrendo, Jesus pensa nos outros e pede que choremos pelos nossos pecados e pelos de nossos filhos.</p>
-    <p><b>9ª estação. Jesus cai pela terceira vez.</b> No limite das forças, Jesus cai de novo e se levanta. Que a sua perseverança sustente a nossa.</p>
-    <p><b>10ª estação. Jesus é despojado de suas vestes.</b> Tiram-lhe as vestes e a dignidade. Jesus se faz pobre para nos revestir de graça.</p>
-    <p><b>11ª estação. Jesus é pregado na cruz.</b> Pregado ao madeiro, Jesus estende os braços e perdoa. O seu amor não recua diante da dor.</p>
-    <p><b>12ª estação. Jesus morre na cruz.</b> Jesus entrega o espírito ao Pai. A cruz, sinal de morte, torna-se fonte de vida.</p>
-    <p><b>13ª estação. Jesus é descido da cruz.</b> O corpo de Jesus repousa nos braços de Maria. Ela guarda a fé quando tudo parece perdido.</p>
-    <p><b>14ª estação. Jesus é colocado no sepulcro.</b> O corpo de Jesus é depositado em um túmulo novo. Esperamos com confiança a manhã da ressurreição.</p></details>
+    <p>Para meditar a Via Sacra, acesse as meditações do Padre Paulo Ricardo:</p>
+    <p><a href="https://padrepauloricardo.org/blog/reze-a-via-sacra-com-o-cardeal-newman" target="_blank" rel="noopener noreferrer">Meditações para a Via Sacra e Paixão do Senhor ↗</a></p></details>
   <h3>Ladainhas</h3>
   <details><summary>Ladainha do Sagrado Coração de Jesus</summary>
     <p class="lad">Senhor, tende piedade de nós.<br>Cristo, tende piedade de nós.<br>Senhor, tende piedade de nós.<br>Jesus Cristo, ouvi-nos.<br>Jesus Cristo, atendei-nos.<br>Deus Pai do Céu, tende piedade de nós.<br>Deus Filho, Redentor do mundo, tende piedade de nós.<br>Deus Espírito Santo, tende piedade de nós.<br>Santíssima Trindade, que sois um só Deus, tende piedade de nós.</p>
@@ -451,17 +484,49 @@ footer .grupo span{font-family:var(--sans);font-weight:400;font-size:.95rem;disp
     <p class="lad">Jesus, manso e humilde de coração.<br>Fazei o nosso coração semelhante ao vosso.</p>
     <p>Oremos: Ó Deus onipotente e eterno, olhai para o Coração do vosso diletíssimo Filho e para os louvores e satisfações que Ele vos oferece em nome dos pecadores; e, aplacado, concedei o perdão aos que imploram a vossa misericórdia, em nome do mesmo vosso Filho Jesus Cristo, que convosco vive e reina, na unidade do Espírito Santo, por todos os séculos dos séculos. Amém.</p></details>
   <p class="nota"><a href="#opcionais">As ladainhas de Nossa Senhora e de São José</a> estão na seção Orações Opcionais, no fim da página.</p>
+  <h3>Exame de Consciência</h3>
+  <details class="exame">
+    <summary>Fazer um exame completo</summary>
+    <p class="nota">Faça este exame com calma, diante de Deus e sem ansiedade. Ele reúne os Dez Mandamentos, pecados capitais, deveres do próprio estado de vida e preparação para a Confissão. O objetivo é reconhecer atos conscientes e deliberados, sem transformar o exame numa busca angustiada por faltas duvidosas.</p>
+    <h4>Antes de começar</h4><p>Coloque-se na presença de Deus e peça luz para conhecer os seus pecados, arrependimento sincero e firme propósito de emenda. Recorde também a última Confissão e examine faltas por pensamentos, palavras, atos e omissões.</p>
+    <h4>1º Mandamento — Amar a Deus sobre todas as coisas</h4><ul>
+      <li>Coloquei alguma coisa, pessoa, diversão, dinheiro ou opinião acima de Deus?</li><li>Negligenciei deliberadamente a oração, a formação da fé ou a vida da Igreja?</li><li>Duvidei ou rejeitei deliberadamente alguma verdade ensinada pela Igreja?</li><li>Pratiquei superstição, horóscopos, adivinhações ou práticas contrárias à fé?</li><li>Tive vergonha de manifestar a minha fé quando deveria fazê-lo?</li><li>Recebi os sacramentos com irreverência ou sem a devida preparação?</li><li>Desesperei da misericórdia de Deus ou presumi o perdão sem arrependimento?</li></ul>
+    <h4>2º Mandamento — Não tomar o nome de Deus em vão</h4><ul>
+      <li>Usei o nome de Deus, de Nossa Senhora ou dos Santos de modo irreverente?</li><li>Blasfemei, praguejei ou fiz juramentos desnecessários ou falsos?</li><li>Fiz promessas a Deus e deliberadamente não as cumpri?</li></ul>
+    <h4>3º Mandamento — Santificar domingos e dias santos</h4><ul>
+      <li>Faltei à Missa aos domingos ou dias santos de guarda por culpa própria?</li><li>Cheguei atrasado ou saí antes sem motivo suficiente por minha própria culpa?</li><li>Participei da Missa de modo deliberadamente irreverente ou distraído?</li><li>Deixei de santificar o domingo por trabalho ou atividades desnecessárias?</li></ul>
+    <h4>4º Mandamento — Honrar pai e mãe</h4><ul>
+      <li>Desobedeci injustamente aos meus pais ou responsáveis?</li><li>Respondi com grosseria, desprezo, gritos ou ingratidão?</li><li>Fui preguiçoso nas minhas obrigações de casa, escola ou trabalho?</li><li>Causei deliberadamente preocupação, sofrimento ou desordem na família?</li><li>Respeitei professores e autoridades legítimas?</li></ul>
+    <h4>5º Mandamento — Não matar</h4><ul>
+      <li>Alimentei ódio, vingança ou desejo de que alguém sofresse?</li><li>Insultei, humilhei, ameacei ou provoquei alguém?</li><li>Fiz bullying ou participei de humilhação ou agressão?</li><li>Fui imprudente com a minha vida ou com a vida de outros?</li><li>Causei escândalo, levando alguém ao pecado por palavras, atitudes ou exemplo?</li></ul>
+    <h4>6º e 9º Mandamentos — Pureza e castidade</h4><ul>
+      <li>Consenti deliberadamente em pensamentos, desejos, fantasias, olhares, conversas ou atitudes impuras?</li><li>Procurei ou consumi voluntariamente pornografia ou conteúdo sexualmente indecente?</li><li>Pratiquei atos contra a castidade comigo mesmo ou com outra pessoa?</li><li>Usei alguém como objeto de desejo, desrespeitando sua dignidade?</li><li>Enviei, pedi ou compartilhei imagens ou mensagens indecentes?</li><li>Procurei ocasiões de pecado ou permaneci voluntariamente nelas quando podia afastar-me?</li></ul>
+    <h4>7º e 10º Mandamentos — Bens, dinheiro e cobiça</h4><ul>
+      <li>Roubei, peguei ou usei algo alheio sem permissão?</li><li>Fiquei com algo emprestado ou encontrado que deveria devolver?</li><li>Causei prejuízo material de propósito e não procurei reparar?</li><li>Fui desonesto em compras, dinheiro, trabalhos ou responsabilidades?</li><li>Fui dominado pela inveja dos bens, talentos, aparência ou posição de outras pessoas?</li><li>Fui excessivamente apegado ao dinheiro e às coisas?</li></ul>
+    <h4>8º Mandamento — Verdade e caridade nas palavras</h4><ul>
+      <li>Menti deliberadamente?</li><li>Fiz fofoca, difamação ou calúnia?</li><li>Revelei um segredo que deveria guardar?</li><li>Fiz juízo temerário sobre alguém sem conhecer os fatos?</li><li>Exagerei ou distorci fatos para parecer melhor ou prejudicar alguém?</li><li>Falei de modo grosseiro, ofensivo ou desnecessariamente cruel?</li><li>Compartilhei notícias ou acusações sem verificar se eram verdadeiras?</li></ul>
+    <h4>Pecados capitais e vida interior</h4><ul>
+      <li><b>Soberba:</b> quis parecer superior, não aceitei correção ou desprezei os outros?</li><li><b>Avareza:</b> fui excessivamente apegado a dinheiro ou bens?</li><li><b>Luxúria:</b> procurei prazeres ou pensamentos contra a castidade?</li><li><b>Inveja:</b> entristeci-me com o bem do outro ou desejei que ele perdesse o que tem?</li><li><b>Gula:</b> fui desordenado na comida, bebida ou outros prazeres?</li><li><b>Ira:</b> deixei a raiva dominar minhas palavras ou ações?</li><li><b>Preguiça:</b> omiti deliberadamente deveres importantes por comodismo?</li></ul>
+    <h4>Vida de oração e deveres</h4><ul>
+      <li>Tenho cumprido meus deveres de estado de vida com responsabilidade?</li><li>Tenho reservado tempo para oração e formação cristã?</li><li>Procuro cultivar uma verdadeira amizade com Deus?</li><li>Tenho agradecido a Deus pelos benefícios recebidos?</li><li>Tenho procurado corrigir hábitos que sei que me afastam de Deus?</li><li>Tenho evitado ocasiões próximas de pecado e más companhias?</li><li>Tenho praticado obras de misericórdia e ajudado quem precisa?</li></ul>
+    <h4>Maria, próximo e vida de caridade</h4><ul>
+      <li>Tenho tratado as pessoas com respeito, caridade, pureza e sinceridade?</li><li>Guardo ressentimentos, mágoas ou desejo de vingança?</li><li>Recuso-me injustamente a perdoar?</li><li>Tenho sido verdadeiro e fiel nos meus relacionamentos?</li><li>Tenho recorrido a Nossa Senhora com confiança e procurado imitá-la nas virtudes?</li></ul>
+    <h4>Para preparar a Confissão</h4><p>Procure recordar especialmente os pecados graves: matéria grave, pleno conhecimento e consentimento deliberado. Quando possível, anote o número aproximado das vezes e circunstâncias relevantes. Não fique procurando obsessivamente pecados duvidosos ou involuntários; leve ao sacerdote aquilo que realmente reconhece como pecado.</p>
+    <textarea id="acusacao" rows="10" placeholder="Escreva aqui, de forma objetiva, os pecados que deseja levar à Confissão."></textarea>
+    <div class="exame-botoes"><button type="button" class="chip" id="copiar-acusacao">Copiar acusação</button><button type="button" class="chip" id="exportar-acusacao">Exportar .txt</button></div>
+    <p id="exame-aviso" class="nota" role="status" aria-live="polite"></p>
+  </details>
 </aside>
 <div id="painel" role="dialog" aria-label="Personalizar o site" hidden>
   <h3>Personalizar</h3>
   <p class="rot">Fundo</p>
-  <div><button type="button" class="chip" data-k="tema" data-v="claro">Azul céu</button><button type="button" class="chip" data-k="tema" data-v="dourado">Azul e dourado</button><button type="button" class="chip" data-k="tema" data-v="perola">Pérola e azul</button><button type="button" class="chip" data-k="tema" data-v="escuro">Azul-noite</button></div>
+  <div><button type="button" class="chip" data-k="tema" data-v="claro">Azul céu</button><button type="button" class="chip" data-k="tema" data-v="dourado">Azul e dourado</button><button type="button" class="chip" data-k="tema" data-v="perola">Pérola e azul</button><button type="button" class="chip" data-k="tema" data-v="branco">Branco</button><button type="button" class="chip" data-k="tema" data-v="rosa">Rosa mariano</button><button type="button" class="chip" data-k="tema" data-v="verde">Verde esperança</button><button type="button" class="chip" data-k="tema" data-v="lilas">Lilás</button><button type="button" class="chip" data-k="tema" data-v="vermelho">Vermelho</button><button type="button" class="chip" data-k="tema" data-v="sepia">Sépia</button><button type="button" class="chip" data-k="tema" data-v="escuro">Azul-noite</button><button type="button" class="chip" data-k="tema" data-v="noite">Noite dourada</button><button type="button" class="chip" data-k="tema" data-v="preto">Preto</button></div>
   <p class="rot">Cor das letras</p>
-  <div><button type="button" class="chip" data-k="texto" data-v="padrao">Padrão</button><button type="button" class="chip" data-k="texto" data-v="alto">Alto contraste</button><button type="button" class="chip" data-k="texto" data-v="sepia">Sépia</button></div>
+  <div><button type="button" class="chip" data-k="texto" data-v="padrao">Padrão</button><button type="button" class="chip" data-k="texto" data-v="alto">Alto contraste</button><button type="button" class="chip" data-k="texto" data-v="sepia">Sépia</button><button type="button" class="chip" data-k="texto" data-v="grafite">Grafite</button></div>
   <p class="rot">Fonte</p>
-  <div><button type="button" class="chip" data-k="letra" data-v="padrao">Cursiva</button><button type="button" class="chip" data-k="letra" data-v="simples">Simples</button><button type="button" class="chip" data-k="letra" data-v="classica">Clássica</button></div>
+  <div><button type="button" class="chip" data-k="letra" data-v="padrao">Cursiva</button><button type="button" class="chip" data-k="letra" data-v="simples">Simples</button><button type="button" class="chip" data-k="letra" data-v="classica">Clássica</button><button type="button" class="chip" data-k="letra" data-v="elegante">Elegante</button><button type="button" class="chip" data-k="letra" data-v="legivel">Legível</button><button type="button" class="chip" data-k="letra" data-v="manuscrita">Manuscrita</button></div>
   <p class="rot">Lojinha de contas do terço</p>
-  <p class="nota">Cada dezena concluída vale 1 ponto por dia. Completar os cinco mistérios do mesmo conjunto vale mais 2. Os pontos nunca se perdem, e ficam só neste aparelho. O que importa é rezar.</p>
+  <p class="nota">Cada mistério concluído vale 1 ponto. Ao completar os cinco mistérios do conjunto, você ganha mais 5 pontos. Aos sábados, os quatro conjuntos ficam livres e, ao completar o Rosário inteiro, você ganha mais 10 pontos. As formas são grátis, e as cores você conquista com pontos. Os pontos nunca se perdem e ficam só neste aparelho. O que importa é rezar.</p>
   <div id="loja"></div>
 </div>
 <div id="aviso" role="status" aria-live="polite"></div>
@@ -521,7 +586,7 @@ var u=new SpeechSynthesisUtterance(t);u.lang='pt-BR';u.rate=.92;if(v){u.voice=v;
 u.onend=u.onerror=function(){if(falando===b){b.setAttribute('aria-pressed','false');b.lastChild.textContent='Ouvir';falando=null}};
 falando=b;b.setAttribute('aria-pressed','true');b.lastChild.textContent='Parar';fala.speak(u)}
 function vozBtn(f){var b=document.createElement('button');b.type='button';b.className='ouvir';b.setAttribute('aria-pressed','false');
-b.innerHTML='<svg aria-hidden="true"><use href="#i-voz"/></svg><span>Ouvir</span>';b.addEventListener('click',function(){ouvir(b,f())});return b}
+b.setAttribute('aria-label','Ouvir esta meditação');b.innerHTML='<svg aria-hidden="true"><use href="#i-voz"/></svg><span>Ouvir</span>';b.addEventListener('click',function(){ouvir(b,f())});return b}
 function texto(a){return a.querySelector('h3').textContent+'. '+a.querySelector('p').textContent}
 [].slice.call(document.querySelectorAll('[role=tabpanel] article')).forEach(function(a){var d=a.querySelector('div');if(fala)d.appendChild(vozBtn(function(){return texto(a)}));d.appendChild(contador(a))});
 document.querySelector('.abas').addEventListener('click',parar);
@@ -549,8 +614,8 @@ if('serviceWorker' in navigator)addEventListener('load',function(){navigator.ser
 /* continuar de onde parou */
 var KC='fm-c',cl=$('cont');
 function chave(a){var sc=a.closest('section');return sc.id+':'+artigos('#'+sc.id).indexOf(a)}
-function lerC(){try{var o=JSON.parse(S.get(KC));if(o&&Date.now()-o.t<43200000)return o}catch(e){}return{t:Date.now(),u:null,v:{}}}
-function salva(a){var o=lerC();o.t=Date.now();o.u=chave(a);o.v[o.u]=cont.get(a)||0;S.set(KC,JSON.stringify(o));mostraCont(o);if(o.v[o.u]>=10&&window.fmGanha)window.fmGanha(o.u)}
+function lerC(){try{var o=JSON.parse(S.get(KC));if(o&&o.d===dia())return o}catch(e){}return{t:Date.now(),d:dia(),u:null,v:{}}}
+function salva(a){var o=lerC();o.t=Date.now();o.d=dia();o.u=chave(a);o.v[o.u]=cont.get(a)||0;S.set(KC,JSON.stringify(o));mostraCont(o);if(o.v[o.u]>=10&&window.fmGanha)window.fmGanha(o.u)}
 function mostraCont(o){if(!o.u){cl.hidden=true;return}var p=o.u.split(':'),lista=artigos('#'+p[0]),i=+p[1],n=o.v[o.u]||0;
 if(n>=10){if(i+1>=lista.length){cl.hidden=true;return}i++;n=0}
 var a=lista[i];cl.textContent='Continuar de onde parou: '+(i+1)+'º Mistério '+SING[p[0]]+(n?' ('+n+' de 10)':'');cl.hidden=false;
@@ -570,7 +635,7 @@ var r=el.getBoundingClientRect(),w=bol.offsetWidth;bol.style.top=(r.bottom+scrol
 document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('.termo');if(t)mostra(t);else bol.hidden=true});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')bol.hidden=true;else if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('termo')){e.preventDefault();mostra(e.target)}});
 addEventListener('scroll',function(){bol.hidden=true},{passive:true});
-var TIT={'Sinal da Cruz':'Gesto com que começamos a oração, em nome da Santíssima Trindade.','Intenções':'Os pedidos e as pessoas pelas quais oferecemos este Rosário.','Oferecimento':'Oração de abertura que une o nosso Rosário à Igreja e a Maria.','Creio':'O Credo: resumo da fé cristã, rezado no início.','Pai-Nosso':'A oração que o próprio Jesus ensinou aos discípulos.','Ave-Maria':'Saudação do anjo e de Isabel a Maria, com um pedido final de proteção.','Glória ao Pai':'Louvor à Santíssima Trindade, rezado ao fim de cada dezena.','Eterno Pai':'Oferecimento a Deus Pai pela Igreja e pela conversão dos homens.','Agradecimento':'Oração em que agradecemos a Nossa Senhora as graças recebidas.','Salve Rainha':'Antiga oração de louvor e súplica a Nossa Senhora, rezada ao fim do Rosário.','Santo Anjo':'Oração de confiança no anjo da guarda.','São Bento':'Oração da Cruz Sagrada, pedindo proteção contra o mal.','São Miguel':'Oração pedindo a proteção de São Miguel Arcanjo contra o mal.','Oração de Santa Gertrudes':'Oferecimento pelas almas do Purgatório, atribuído a Santa Gertrudes.','Bênção de Santa Clara':'Bênção final em que pedimos a proteção de Deus e de Maria.'};
+var TIT={'Sinal da Cruz':'Gesto com que começamos a oração, em nome da Santíssima Trindade.','Intenções':'Os pedidos e as pessoas pelas quais oferecemos este Rosário.','Oferecimento':'Oração de abertura que une o nosso Rosário à Igreja e a Maria.','Creio':'O Credo: resumo da fé cristã, rezado no início.','Pai-Nosso':'A oração que o próprio Jesus ensinou aos discípulos.','Ave-Maria':'Saudação do anjo e de Isabel a Maria, com um pedido final de proteção.','Glória ao Pai':'Louvor à Santíssima Trindade, rezado ao fim de cada dezena.','Eterno Pai':'Oferecimento a Deus Pai pela Igreja e pela conversão dos homens.','Agradecimento':'Oração em que agradecemos a Nossa Senhora as graças recebidas.','Salve Rainha':'Antiga oração de louvor e súplica a Nossa Senhora, rezada ao fim do Rosário.','Santo Anjo':'Oração de confiança no anjo da guarda.','São Bento':'Oração da Cruz Sagrada, pedindo proteção contra o mal.','São Miguel':'Oração pedindo a proteção de São Miguel Arcanjo contra o mal.','Oração de Santa Gertrudes':'Oferecimento pelas almas do Purgatório, atribuído a Santa Gertrudes.','Bênção de Santa Clara':'Bênção em que pedimos a proteção e a paz de Deus.','Bênção de Nossa Senhora':'Bênção final em que pedimos a proteção de Maria e uma boa morte.'};
 try{document.querySelectorAll('#iniciais article h3,#finais article h3').forEach(function(h){var t=h.textContent;Object.keys(TIT).some(function(k){if(t.indexOf(k)===0){h.className='termo';h.tabIndex=0;h.setAttribute('role','button');h.dataset.d=TIT[k];return true}})});
 [['dezena','Cada grupo de 1 Pai-Nosso, 10 Ave-Marias e 1 Glória.'],['terço','Oração rezada com contas, que ajudam a contar as Ave-Marias.'],['contemplação','Meditar a cena com o coração, como quem a vê acontecer.'],['Ó meu Jesus','Pequena oração pedida em Fátima, rezada ao fim de cada dezena.']].forEach(function(x){
 var ach=false;document.querySelectorAll('.guia,.comorezar p,.comorezar li').forEach(function(r){if(ach)return;var w=document.createTreeWalker(r,NodeFilter.SHOW_TEXT),n,re=new RegExp('(^|[^\\p{L}])('+x[0]+')(?![\\p{L}])','u');
@@ -599,23 +664,33 @@ function aplica(k,v){var a=KEYS[k];if(v===a[2]){delete R.dataset[a[1]];S.set(a[0
 function marca(){pn.querySelectorAll('[data-k]').forEach(function(c){var a=KEYS[c.dataset.k];c.setAttribute('aria-pressed',(R.dataset[a[1]]||a[2])===c.dataset.v)})}
 pn.addEventListener('click',function(e){var c=e.target.closest('[data-k]');if(c)aplica(c.dataset.k,c.dataset.v)});marca();
 /* pontos e lojinha de contas */
-var CONTAS={padrao:['Padrão',0,''],perola:['Pérola',15,'radial-gradient(circle at 35% 30%,#fff,#e8e4dc 55%,#c9c1b2)'],madeira:['Madeira',20,'radial-gradient(circle at 35% 30%,#d9a56e,#9a6234 60%,#6b3f1d)'],cristal:['Cristal',30,'radial-gradient(circle at 35% 30%,#fff,#bfe6ff 55%,#6fb9ee)'],rosa:['Rosa',40,'radial-gradient(circle at 35% 30%,#fff,#f6c6d4 55%,#d98aa6)'],ouro:['Ouro',50,'radial-gradient(circle at 35% 30%,#fff3b0,#e0b84f 55%,#a77c1d)'],safira:['Safira',70,'radial-gradient(circle at 35% 30%,#d3e5ff,#4d7fd1 55%,#1b3a8a)']};
-function lerP(){try{var o=JSON.parse(S.get('fm-p'));if(o&&typeof o.p==='number'&&o.own&&CONTAS[o.sel])return o}catch(e){}return{p:0,own:['padrao'],sel:'padrao',d:'',g:[]}}
+var CORES={padrao:['Padrão',0,''],perola:['Pérola',30,'radial-gradient(circle at 35% 30%,#fff,#e8e4dc 55%,#c9c1b2)'],madeira:['Madeira',50,'radial-gradient(circle at 35% 30%,#d9a56e,#9a6234 60%,#6b3f1d)'],ebano:['Ébano',70,'radial-gradient(circle at 35% 30%,#8a8a8a,#2b2b2b 55%,#050505)'],cristal:['Cristal',90,'radial-gradient(circle at 35% 30%,#fff,#bfe6ff 55%,#6fb9ee)'],rosa:['Rosa',110,'radial-gradient(circle at 35% 30%,#fff,#f6c6d4 55%,#d98aa6)'],prata:['Prata',130,'radial-gradient(circle at 35% 30%,#fff,#d9dde2 55%,#8c949e)'],turquesa:['Turquesa',150,'radial-gradient(circle at 35% 30%,#e6fffb,#5fd6c9 55%,#1f8f86)'],ambar:['Âmbar',170,'radial-gradient(circle at 35% 30%,#ffe9b0,#f0a82e 55%,#a35f0a)'],coral:['Coral',190,'radial-gradient(circle at 35% 30%,#ffe3dc,#f48a77 55%,#c0432f)'],esmeralda:['Esmeralda',210,'radial-gradient(circle at 35% 30%,#d9ffe8,#3fbf7b 55%,#12683b)'],ametista:['Ametista',230,'radial-gradient(circle at 35% 30%,#f1e4ff,#a77bdc 55%,#5d3a96)'],ouro:['Ouro',250,'radial-gradient(circle at 35% 30%,#fff3b0,#e0b84f 55%,#a77c1d)'],rubi:['Rubi',270,'radial-gradient(circle at 35% 30%,#ffd6dc,#d6304a 55%,#7a0f23)'],safira:['Safira',290,'radial-gradient(circle at 35% 30%,#d3e5ff,#4d7fd1 55%,#1b3a8a)']},
+FORMAS={circulo:['●','Círculo',''],arredondada:['■','Arredondada',''],losango:['◆','Losango','polygon(50% 0,100% 50%,50% 100%,0 50%)'],coracao:['♥','Coração','polygon(50% 90%,10% 50%,5% 30%,15% 12%,32% 8%,50% 25%,68% 8%,85% 12%,95% 30%,90% 50%)'],estrela:['★','Estrela','polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)'],cruz:['✚','Cruz','polygon(35% 0,65% 0,65% 35%,100% 35%,100% 65%,65% 65%,65% 100%,35% 100%,35% 65%,0 65%,0 35%,35% 35%)']};
+function lerP(){try{var o=JSON.parse(S.get('fm-p'));if(o&&typeof o.p==='number'&&o.own&&CONTAS_OK(o)){if(!FORMAS[o.fo])o.fo='circulo';return o}}catch(e){}return{p:0,own:['padrao'],sel:'padrao',fo:'circulo',d:'',g:[]}}
+function CONTAS_OK(o){return !!CORES[o.sel]}
 var P=lerP();
 function salvaP(){S.set('fm-p',JSON.stringify(P))}
-function usaConta(){if(P.sel==='padrao'){delete R.dataset.contas;R.style.removeProperty('--conta')}else{R.dataset.contas=P.sel;R.style.setProperty('--conta',CONTAS[P.sel][2])}}
-function desenhaLoja(){var h='<p class="pts">Pontos: <b>'+P.p+'</b></p>';
-Object.keys(CONTAS).forEach(function(k){var c=CONTAS[k],tem=P.own.indexOf(k)>-1,em=P.sel===k,bg=c[2]?' style="background:'+c[2]+';border-color:transparent"':'';
-h+='<div class="conta"><span class="amostra"><i'+bg+'></i><i'+bg+'></i><i'+bg+'></i></span><span class="nm">'+c[0]+'</span>'+
-(tem?'<button type="button" class="chip" data-loja="usar" data-v="'+k+'" aria-pressed="'+em+'">'+(em?'Em uso':'Usar')+'</button>':'<button type="button" class="chip" data-loja="comprar" data-v="'+k+'"'+(P.p<c[1]?' disabled':'')+'>'+c[1]+' pontos</button>')+'</div>'});
-$('loja').innerHTML=h}
-$('loja').addEventListener('click',function(e){var b=e.target.closest('[data-loja]');if(!b)return;var k=b.dataset.v;
-if(b.dataset.loja==='comprar'){var pr=CONTAS[k][1];if(P.p<pr||P.own.indexOf(k)>-1)return;P.p-=pr;P.own.push(k);aviso('Contas '+CONTAS[k][0].toLowerCase()+' conquistadas')}
-P.sel=k;salvaP();usaConta();desenhaLoja()});
-function dia(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+2)+'-'+d.getDate()}
-window.fmGanha=function(k){if(P.d!==dia()){P.d=dia();P.g=[]}if(P.g.indexOf(k)>-1)return;P.g.push(k);var set=k.split(':')[0],g=1,n=P.g.filter(function(x){return x.indexOf(set+':')===0}).length;
-if(n===5)g+=2;P.p+=g;salvaP();desenhaLoja();aviso(g>1?'+'+g+' pontos: rosário completo':'+5 ponto')};
-usaConta();desenhaLoja();
+function usaConta(){if(P.sel==='padrao'){delete R.dataset.contas;R.style.removeProperty('--conta')}else{R.dataset.contas=P.sel;R.style.setProperty('--conta',CORES[P.sel][2])}}
+function usaForma(){var pol=FORMAS[P.fo][2];if(P.fo==='circulo'){delete R.dataset.forma;R.style.removeProperty('--forma')}else{R.dataset.forma=P.fo;if(pol)R.style.setProperty('--forma',pol);else R.style.removeProperty('--forma')}}
+function est(cor,fo){var g=CORES[cor][2],s=fo==='circulo'?'border-radius:50%;':fo==='arredondada'?'border-radius:30%;':'border-radius:0;clip-path:'+FORMAS[fo][2]+';';
+if(g)s+='background:'+g+';border-color:transparent;';else if(fo!=='circulo')s+='background:var(--glow);border-color:transparent;';return s}
+function desenhaLoja(){var h='<p class="pts">Pontos: <b>'+P.p+'</b></p><p class="rot">Forma das contas (grátis)</p><div>';
+Object.keys(FORMAS).forEach(function(k){h+='<button type="button" class="chip" data-loja="forma" data-v="'+k+'" aria-pressed="'+(P.fo===k)+'">'+FORMAS[k][0]+' '+FORMAS[k][1]+'</button>'});
+h+='</div><p class="rot">Cor das contas (conquiste com pontos)</p><div class="cores">';
+Object.keys(CORES).forEach(function(k){var c=CORES[k],tem=P.own.indexOf(k)>-1,em=P.sel===k,st=est(k,P.fo);
+h+='<div class="cor"><span class="amostra"><i style="'+st+'"></i><i style="'+st+'"></i><i style="'+st+'"></i></span><span class="nm">'+c[0]+'</span>'+(tem?'<button type="button" class="chip" data-loja="usar" data-v="'+k+'" aria-pressed="'+em+'">'+(em?'Em uso':'Usar')+'</button>':'<button type="button" class="chip" data-loja="comprar" data-v="'+k+'"'+(P.p<c[1]?' disabled':'')+'>'+c[1]+' pontos</button>')+'</div>'});
+$('loja').innerHTML=h+'</div>'}
+$('loja').addEventListener('click',function(e){var b=e.target.closest('[data-loja]');if(!b)return;var k=b.dataset.v,a=b.dataset.loja;
+if(a==='forma'){P.fo=k}else{if(a==='comprar'){var pr=CORES[k][1];if(P.p<pr||P.own.indexOf(k)>-1)return;P.p-=pr;P.own.push(k);aviso('Contas '+CORES[k][0].toLowerCase()+' conquistadas')}P.sel=k}
+salvaP();usaConta();usaForma();desenhaLoja()});
+function dia(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
+function sabado(){return new Date().getDay()===6}
+function conjuntoDoDia(){var mapa={0:'gloriosos',1:'gozosos',2:'dolorosos',3:'gloriosos',4:'luminosos',5:'dolorosos',6:'gozosos'};return mapa[new Date().getDay()]}
+function normalizaPontos(){if(!P||typeof P.p!=='number')P=lerP();if(!Array.isArray(P.g))P.g=[];if(P.d!==dia()){P.d=dia();P.g=[];P.t=[];P.r=false}}
+window.fmGanha=function(k){normalizaPontos();var set=k.split(':')[0];if(!sabado()&&set!==conjuntoDoDia())return;if(P.g.indexOf(k)>-1)return;P.g.push(k);var n=P.g.filter(function(x){return x.indexOf(set+':')===0}).length;P.p+=1;var mensagem='+1 ponto: terço completo';if(n===5){P.t=P.t||[];if(P.t.indexOf(set)<0){P.t.push(set);P.p+=5;mensagem='+5 pontos: terço completo'}}if(sabado()){var total=['gozosos','luminosos','dolorosos','gloriosos'].every(function(x){return P.g.filter(function(k){return k.indexOf(x+':')===0}).length>=5});if(total&&!P.r){P.r=true;P.p+=10;mensagem='+10 pontos: rosário completo'}}salvaP();desenhaLoja();aviso(mensagem)};
+usaConta();usaForma();desenhaLoja();
+/* exame de consciência */
+var ac=$('acusacao'),ca=$('copiar-acusacao'),ea=$('exportar-acusacao'),exa=$('exame-aviso');if(ac){ac.value=S.get('fm-exame')||'';ac.addEventListener('input',function(){S.set('fm-exame',ac.value)});function exameAviso(t){if(exa){exa.textContent=t;setTimeout(function(){exa.textContent=''},2500)}}if(ca)ca.addEventListener('click',function(){if(!ac.value.trim()){exameAviso('Escreva primeiro a sua acusação.');return}if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(ac.value).then(function(){exameAviso('Acusação copiada.')}).catch(function(){exameAviso('Não foi possível copiar automaticamente.')});else{ac.select();document.execCommand('copy');exameAviso('Acusação copiada.')}});if(ea)ea.addEventListener('click',function(){if(!ac.value.trim()){exameAviso('Escreva primeiro a sua acusação.');return}var b=new Blob([ac.value+'\n'],{type:'text/plain;charset=utf-8'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='acusacao-para-confissao.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},1000);exameAviso('Arquivo exportado.')})}
 /* menu lateral */
 var mn=$('menu'),fd=$('fundo'),hb=$('hb'),ult=null;
 function abreMenu(){abrePn(false);ult=document.activeElement;mn.hidden=false;fd.hidden=false;document.body.style.overflow='hidden';mn.focus()}
@@ -623,16 +698,18 @@ function fechaMenu(){if(mn.hidden)return;mn.hidden=true;fd.hidden=true;document.
 hb.addEventListener('click',abreMenu);$('mx').addEventListener('click',fechaMenu);fd.addEventListener('click',fechaMenu);
 mn.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){fechaMenu();var o=$('opcionais');if(o){var d=o.querySelector('details');if(d)d.open=true}})});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){abrePn(false);fechaMenu()}});
-/* novenas do mês */
-var NOV=[[1,1,'Santa Maria, Mãe de Deus'],[1,20,'São Sebastião'],[1,21,'Santa Inês'],[1,24,'São Francisco de Sales'],[1,31,'São João Bosco'],[2,3,'São Brás'],[2,11,'Nossa Senhora de Lourdes'],[3,19,'São José'],[3,25,'Anunciação do Senhor'],[4,19,'Santo Expedito'],[4,23,'São Jorge'],[4,29,'Santa Catarina de Sena'],[5,13,'Nossa Senhora de Fátima'],[5,22,'Santa Rita de Cássia'],[6,13,'Santo Antônio'],[6,24,'São João Batista'],[6,29,'São Pedro e São Paulo'],[7,11,'São Bento'],[7,16,'Nossa Senhora do Carmo'],[7,25,'São Cristóvão'],[7,26,'São Joaquim e Sant’Ana'],[8,11,'Santa Clara'],[8,15,'Assunção de Nossa Senhora'],[8,16,'São Roque'],[8,28,'Santo Agostinho'],[9,8,'Natividade de Nossa Senhora'],[9,15,'Nossa Senhora das Dores'],[9,23,'Padre Pio'],[9,26,'São Cosme e São Damião'],[9,27,'São Vicente de Paulo'],[9,29,'Arcanjos São Miguel, Gabriel e Rafael'],[10,1,'Santa Teresinha do Menino Jesus'],[10,4,'São Francisco de Assis'],[10,7,'Nossa Senhora do Rosário'],[10,12,'Nossa Senhora Aparecida'],[10,15,'Santa Teresa de Ávila'],[10,16,'Santa Edwiges'],[10,28,'São Judas Tadeu'],[11,22,'Santa Cecília'],[12,4,'Santa Bárbara'],[12,8,'Imaculada Conceição'],[12,12,'Nossa Senhora de Guadalupe'],[12,13,'Santa Luzia'],[12,25,'Natal do Senhor']],
-MES=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+/* novenas do mês: datas e textos da Minha Biblioteca Católica */
+var MES=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'],
+NV='12-23>12-31|Santa Maria, Mãe de Deus|\n12-28>1-5|Epifania do Senhor|novena-da-epifania-do-senhor\n1-8>1-16|Santo Antão|\n1-15>1-23|São Francisco de Sales|\n1-19>1-27|Santo Tomás de Aquino|\n1-22>1-30|São João Bosco|dom-bosco-reze-sua-novena\n1-24>2-1|Nossa Senhora das Candeias (Purificação)|\n1-25>2-2|São Brás|\n2-2>2-10|Nossa Senhora de Lourdes|novena-nossa-senhora-de-lourdes\n3-8>3-16|São Patrício|\n3-10>3-18|São José|novena-de-sao-jose\n3-16>3-24|Anunciação do Senhor|\n4-2>4-10|Santa Gemma Galgani|novena-a-santa-gemma-galgani\n4-14>4-23|São Jorge|\n4-19>4-27|Santa Gianna Beretta Molla|novena-a-santa-gianna\n4-19>4-27|São Luís de Montfort|\n4-20>4-28|Santa Catarina de Sena|novena-a-santa-catarina-de-sena\n4-23>5-1|Santo Atanásio|\n5-4>5-12|Nossa Senhora de Fátima|novena-a-nossa-senhora-de-fatima\n5-11>5-20|Santa Rita de Cássia|novena-a-santa-rita-de-cassia\n5-17>5-25|São Filipe Néri|novena-a-sao-filipe-neri\n5-31>6-8|São José de Anchieta|\n5-31>6-12|Santo Antônio de Pádua (trezena)|\n6-12>6-20|São Luís Gonzaga|\n6-13>6-21|São Thomas More|\n6-15>6-23|São João Batista|\n6-18>6-26|Nossa Senhora do Perpétuo Socorro|\n6-20>6-28|São Pedro e São Paulo|\n7-2>7-10|São Bento|\n7-3>7-11|São Luís e Santa Zélia Martin|\n7-5>7-13|São Camilo de Lellis|\n7-7>7-15|Nossa Senhora do Carmo|novena-a-nossa-senhora-do-carmo\n7-13>7-21|Santa Maria Madalena|\n7-17>7-25|Santa Ana e São Joaquim|\n7-22>7-30|Santo Inácio de Loyola|\n7-23>7-31|Santo Afonso Maria de Ligório|novena-a-santo-afonso-de-ligorio\n7-26>8-3|São João Maria Vianney|\n8-1>8-9|Santa Filomena|\n8-2>8-10|Santa Clara|\n8-5>8-13|São Maximiliano Maria Kolbe|novena-a-sao-maximiliano-kolbe\n8-6>8-14|Assunção de Nossa Senhora|\n8-11>8-19|São Bernardo|\n8-16>8-24|São Luís IX, Rei de França|\n8-18>8-26|Santa Mônica|novena-a-santa-monica\n8-19>8-27|Santo Agostinho|\n9-5>9-13|Exaltação da Santa Cruz|\n9-8>9-14|Setenário das Dores de Nossa Senhora|\n9-8>9-16|Santa Hildegarda de Bingen|\n9-14>9-22|São Pio de Pietrelcina|novena-a-sao-padre-pio\n9-18>9-26|São Vicente de Paulo|\n9-20>9-28|Santos Arcanjos|\n9-22>9-30|Novena das Rosas (Santa Teresinha)|novena-das-rosas-santa-teresinha\n9-23>10-1|Santos Anjos da Guarda|novena-ao-anjo-da-guarda\n9-25>10-3|São Francisco de Assis|\n9-26>10-4|Santa Faustina|\n9-28>10-6|Nossa Senhora do Rosário|\n10-3>10-11|Nossa Senhora Aparecida|novena-a-nossa-senhora-aparecida\n10-6>10-14|Santa Teresa de Jesus|\n10-7>10-15|Santa Margarida Maria Alacoque|\n10-7>10-15|São Geraldo Majela|\n10-8>10-16|Santo Inácio de Antioquia|\n10-10>10-18|São Pedro de Alcântara|\n10-13>10-21|São João Paulo II|novena-a-sao-joao-paulo\n10-16>10-24|Santo Antônio Galvão (Frei Galvão)|novena-de-frei-galvao\n10-23>10-31|Todos os Santos|novena-de-todos-os-santos\n10-24>11-1|Novena das Almas|\n11-11>11-19|Cristo Rei|\n11-12>11-20|Apresentação de Nossa Senhora|\n11-16>11-24|Santa Catarina de Alexandria|santa-catarina-de-alexandria-oracao\n11-18>11-26|Nossa Senhora das Graças|novena-a-nossa-senhora-das-gracas\n11-29>12-7|Imaculada Conceição|novena-da-imaculada-conceicao\n12-3>12-11|Nossa Senhora de Guadalupe|novena-de-nossa-senhora-de-guadalupe\n12-4>12-12|Santa Luzia|santa-luzia-oracoes-e-novena\n12-5>12-13|São João da Cruz|\n12-16>12-24|Natal (São Leão Magno)|novena-de-natal';
 function dm(d){return d.getDate()+' de '+MES[d.getMonth()]}
-(function(){var h=new Date(),y=h.getFullYear(),m=h.getMonth(),ini=new Date(y,m,1,12),fim=new Date(y,m+1,0,12),t0=new Date(y,m,h.getDate(),12),L=[];
-NOV.forEach(function(n){[y-1,y,y+1].forEach(function(Y){var f=new Date(Y,n[0]-1,n[1],12),s=new Date(f.getTime()-9*864e5),e=new Date(f.getTime()-864e5);if(e>=ini&&s<=fim)L.push({n:n[2],f:f,s:s,e:e})})});
+(function(){var h=new Date(),y=h.getFullYear(),m=h.getMonth(),ini=new Date(y,m,1,12),fim=new Date(y,m+1,0,12),t0=new Date(y,m,h.getDate(),12),L=[],B='https://bibliotecacatolica.com.br/';
+NV.split('\n').forEach(function(l){var p=l.split('|'),d=p[0].split('>'),a=d[0].split('-'),b=d[1].split('-');
+[y-1,y,y+1].forEach(function(Y){var s=new Date(Y,a[0]-1,+a[1],12),e=new Date(Y+(+b[0]<+a[0]?1:0),b[0]-1,+b[1],12);if(e>=ini&&s<=fim)L.push({n:p[1],u:p[2],s:s,e:e})})});
 L.sort(function(a,b){return a.s-b.s});
 $('nov-t').textContent='Novenas de '+MES[m]+' de '+y;
-$('nov').innerHTML=L.length?L.map(function(x){var per=x.s.getMonth()===x.e.getMonth()?x.s.getDate()+' a '+dm(x.e):dm(x.s)+' a '+dm(x.e),and=t0>=x.s&&t0<=x.e;
-return '<li><b>'+x.n+'</b>'+(and?'<em>em andamento</em>':'')+'<div class="dt">'+per+'. Festa em '+dm(x.f)+'.</div><a href="https://www.google.com/search?q='+encodeURIComponent('novena de '+x.n+' católica')+'" target="_blank" rel="noopener">Ver novena ↗</a></li>'}).join(''):'<li>Nenhuma novena marcada neste mês.</li>'})();
+$('nov').innerHTML=(L.length?L.map(function(x){var per=x.s.getMonth()===x.e.getMonth()?x.s.getDate()+' a '+dm(x.e):dm(x.s)+' a '+dm(x.e),and=t0>=x.s&&t0<=x.e,
+href=x.u?B+'blog/novenas/'+x.u+'/':B+'?s='+encodeURIComponent('novena '+x.n);
+return '<li><b>'+x.n+'</b>'+(and?'<em>em andamento</em>':'')+'<div class="dt">'+per+'</div><a href="'+href+'" target="_blank" rel="noopener">'+(x.u?'Rezar a novena ↗':'Buscar no site ↗')+'</a></li>'}).join(''):'<li>Nenhuma novena marcada neste mês.</li>')+'<li><a href="'+B+'blog/formacao/novenas/" target="_blank" rel="noopener">Ver o calendário completo de novenas ↗</a></li>'})();
 })();
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "caf0364cf6784545bfffec4e944d8afc"}'></script><!-- End Cloudflare Web Analytics -->
