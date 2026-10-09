@@ -247,8 +247,16 @@ article .ouvir{position:absolute;top:.15rem;right:0;margin:0;padding:.35rem;bord
 article .ouvir span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .abas .ic{opacity:.85;stroke-width:1.8}
 #gloriosos,#t-gloriosos{--glow:#8aa4c4}
-
-#menu .exame h4{font-size:1rem;margin:1.1rem 0 .35rem;color:var(--ink)}#menu .exame ul{padding-left:1.2rem;margin:.35rem 0 .8rem}#menu .exame li{margin:.38rem 0;line-height:1.45}#menu .exame textarea{display:block;width:100%;box-sizing:border-box;min-height:180px;margin:.7rem 0;padding:.75rem;border:1px solid var(--bd);border-radius:.8rem;background:var(--bg);color:var(--ink);font:inherit;resize:vertical}#menu .exame-botoes{display:flex;flex-wrap:wrap;gap:.2rem}
+.lk{font-size:.95rem;line-height:1.7;border-top:1px solid var(--bd);padding:.7rem 0}
+.lk a{color:var(--lnk)}
+details.ex{border-top:1px solid var(--bd)}
+#menu .ex details{padding:.4rem 0}
+#menu .ex details>summary{font-size:1.2rem}
+.ex .rot{display:block;margin:.8rem 0 .1rem;color:var(--soft);font-size:.85rem}
+.q{display:flex;gap:.5rem;align-items:flex-start;padding:.3rem 0;font-size:.92rem;line-height:1.45;cursor:pointer}
+.q input{flex:none;width:1.1rem;height:1.1rem;margin-top:.2rem;accent-color:var(--glow)}
+textarea#pec{width:100%;margin-top:.3rem;padding:.6rem .8rem;background:none;color:var(--ink);border:1px dashed var(--line);border-radius:.8rem;font:inherit;font-size:.95rem;line-height:1.5;resize:vertical}
+.exb{display:flex;flex-wrap:wrap;gap:.2rem;margin:.6rem 0 1rem}
 </style>
 </head>
 <body>
@@ -462,6 +470,15 @@ article .ouvir span{position:absolute;width:1px;height:1px;overflow:hidden;clip:
   <h3 id="nov-t">Novenas do mês</h3>
   <p class="nota">As datas mudam sozinhas a cada mês e seguem o calendário da Minha Biblioteca Católica. “Rezar a novena” leva direto ao texto no site deles. Onde aparecer “Buscar no site”, o link abre a busca deles por aquela novena.</p>
   <ul id="nov"></ul>
+  <h3>Exame de consciência</h3>
+  <p class="nota">Roteiro para preparar a confissão. Marque o que reconhecer e escreva o que quiser no campo final. Nada é enviado nem guardado: ao fechar a página, tudo se apaga. A confissão é feita ao padre, no sacramento.</p>
+  <details class="ex"><summary>Abrir o exame de consciência</summary>
+    <p class="nota">Para a boa confissão: examinar a consciência, arrepender-se, ter o propósito de não pecar mais, confessar os pecados ao padre e cumprir a penitência. Um pecado é grave quando há matéria grave, plena consciência e consentimento deliberado. Ao confessar, diga os pecados graves e quantas vezes os cometeu. Em caso de dúvida, pergunte ao padre.</p>
+    <div id="exame"></div>
+    <label class="rot" for="pec">Pecados e observações (com suas palavras)</label>
+    <textarea id="pec" rows="6" placeholder="Escreva aqui o que deseja confessar..."></textarea>
+    <div class="exb"><button type="button" class="chip" id="ex-c">Copiar</button><button type="button" class="chip" id="ex-b">Exportar (.txt)</button><button type="button" class="chip" id="ex-l">Limpar tudo</button></div>
+  </details>
   <h3>Orações comuns</h3>
   <details><summary>Credo Niceno-Constantinopolitano</summary>
     <p>Creio em um só Deus, Pai todo-poderoso, criador do céu e da terra, de todas as coisas visíveis e invisíveis. Creio em um só Senhor, Jesus Cristo, Filho Unigênito de Deus, nascido do Pai antes de todos os séculos: Deus de Deus, luz da luz, Deus verdadeiro de Deus verdadeiro; gerado, não criado, consubstancial ao Pai. Por Ele todas as coisas foram feitas. E por nós, homens, e para nossa salvação, desceu dos céus: e se encarnou pelo Espírito Santo, no seio da Virgem Maria, e se fez homem. Também por nós foi crucificado sob Pôncio Pilatos; padeceu e foi sepultado. Ressuscitou ao terceiro dia, conforme as Escrituras, e subiu aos céus, onde está sentado à direita do Pai. E de novo há de vir em sua glória, para julgar os vivos e os mortos; e o seu reino não terá fim. Creio no Espírito Santo, Senhor que dá a vida, e procede do Pai e do Filho; e com o Pai e o Filho é adorado e glorificado: Ele que falou pelos profetas. Creio na Igreja, una, santa, católica e apostólica. Professo um só batismo para remissão dos pecados. E espero a ressurreição dos mortos e a vida do mundo que há de vir. Amém.</p></details>
@@ -473,9 +490,7 @@ article .ouvir span{position:absolute;width:1px;height:1px;overflow:hidden;clip:
     <p>Oremos: Infundi, Senhor, a vossa graça em nossos corações, para que nós, que, pela anunciação do Anjo, conhecemos a encarnação de Jesus Cristo, vosso Filho, por sua paixão e cruz sejamos conduzidos à glória da ressurreição. Pelo mesmo Cristo, Senhor nosso. Amém.</p></details>
   <details><summary>Ato de Contrição</summary>
     <p>Meu Deus, porque sois tão bom, eu me arrependo de todo o coração de ter pecado e, com o auxílio da vossa graça, proponho firmemente emendar-me e nunca mais vos ofender. Peço-vos perdão e confio que, pela vossa infinita misericórdia, me concedereis o perdão das minhas culpas e me levareis à vida eterna. Amém.</p></details>
-  <details><summary>Via Sacra</summary>
-    <p>Para meditar a Via Sacra, acesse as meditações do Padre Paulo Ricardo:</p>
-    <p><a href="https://padrepauloricardo.org/blog/reze-a-via-sacra-com-o-cardeal-newman" target="_blank" rel="noopener noreferrer">Meditações para a Via Sacra e Paixão do Senhor ↗</a></p></details>
+  <p class="lk"><b>Via Sacra com meditações</b> (site do Padre Paulo Ricardo)<br><a href="https://padrepauloricardo.org/blog/reze-a-via-sacra-com-o-cardeal-newman" target="_blank" rel="noopener">Com São John Henry Newman ↗</a><br><a href="https://padrepauloricardo.org/blog/rezando-a-via-sacra-com-santo-afonso-de-ligorio" target="_blank" rel="noopener">Com Santo Afonso de Ligório ↗</a></p>
   <h3>Ladainhas</h3>
   <details><summary>Ladainha do Sagrado Coração de Jesus</summary>
     <p class="lad">Senhor, tende piedade de nós.<br>Cristo, tende piedade de nós.<br>Senhor, tende piedade de nós.<br>Jesus Cristo, ouvi-nos.<br>Jesus Cristo, atendei-nos.<br>Deus Pai do Céu, tende piedade de nós.<br>Deus Filho, Redentor do mundo, tende piedade de nós.<br>Deus Espírito Santo, tende piedade de nós.<br>Santíssima Trindade, que sois um só Deus, tende piedade de nós.</p>
@@ -484,39 +499,125 @@ article .ouvir span{position:absolute;width:1px;height:1px;overflow:hidden;clip:
     <p class="lad">Jesus, manso e humilde de coração.<br>Fazei o nosso coração semelhante ao vosso.</p>
     <p>Oremos: Ó Deus onipotente e eterno, olhai para o Coração do vosso diletíssimo Filho e para os louvores e satisfações que Ele vos oferece em nome dos pecadores; e, aplacado, concedei o perdão aos que imploram a vossa misericórdia, em nome do mesmo vosso Filho Jesus Cristo, que convosco vive e reina, na unidade do Espírito Santo, por todos os séculos dos séculos. Amém.</p></details>
   <p class="nota"><a href="#opcionais">As ladainhas de Nossa Senhora e de São José</a> estão na seção Orações Opcionais, no fim da página.</p>
-  <h3>Exame de Consciência</h3>
-  <details class="exame">
-    <summary>Fazer um exame completo</summary>
-    <p class="nota">Faça este exame com calma, diante de Deus e sem ansiedade. Ele reúne os Dez Mandamentos, pecados capitais, deveres do próprio estado de vida e preparação para a Confissão. O objetivo é reconhecer atos conscientes e deliberados, sem transformar o exame numa busca angustiada por faltas duvidosas.</p>
-    <h4>Antes de começar</h4><p>Coloque-se na presença de Deus e peça luz para conhecer os seus pecados, arrependimento sincero e firme propósito de emenda. Recorde também a última Confissão e examine faltas por pensamentos, palavras, atos e omissões.</p>
-    <h4>1º Mandamento — Amar a Deus sobre todas as coisas</h4><ul>
-      <li>Coloquei alguma coisa, pessoa, diversão, dinheiro ou opinião acima de Deus?</li><li>Negligenciei deliberadamente a oração, a formação da fé ou a vida da Igreja?</li><li>Duvidei ou rejeitei deliberadamente alguma verdade ensinada pela Igreja?</li><li>Pratiquei superstição, horóscopos, adivinhações ou práticas contrárias à fé?</li><li>Tive vergonha de manifestar a minha fé quando deveria fazê-lo?</li><li>Recebi os sacramentos com irreverência ou sem a devida preparação?</li><li>Desesperei da misericórdia de Deus ou presumi o perdão sem arrependimento?</li></ul>
-    <h4>2º Mandamento — Não tomar o nome de Deus em vão</h4><ul>
-      <li>Usei o nome de Deus, de Nossa Senhora ou dos Santos de modo irreverente?</li><li>Blasfemei, praguejei ou fiz juramentos desnecessários ou falsos?</li><li>Fiz promessas a Deus e deliberadamente não as cumpri?</li></ul>
-    <h4>3º Mandamento — Santificar domingos e dias santos</h4><ul>
-      <li>Faltei à Missa aos domingos ou dias santos de guarda por culpa própria?</li><li>Cheguei atrasado ou saí antes sem motivo suficiente por minha própria culpa?</li><li>Participei da Missa de modo deliberadamente irreverente ou distraído?</li><li>Deixei de santificar o domingo por trabalho ou atividades desnecessárias?</li></ul>
-    <h4>4º Mandamento — Honrar pai e mãe</h4><ul>
-      <li>Desobedeci injustamente aos meus pais ou responsáveis?</li><li>Respondi com grosseria, desprezo, gritos ou ingratidão?</li><li>Fui preguiçoso nas minhas obrigações de casa, escola ou trabalho?</li><li>Causei deliberadamente preocupação, sofrimento ou desordem na família?</li><li>Respeitei professores e autoridades legítimas?</li></ul>
-    <h4>5º Mandamento — Não matar</h4><ul>
-      <li>Alimentei ódio, vingança ou desejo de que alguém sofresse?</li><li>Insultei, humilhei, ameacei ou provoquei alguém?</li><li>Fiz bullying ou participei de humilhação ou agressão?</li><li>Fui imprudente com a minha vida ou com a vida de outros?</li><li>Causei escândalo, levando alguém ao pecado por palavras, atitudes ou exemplo?</li></ul>
-    <h4>6º e 9º Mandamentos — Pureza e castidade</h4><ul>
-      <li>Consenti deliberadamente em pensamentos, desejos, fantasias, olhares, conversas ou atitudes impuras?</li><li>Procurei ou consumi voluntariamente pornografia ou conteúdo sexualmente indecente?</li><li>Pratiquei atos contra a castidade comigo mesmo ou com outra pessoa?</li><li>Usei alguém como objeto de desejo, desrespeitando sua dignidade?</li><li>Enviei, pedi ou compartilhei imagens ou mensagens indecentes?</li><li>Procurei ocasiões de pecado ou permaneci voluntariamente nelas quando podia afastar-me?</li></ul>
-    <h4>7º e 10º Mandamentos — Bens, dinheiro e cobiça</h4><ul>
-      <li>Roubei, peguei ou usei algo alheio sem permissão?</li><li>Fiquei com algo emprestado ou encontrado que deveria devolver?</li><li>Causei prejuízo material de propósito e não procurei reparar?</li><li>Fui desonesto em compras, dinheiro, trabalhos ou responsabilidades?</li><li>Fui dominado pela inveja dos bens, talentos, aparência ou posição de outras pessoas?</li><li>Fui excessivamente apegado ao dinheiro e às coisas?</li></ul>
-    <h4>8º Mandamento — Verdade e caridade nas palavras</h4><ul>
-      <li>Menti deliberadamente?</li><li>Fiz fofoca, difamação ou calúnia?</li><li>Revelei um segredo que deveria guardar?</li><li>Fiz juízo temerário sobre alguém sem conhecer os fatos?</li><li>Exagerei ou distorci fatos para parecer melhor ou prejudicar alguém?</li><li>Falei de modo grosseiro, ofensivo ou desnecessariamente cruel?</li><li>Compartilhei notícias ou acusações sem verificar se eram verdadeiras?</li></ul>
-    <h4>Pecados capitais e vida interior</h4><ul>
-      <li><b>Soberba:</b> quis parecer superior, não aceitei correção ou desprezei os outros?</li><li><b>Avareza:</b> fui excessivamente apegado a dinheiro ou bens?</li><li><b>Luxúria:</b> procurei prazeres ou pensamentos contra a castidade?</li><li><b>Inveja:</b> entristeci-me com o bem do outro ou desejei que ele perdesse o que tem?</li><li><b>Gula:</b> fui desordenado na comida, bebida ou outros prazeres?</li><li><b>Ira:</b> deixei a raiva dominar minhas palavras ou ações?</li><li><b>Preguiça:</b> omiti deliberadamente deveres importantes por comodismo?</li></ul>
-    <h4>Vida de oração e deveres</h4><ul>
-      <li>Tenho cumprido meus deveres de estado de vida com responsabilidade?</li><li>Tenho reservado tempo para oração e formação cristã?</li><li>Procuro cultivar uma verdadeira amizade com Deus?</li><li>Tenho agradecido a Deus pelos benefícios recebidos?</li><li>Tenho procurado corrigir hábitos que sei que me afastam de Deus?</li><li>Tenho evitado ocasiões próximas de pecado e más companhias?</li><li>Tenho praticado obras de misericórdia e ajudado quem precisa?</li></ul>
-    <h4>Maria, próximo e vida de caridade</h4><ul>
-      <li>Tenho tratado as pessoas com respeito, caridade, pureza e sinceridade?</li><li>Guardo ressentimentos, mágoas ou desejo de vingança?</li><li>Recuso-me injustamente a perdoar?</li><li>Tenho sido verdadeiro e fiel nos meus relacionamentos?</li><li>Tenho recorrido a Nossa Senhora com confiança e procurado imitá-la nas virtudes?</li></ul>
-    <h4>Para preparar a Confissão</h4><p>Procure recordar especialmente os pecados graves: matéria grave, pleno conhecimento e consentimento deliberado. Quando possível, anote o número aproximado das vezes e circunstâncias relevantes. Não fique procurando obsessivamente pecados duvidosos ou involuntários; leve ao sacerdote aquilo que realmente reconhece como pecado.</p>
-    <textarea id="acusacao" rows="10" placeholder="Escreva aqui, de forma objetiva, os pecados que deseja levar à Confissão."></textarea>
-    <div class="exame-botoes"><button type="button" class="chip" id="copiar-acusacao">Copiar acusação</button><button type="button" class="chip" id="exportar-acusacao">Exportar .txt</button></div>
-    <p id="exame-aviso" class="nota" role="status" aria-live="polite"></p>
-  </details>
 </aside>
+<script type="text/plain" id="exame-dados">
+# 1º Mandamento: Amar a Deus sobre todas as coisas
+Deixei de rezar, ou rezei apenas por obrigação, com distração voluntária e sem atenção?
+Duvidei voluntariamente de alguma verdade da fé ou neguei algum ensinamento da Igreja?
+Tive vergonha de ser católico ou escondi a minha fé para agradar os outros?
+Desesperei da misericórdia de Deus, ou presumi que Ele me perdoaria sem eu me converter?
+Procurei horóscopo, mapa astral, cartas, videntes, búzios, simpatias ou práticas esotéricas?
+Participei de práticas espíritas, ocultistas ou de outras religiões como se fossem compatíveis com a fé?
+Coloquei acima de Deus o dinheiro, o trabalho, o prazer, uma pessoa, o celular ou as redes sociais?
+Li, assisti ou ouvi coisas contrárias à fé que enfraqueceram a minha vida cristã?
+Recebi a Comunhão estando em pecado grave?
+Escondi ou omiti de propósito um pecado grave em alguma confissão?
+Fiz mal a minha última confissão, sem arrependimento ou sem cumprir a penitência?
+Abandonei a oração, a leitura da Palavra de Deus ou a formação na fé?
+Tratei com irreverência o Santíssimo Sacramento, a igreja ou as coisas sagradas?
+# 2º Mandamento: Não tomar o santo nome de Deus em vão
+Pronunciei o nome de Deus, de Jesus, de Maria ou dos santos sem respeito, por raiva ou por brincadeira?
+Blasfemei ou falei mal de Deus, da Igreja, dos sacerdotes ou das coisas sagradas?
+Fiz juramentos falsos, desnecessários ou por motivos fúteis?
+Fiz promessas a Deus ou aos santos e não as cumpri?
+Zombei da fé ou da religião, ou ri de piadas contra elas?
+Usei palavrões e linguagem vulgar de modo habitual?
+# 3º Mandamento: Guardar os domingos e festas
+Faltei à Missa de domingo ou de dia de guarda por preguiça ou descuido?
+Cheguei muito atrasado ou saí antes do fim, sem motivo?
+Participei da Missa distraído de propósito, no celular, conversando ou sem respeito?
+Trabalhei sem necessidade no domingo, ou impedi outros de descansar e de ir à Missa?
+Deixei de dedicar o domingo a Deus, à família e ao descanso?
+# 4º Mandamento: Honrar pai e mãe e cumprir os deveres de estado
+Desobedeci, desrespeitei ou magoei meus pais ou responsáveis?
+Deixei de ajudar meus pais ou parentes idosos, doentes ou necessitados?
+Fui ingrato, guardei rancor ou deixei de rezar por eles, vivos e falecidos?
+Como pai ou mãe: negligenciei o cuidado, a educação e a formação cristã dos meus filhos?
+Dei mau exemplo aos filhos, ou fui violento, injusto ou duro demais com eles?
+Como cônjuge: fui infiel, tratei com desprezo, falei mal ou deixei de dialogar e de perdoar?
+Desrespeitei professores, patrões, autoridades ou superiores?
+Descumpri deveres de cidadão, como pagar impostos justos e respeitar as leis?
+Como patrão ou líder: abusei da autoridade, fui injusto ou paguei de forma injusta?
+Descuidei do meu trabalho, dos meus estudos ou da minha missão na comunidade?
+# 5º Mandamento: Não matar
+Guardei ódio, rancor ou desejo de vingança? Recusei-me a perdoar?
+Agredi alguém fisicamente, com palavras ou com humilhações?
+Fui causa de brigas, discórdias ou violência em casa, no trabalho ou na comunidade?
+Cometi, aconselhei, ajudei ou apoiei o aborto?
+Apoiei ou pratiquei a eutanásia, ou tive pensamentos de tirar a própria vida?
+Coloquei a minha saúde em risco com álcool, drogas, cigarro, comida em excesso ou imprudência?
+Dirigi de forma imprudente, colocando outras pessoas em perigo?
+Levei alguém ao pecado com meu mau exemplo, minhas palavras ou meus conselhos (escândalo)?
+Fui negligente com o cuidado de doentes, idosos ou necessitados?
+Maltratei animais ou desperdiciei sem necessidade os bens da criação?
+# 6º e 9º Mandamentos: Castidade e pureza
+Consenti em pensamentos, fantasias ou desejos impuros?
+Vi pornografia ou fiquei em imagens, vídeos, sites ou conversas impuras?
+Cometi atos impuros, sozinho ou com outra pessoa?
+Tive relações sexuais fora do casamento, ou vivo em situação irregular perante a Igreja?
+Fui infiel no coração ou nos atos, no namoro, no noivado ou no casamento?
+Usei meios artificiais para evitar filhos, ou recusei sem justo motivo a abertura à vida no casamento?
+Conversei, brinquei ou compartilhei conteúdos indecentes?
+Vesti-me ou me comportei de modo a provocar desejos impuros nos outros?
+Olhei para pessoas de forma impura, ou me expus de propósito a ocasiões de pecado?
+Usei aplicativos, redes sociais ou a internet de modo que me levou ao pecado?
+Tratei outra pessoa como objeto, ou a assediei, constrangi ou abusei dela?
+No namoro ou noivado: vivi o respeito e a castidade, ou me coloquei em situações de tentação?
+# 7º Mandamento: Não furtar
+Furtei, roubei ou fiquei com o que não era meu, mesmo que fossem coisas pequenas?
+Fraudei ou enganei em negócios, contas, preços, provas ou documentos?
+Deixei de pagar dívidas, salários, impostos ou de devolver o que peguei emprestado?
+Comprei ou usei produtos pirateados, ou me aproveitei do trabalho alheio?
+Fui avarento, sem ajudar os pobres e necessitados, podendo fazê-lo?
+Gastei de modo exagerado ou fútil, ou me endividei por vaidade?
+Perdi dinheiro em jogos de azar ou apostas, prejudicando a mim e à minha família?
+Trabalhei mal, perdi tempo no serviço ou fui desonesto no trabalho ou nos estudos?
+Danifiquei bens alheios, públicos ou da comunidade?
+# 8º Mandamento: Não levantar falso testemunho
+Menti, exagerei ou enganei, em coisas graves ou pequenas?
+Caluniei (disse mentiras) ou difamei (revelei defeitos verdadeiros sem necessidade) alguém?
+Fiz fofocas, intrigas ou comentários maldosos, inclusive em grupos e redes sociais?
+Julguei mal os outros, sem ter certeza, ou guardei suspeitas sem fundamento?
+Revelei segredos que deveria guardar?
+Compartilhei notícias falsas ou conteúdos que prejudicam a honra de alguém?
+Fui hipócrita, adulador ou fingido para agradar os outros?
+Neguei a verdade por medo, comodismo ou interesse?
+Deixei de reparar o mal que fiz à reputação de alguém?
+# 10º Mandamento: Não cobiçar as coisas alheias
+Tive inveja do que os outros têm ou são?
+Fiquei triste com o bem dos outros, ou alegre com o mal deles?
+Fui ganancioso e apegado ao dinheiro e aos bens?
+Vivi me comparando com os outros, sem gratidão pelo que Deus me deu?
+Desejei injustamente algo que pertence a outra pessoa, como bens, posição ou reconhecimento?
+# Os cinco mandamentos da Igreja
+Participei da Missa inteira nos domingos e dias de guarda?
+Confessei-me ao menos uma vez por ano, e sempre que estive em pecado grave?
+Comunguei ao menos na Páscoa, e com as devidas disposições?
+Jejuei e fiz abstinência nos dias determinados pela Igreja?
+Contribuí, conforme as minhas possibilidades, para as necessidades da Igreja?
+# Os sete pecados capitais
+Soberba: fui orgulhoso, vaidoso ou arrogante? Quis aparecer, desprezei os outros ou não aceitei correção?
+Avareza: apeguei-me demais ao dinheiro e aos bens, e fui duro com quem precisava de ajuda?
+Luxúria: entreguei-me a desejos e prazeres desordenados?
+Ira: perdi a paciência, gritei, ofendi, guardei raiva ou desejei o mal de alguém?
+Gula: comi ou bebi em excesso, ou fui escravo de algum vício ou prazer?
+Inveja: entristeci-me com o bem alheio e falei mal de quem se destaca?
+Preguiça: deixei de cumprir meus deveres, adiei a oração e o bem que podia fazer, ou tive tédio das coisas de Deus?
+# Pecados de omissão e caridade
+Deixei de ajudar quem estava em necessidade, podendo ajudar?
+Deixei de corrigir com caridade, de dar bom exemplo ou de anunciar a fé quando era possível?
+Fui indiferente à dor das pessoas que convivem comigo?
+Deixei de rezar pelos vivos e pelas almas do Purgatório?
+Fui paciente, gentil e caridoso com as pessoas de casa, do trabalho e da comunidade?
+# Vida digital
+Gastei tempo excessivo com celular, jogos, redes sociais ou séries, descuidando de Deus e dos meus deveres?
+Usei a internet para ofender, discutir com raiva, expor ou humilhar alguém?
+Dei maus exemplos de fé ou de comportamento nas redes sociais?
+# Perdão e reparação
+Perdoei de coração quem me ofendeu?
+Pedi perdão a quem eu ofendi?
+Estou disposto a reparar os danos que causei, devolvendo, corrigindo ou pedindo desculpas?
+</script>
 <div id="painel" role="dialog" aria-label="Personalizar o site" hidden>
   <h3>Personalizar</h3>
   <p class="rot">Fundo</p>
@@ -526,7 +627,7 @@ article .ouvir span{position:absolute;width:1px;height:1px;overflow:hidden;clip:
   <p class="rot">Fonte</p>
   <div><button type="button" class="chip" data-k="letra" data-v="padrao">Cursiva</button><button type="button" class="chip" data-k="letra" data-v="simples">Simples</button><button type="button" class="chip" data-k="letra" data-v="classica">Clássica</button><button type="button" class="chip" data-k="letra" data-v="elegante">Elegante</button><button type="button" class="chip" data-k="letra" data-v="legivel">Legível</button><button type="button" class="chip" data-k="letra" data-v="manuscrita">Manuscrita</button></div>
   <p class="rot">Lojinha de contas do terço</p>
-  <p class="nota">Cada mistério concluído vale 1 ponto. Ao completar os cinco mistérios do conjunto, você ganha mais 5 pontos. Aos sábados, os quatro conjuntos ficam livres e, ao completar o Rosário inteiro, você ganha mais 10 pontos. As formas são grátis, e as cores você conquista com pontos. Os pontos nunca se perdem e ficam só neste aparelho. O que importa é rezar.</p>
+  <p class="nota">Cada dezena (10 Ave-Marias contadas, com pelo menos 1 minuto) vale 1 ponto. Completar os 5 mistérios do dia vale mais 5. Nos dias comuns, valem só os mistérios do dia. Aos sábados vale qualquer mistério, e rezar o rosário inteiro (os 4 conjuntos) vale mais 10. As formas são grátis e as cores se conquistam com pontos. Os pontos ficam só neste aparelho e nunca se perdem.</p>
   <div id="loja"></div>
 </div>
 <div id="aviso" role="status" aria-live="polite"></div>
@@ -614,8 +715,8 @@ if('serviceWorker' in navigator)addEventListener('load',function(){navigator.ser
 /* continuar de onde parou */
 var KC='fm-c',cl=$('cont');
 function chave(a){var sc=a.closest('section');return sc.id+':'+artigos('#'+sc.id).indexOf(a)}
-function lerC(){try{var o=JSON.parse(S.get(KC));if(o&&o.d===dia())return o}catch(e){}return{t:Date.now(),d:dia(),u:null,v:{}}}
-function salva(a){var o=lerC();o.t=Date.now();o.d=dia();o.u=chave(a);o.v[o.u]=cont.get(a)||0;S.set(KC,JSON.stringify(o));mostraCont(o);if(o.v[o.u]>=10&&window.fmGanha)window.fmGanha(o.u)}
+function lerC(){try{var o=JSON.parse(S.get(KC));if(o&&Date.now()-o.t<43200000)return o}catch(e){}return{t:Date.now(),u:null,v:{}}}
+function salva(a){var o=lerC(),n=cont.get(a)||0;o.t=Date.now();o.u=chave(a);o.v[o.u]=n;o.f=o.f||{};if(n===1)o.f[o.u]=Date.now();S.set(KC,JSON.stringify(o));mostraCont(o);if(n>=10&&window.fmGanha)window.fmGanha(o.u,Date.now()-(o.f[o.u]||Date.now()))}
 function mostraCont(o){if(!o.u){cl.hidden=true;return}var p=o.u.split(':'),lista=artigos('#'+p[0]),i=+p[1],n=o.v[o.u]||0;
 if(n>=10){if(i+1>=lista.length){cl.hidden=true;return}i++;n=0}
 var a=lista[i];cl.textContent='Continuar de onde parou: '+(i+1)+'º Mistério '+SING[p[0]]+(n?' ('+n+' de 10)':'');cl.hidden=false;
@@ -664,10 +765,11 @@ function aplica(k,v){var a=KEYS[k];if(v===a[2]){delete R.dataset[a[1]];S.set(a[0
 function marca(){pn.querySelectorAll('[data-k]').forEach(function(c){var a=KEYS[c.dataset.k];c.setAttribute('aria-pressed',(R.dataset[a[1]]||a[2])===c.dataset.v)})}
 pn.addEventListener('click',function(e){var c=e.target.closest('[data-k]');if(c)aplica(c.dataset.k,c.dataset.v)});marca();
 /* pontos e lojinha de contas */
-
-var CORES={padrao:['Padrão',100,''],perola:['Pérola',10,'radial-gradient(circle at 35% 30%,#fff,#e8e4dc 55%,#c9c1b2)'],madeira:['Madeira',20,'radial-gradient(circle at 35% 30%,#d9a56e,#9a6234 60%,#6b3f1d)'],ebano:['Ébano',30,'radial-gradient(circle at 35% 30%,#8a8a8a,#2b2b2b 55%,#050505)'],cristal:['Cristal',40,'radial-gradient(circle at 35% 30%,#fff,#bfe6ff 55%,#6fb9ee)'],rosa:['Rosa',50,'radial-gradient(circle at 35% 30%,#fff,#f6c6d4 55%,#d98aa6)'],prata:['Prata',70,'radial-gradient(circle at 35% 30%,#fff,#d9dde2 55%,#8c949e)'],turquesa:['Turquesa',80,'radial-gradient(circle at 35% 30%,#e6fffb,#5fd6c9 55%,#1f8f86)'],ambar:['Âmbar',90,'radial-gradient(circle at 35% 30%,#ffe9b0,#f0a82e 55%,#a35f0a)'],coral:['Coral',100,'radial-gradient(circle at 35% 30%,#ffe3dc,#f48a77 55%,#c0432f)'],esmeralda:['Esmeralda',150,'radial-gradient(circle at 35% 30%,#d9ffe8,#3fbf7b 55%,#12683b)'],ametista:['Ametista',200,'radial-gradient(circle at 35% 30%,#f1e4ff,#a77bdc 55%,#5d3a96)'],ouro:['Ouro',120,'radial-gradient(circle at 35% 30%,#fff3b0,#e0b84f 55%,#a77c1d)'],rubi:['Rubi',300,'radial-gradient(circle at 35% 30%,#ffd6dc,#d6304a 55%,#7a0f23)'],safira:['Safira',350,'radial-gradient(circle at 35% 30%,#d3e5ff,#4d7fd1 55%,#1b3a8a)']}, FORMAS={circulo:['●','Círculo',''],quadrado:['■','Quadrado',''],losango:['◆','Losango','polygon(50% 0,100% 50%,50% 100%,0 50%)'],coracao:['♥','Coração','polygon(50% 90%,10% 50%,5% 30%,15% 12%,32% 8%,50% 25%,68% 8%,85% 12%,95% 30%,90% 50%)'],estrela:['★','Estrela','polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)'],cruz:['✚','Cruz','polygon(35% 0,65% 0,65% 35%,100% 35%,100% 65%,65% 65%,65% 100%,35% 100%,35% 65%,0 65%,0 35%,35% 35%)']}; function lerP(){try{var o=JSON.parse(S.get('fm-p'));if(o&&typeof o.p==='number'&&o.own&&CONTAS_OK(o)){if(!FORMAS[o.fo])o.fo='circulo';return o}}catch(e){}return{p:400,own:['padrao'],sel:'padrao',fo:'circulo',d:'',g:[]}} function CONTAS_OK(o){return !!CORES[o.sel]}
-var lerP()
-function lerP(){try{var o=JSON.parse(S.get('fm-p'));if(o&&typeof o.p==='number'&&o.own&&CONTAS_OK(o)){if(!FORMAS[o.fo])o.fo='circulo';return o}}catch(e){}return{p:100,own:['padrao'],sel:'padrao',fo:'circulo',d:'',g:[]}}
+var CORES={padrao:['Padrão',0,''],perola:['Pérola',30,'radial-gradient(circle at 35% 30%,#fff,#e8e4dc 55%,#c9c1b2)'],madeira:['Madeira',50,'radial-gradient(circle at 35% 30%,#d9a56e,#9a6234 60%,#6b3f1d)'],ebano:['Ébano',70,'radial-gradient(circle at 35% 30%,#8a8a8a,#2b2b2b 55%,#050505)'],cristal:['Cristal',90,'radial-gradient(circle at 35% 30%,#fff,#bfe6ff 55%,#6fb9ee)'],rosa:['Rosa',110,'radial-gradient(circle at 35% 30%,#fff,#f6c6d4 55%,#d98aa6)'],prata:['Prata',130,'radial-gradient(circle at 35% 30%,#fff,#d9dde2 55%,#8c949e)'],turquesa:['Turquesa',150,'radial-gradient(circle at 35% 30%,#e6fffb,#5fd6c9 55%,#1f8f86)'],ambar:['Âmbar',170,'radial-gradient(circle at 35% 30%,#ffe9b0,#f0a82e 55%,#a35f0a)'],coral:['Coral',190,'radial-gradient(circle at 35% 30%,#ffe3dc,#f48a77 55%,#c0432f)'],esmeralda:['Esmeralda',210,'radial-gradient(circle at 35% 30%,#d9ffe8,#3fbf7b 55%,#12683b)'],ametista:['Ametista',230,'radial-gradient(circle at 35% 30%,#f1e4ff,#a77bdc 55%,#5d3a96)'],ouro:['Ouro',250,'radial-gradient(circle at 35% 30%,#fff3b0,#e0b84f 55%,#a77c1d)'],rubi:['Rubi',270,'radial-gradient(circle at 35% 30%,#ffd6dc,#d6304a 55%,#7a0f23)'],safira:['Safira',290,'radial-gradient(circle at 35% 30%,#d3e5ff,#4d7fd1 55%,#1b3a8a)']},
+FORMAS={circulo:['●','Círculo',''],quadrado:['■','Quadrado',''],losango:['◆','Losango','polygon(50% 0,100% 50%,50% 100%,0 50%)'],coracao:['♥','Coração','polygon(50% 90%,10% 50%,5% 30%,15% 12%,32% 8%,50% 25%,68% 8%,85% 12%,95% 30%,90% 50%)'],estrela:['★','Estrela','polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)'],cruz:['✚','Cruz','polygon(35% 0,65% 0,65% 35%,100% 35%,100% 65%,65% 65%,65% 100%,35% 100%,35% 65%,0 65%,0 35%,35% 35%)']};
+function lerP(){try{var o=JSON.parse(S.get('fm-p'));if(o&&typeof o.p==='10'&&o.own&&CONTAS_OK(o)){if(!FORMAS[o.fo])o.fo='circulo';if(!o.b)o.b=[];return o}}catch(e){}return{p:0,own:['padrao'],sel:'padrao',fo:'circulo',d:'',g:[],b:[]}}
+function CONTAS_OK(o){return !!CORES[o.sel]}
+var P=lerP();
 function salvaP(){S.set('fm-p',JSON.stringify(P))}
 function usaConta(){if(P.sel==='padrao'){delete R.dataset.contas;R.style.removeProperty('--conta')}else{R.dataset.contas=P.sel;R.style.setProperty('--conta',CORES[P.sel][2])}}
 function usaForma(){var pol=FORMAS[P.fo][2];if(P.fo==='circulo'){delete R.dataset.forma;R.style.removeProperty('--forma')}else{R.dataset.forma=P.fo;if(pol)R.style.setProperty('--forma',pol);else R.style.removeProperty('--forma')}}
@@ -683,13 +785,17 @@ $('loja').addEventListener('click',function(e){var b=e.target.closest('[data-loj
 if(a==='forma'){P.fo=k}else{if(a==='comprar'){var pr=CORES[k][1];if(P.p<pr||P.own.indexOf(k)>-1)return;P.p-=pr;P.own.push(k);aviso('Contas '+CORES[k][0].toLowerCase()+' conquistadas')}P.sel=k}
 salvaP();usaConta();usaForma();desenhaLoja()});
 function dia(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
-function sabado(){return new Date().getDay()===6}
-function conjuntoDoDia(){var mapa={0:'gloriosos',1:'gozosos',2:'dolorosos',3:'gloriosos',4:'luminosos',5:'dolorosos',6:'gozosos'};return mapa[new Date().getDay()]}
-function normalizaPontos(){if(!P||typeof P.p!=='number')P=lerP();if(!Array.isArray(P.g))P.g=[];if(P.d!==dia()){P.d=dia();P.g=[];P.t=[];P.r=false}}
-window.fmGanha=function(k){normalizaPontos();var set=k.split(':')[0];if(!sabado()&&set!==conjuntoDoDia())return;if(P.g.indexOf(k)>-1)return;P.g.push(k);var n=P.g.filter(function(x){return x.indexOf(set+':')===0}).length;P.p+=1;var mensagem='+1 ponto: terço completo';if(n===5){P.t=P.t||[];if(P.t.indexOf(set)<0){P.t.push(set);P.p+=5;mensagem='+5 pontos: terço completo'}}if(sabado()){var total=['gozosos','luminosos','dolorosos','gloriosos'].every(function(x){return P.g.filter(function(k){return k.indexOf(x+':')===0}).length>=5});if(total&&!P.r){P.r=true;P.p+=10;mensagem='+10 pontos: rosário completo'}}salvaP();desenhaLoja();aviso(mensagem)};
+var NOMES={gozosos:'Gozosos',luminosos:'Luminosos',dolorosos:'Dolorosos',gloriosos:'Gloriosos'};
+window.fmGanha=function(k,ms){var set=k.split(':')[0],sab=new Date().getDay()===6,hs=window.abaHoje;
+if(P.d!==dia()){P.d=dia();P.g=[];P.b=[]}
+if(P.g.indexOf(k)>-1)return;
+if(!sab&&set!==hs){aviso('Hoje os pontos valem só para os Mistérios '+NOMES[hs]+'.');return}
+if(!(ms>=60000)){aviso('Reze com calma: cada dezena precisa de pelo menos 1 minuto para valer ponto.');return}
+P.g.push(k);var g=1,msg='+1 ponto',n=P.g.filter(function(x){return x.indexOf(set+':')===0}).length;
+if(n===5&&P.b.indexOf('t:'+set)<0){P.b.push('t:'+set);g+=5;msg='+'+g+' pontos: terço completo'}
+if(sab&&P.g.length>=20&&P.b.indexOf('r')<0){P.b.push('r');g+=10;msg='+'+g+' pontos: rosário completo'}
+P.p+=g;salvaP();desenhaLoja();aviso(msg)};
 usaConta();usaForma();desenhaLoja();
-/* exame de consciência */
-var ac=$('acusacao'),ca=$('copiar-acusacao'),ea=$('exportar-acusacao'),exa=$('exame-aviso');if(ac){ac.value=S.get('fm-exame')||'';ac.addEventListener('input',function(){S.set('fm-exame',ac.value)});function exameAviso(t){if(exa){exa.textContent=t;setTimeout(function(){exa.textContent=''},2500)}}if(ca)ca.addEventListener('click',function(){if(!ac.value.trim()){exameAviso('Escreva primeiro a sua acusação.');return}if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(ac.value).then(function(){exameAviso('Acusação copiada.')}).catch(function(){exameAviso('Não foi possível copiar automaticamente.')});else{ac.select();document.execCommand('copy');exameAviso('Acusação copiada.')}});if(ea)ea.addEventListener('click',function(){if(!ac.value.trim()){exameAviso('Escreva primeiro a sua acusação.');return}var b=new Blob([ac.value+'\n'],{type:'text/plain;charset=utf-8'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='acusacao-para-confissao.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},1000);exameAviso('Arquivo exportado.')})}
 /* menu lateral */
 var mn=$('menu'),fd=$('fundo'),hb=$('hb'),ult=null;
 function abreMenu(){abrePn(false);ult=document.activeElement;mn.hidden=false;fd.hidden=false;document.body.style.overflow='hidden';mn.focus()}
@@ -697,6 +803,20 @@ function fechaMenu(){if(mn.hidden)return;mn.hidden=true;fd.hidden=true;document.
 hb.addEventListener('click',abreMenu);$('mx').addEventListener('click',fechaMenu);fd.addEventListener('click',fechaMenu);
 mn.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){fechaMenu();var o=$('opcionais');if(o){var d=o.querySelector('details');if(d)d.open=true}})});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){abrePn(false);fechaMenu()}});
+/* exame de consciência: nada é salvo, só copiado ou exportado por quem quiser */
+var EX=$('exame');
+(function(){var g=null;$('exame-dados').textContent.split('\n').forEach(function(l){l=l.trim();if(!l)return;
+if(l.charAt(0)==='#'){g=document.createElement('details');var s=document.createElement('summary');s.textContent=l.slice(1).trim();g.appendChild(s);EX.appendChild(g)}
+else if(g){var lb=document.createElement('label'),i=document.createElement('input');lb.className='q';i.type='checkbox';lb.appendChild(i);lb.appendChild(document.createTextNode(' '+l));g.appendChild(lb)}})})();
+function compila(){var t='EXAME DE CONSCIÊNCIA\nData: '+new Date().toLocaleDateString('pt-BR')+'\n(Documento pessoal. Apague depois da confissão.)\n',m='';
+EX.querySelectorAll('details').forEach(function(d){var it=[].slice.call(d.querySelectorAll('input:checked')).map(function(i){return '- '+i.parentNode.textContent.trim()});if(it.length)m+='\n['+d.querySelector('summary').textContent+']\n'+it.join('\n')+'\n'});
+if(m)t+='\nITENS MARCADOS'+m;var o=$('pec').value.trim();if(o)t+='\nPECADOS E OBSERVAÇÕES\n'+o+'\n';return t}
+$('ex-c').addEventListener('click',function(){var t=compila();
+function ok(){aviso('Texto copiado')}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,function(){fallback(t)})}else fallback(t);
+function fallback(x){var a=document.createElement('textarea');a.value=x;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');ok()}catch(e){aviso('Não foi possível copiar')}a.remove()}});
+$('ex-b').addEventListener('click',function(){var u=URL.createObjectURL(new Blob([compila()],{type:'text/plain;charset=utf-8'})),a=document.createElement('a');a.href=u;a.download='exame-de-consciencia.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000);aviso('Arquivo exportado')});
+$('ex-l').addEventListener('click',function(){EX.querySelectorAll('input').forEach(function(i){i.checked=false});$('pec').value='';aviso('Exame limpo')});
 /* novenas do mês: datas e textos da Minha Biblioteca Católica */
 var MES=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'],
 NV='12-23>12-31|Santa Maria, Mãe de Deus|\n12-28>1-5|Epifania do Senhor|novena-da-epifania-do-senhor\n1-8>1-16|Santo Antão|\n1-15>1-23|São Francisco de Sales|\n1-19>1-27|Santo Tomás de Aquino|\n1-22>1-30|São João Bosco|dom-bosco-reze-sua-novena\n1-24>2-1|Nossa Senhora das Candeias (Purificação)|\n1-25>2-2|São Brás|\n2-2>2-10|Nossa Senhora de Lourdes|novena-nossa-senhora-de-lourdes\n3-8>3-16|São Patrício|\n3-10>3-18|São José|novena-de-sao-jose\n3-16>3-24|Anunciação do Senhor|\n4-2>4-10|Santa Gemma Galgani|novena-a-santa-gemma-galgani\n4-14>4-23|São Jorge|\n4-19>4-27|Santa Gianna Beretta Molla|novena-a-santa-gianna\n4-19>4-27|São Luís de Montfort|\n4-20>4-28|Santa Catarina de Sena|novena-a-santa-catarina-de-sena\n4-23>5-1|Santo Atanásio|\n5-4>5-12|Nossa Senhora de Fátima|novena-a-nossa-senhora-de-fatima\n5-11>5-20|Santa Rita de Cássia|novena-a-santa-rita-de-cassia\n5-17>5-25|São Filipe Néri|novena-a-sao-filipe-neri\n5-31>6-8|São José de Anchieta|\n5-31>6-12|Santo Antônio de Pádua (trezena)|\n6-12>6-20|São Luís Gonzaga|\n6-13>6-21|São Thomas More|\n6-15>6-23|São João Batista|\n6-18>6-26|Nossa Senhora do Perpétuo Socorro|\n6-20>6-28|São Pedro e São Paulo|\n7-2>7-10|São Bento|\n7-3>7-11|São Luís e Santa Zélia Martin|\n7-5>7-13|São Camilo de Lellis|\n7-7>7-15|Nossa Senhora do Carmo|novena-a-nossa-senhora-do-carmo\n7-13>7-21|Santa Maria Madalena|\n7-17>7-25|Santa Ana e São Joaquim|\n7-22>7-30|Santo Inácio de Loyola|\n7-23>7-31|Santo Afonso Maria de Ligório|novena-a-santo-afonso-de-ligorio\n7-26>8-3|São João Maria Vianney|\n8-1>8-9|Santa Filomena|\n8-2>8-10|Santa Clara|\n8-5>8-13|São Maximiliano Maria Kolbe|novena-a-sao-maximiliano-kolbe\n8-6>8-14|Assunção de Nossa Senhora|\n8-11>8-19|São Bernardo|\n8-16>8-24|São Luís IX, Rei de França|\n8-18>8-26|Santa Mônica|novena-a-santa-monica\n8-19>8-27|Santo Agostinho|\n9-5>9-13|Exaltação da Santa Cruz|\n9-8>9-14|Setenário das Dores de Nossa Senhora|\n9-8>9-16|Santa Hildegarda de Bingen|\n9-14>9-22|São Pio de Pietrelcina|novena-a-sao-padre-pio\n9-18>9-26|São Vicente de Paulo|\n9-20>9-28|Santos Arcanjos|\n9-22>9-30|Novena das Rosas (Santa Teresinha)|novena-das-rosas-santa-teresinha\n9-23>10-1|Santos Anjos da Guarda|novena-ao-anjo-da-guarda\n9-25>10-3|São Francisco de Assis|\n9-26>10-4|Santa Faustina|\n9-28>10-6|Nossa Senhora do Rosário|\n10-3>10-11|Nossa Senhora Aparecida|novena-a-nossa-senhora-aparecida\n10-6>10-14|Santa Teresa de Jesus|\n10-7>10-15|Santa Margarida Maria Alacoque|\n10-7>10-15|São Geraldo Majela|\n10-8>10-16|Santo Inácio de Antioquia|\n10-10>10-18|São Pedro de Alcântara|\n10-13>10-21|São João Paulo II|novena-a-sao-joao-paulo\n10-16>10-24|Santo Antônio Galvão (Frei Galvão)|novena-de-frei-galvao\n10-23>10-31|Todos os Santos|novena-de-todos-os-santos\n10-24>11-1|Novena das Almas|\n11-11>11-19|Cristo Rei|\n11-12>11-20|Apresentação de Nossa Senhora|\n11-16>11-24|Santa Catarina de Alexandria|santa-catarina-de-alexandria-oracao\n11-18>11-26|Nossa Senhora das Graças|novena-a-nossa-senhora-das-gracas\n11-29>12-7|Imaculada Conceição|novena-da-imaculada-conceicao\n12-3>12-11|Nossa Senhora de Guadalupe|novena-de-nossa-senhora-de-guadalupe\n12-4>12-12|Santa Luzia|santa-luzia-oracoes-e-novena\n12-5>12-13|São João da Cruz|\n12-16>12-24|Natal (São Leão Magno)|novena-de-natal';
