@@ -665,25 +665,8 @@ function marca(){pn.querySelectorAll('[data-k]').forEach(function(c){var a=KEYS[
 pn.addEventListener('click',function(e){var c=e.target.closest('[data-k]');if(c)aplica(c.dataset.k,c.dataset.v)});marca();
 /* pontos e lojinha de contas */
 
-function lerP(){
-  try {
-    var o = JSON.parse(S.get('fm-p'));
 
-    if (o && typeof o.p === 'number' && o.own && CONTAS_OK(o)) {
-      if (!FORMAS[o.fo]) o.fo = 'circulo';
-      return o;
-    }
-  } catch(e) {}
-
-  return {
-    p: 100,
-    own: ['padrao'],
-    sel: 'padrao',
-    fo: 'circulo',
-    d: '',
-    g: []
-  };
-}
+function lerP(){try{var o=JSON.parse(S.get('fm-p'));if(o&&typeof o.p==='number'&&o.own&&CONTAS_OK(o)){if(!FORMAS[o.fo])o.fo='circulo';return o}}catch(e){}return{p:100,own:['padrao'],sel:'padrao',fo:'circulo',d:'',g:[]}}
 var P=lerP();
 function salvaP(){S.set('fm-p',JSON.stringify(P))}
 function usaConta(){if(P.sel==='padrao'){delete R.dataset.contas;R.style.removeProperty('--conta')}else{R.dataset.contas=P.sel;R.style.setProperty('--conta',CORES[P.sel][2])}}
