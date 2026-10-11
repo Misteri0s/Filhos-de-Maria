@@ -634,8 +634,8 @@ article>b{box-shadow:none!important;background:#fff!important;border-color:#000!
   <details><summary>Quanto tempo leva?</summary><p>Um terço costuma levar de 20 a 30 minutos, conforme o ritmo de cada um.</p></details>
   <details><summary>E se eu me distrair durante a oração?</summary><p>Acontece com todos. Sem se culpar, volte com calma à oração e ofereça a distração a Deus.</p></details>
   <details><summary>O que é uma novena?</summary><p>São nove dias seguidos de oração, para pedir uma graça ou preparar uma festa. Lembra os dias em que os apóstolos rezaram com Maria, depois da Ascensão de Jesus.</p></details>
-  <details><summary>Com que frequência devo me confessar?</summary><p>A Igreja pede a confissão ao menos uma vez por ano, e sempre que houver pecado grave antes de comungar. Muitos fiéis se confessam todo mês. Para se preparar, use o exame de consciência deste menu.</p></details>
-  <details><summary>Posso comungar sem me confessar?</summary><p>Quem tem consciência de pecado grave deve se confessar antes de comungar. Em caso de dúvida, converse com um padre.</p></details>
+  <details><summary>Com que frequência devo me confessar?</summary><p>A Igreja pede a confissão ao menos uma vez por ano, e sempre que houver pecado grave na consciência. Muitos fiéis se confessam todo mês. Para se preparar, use o exame de consciência deste menu.</p></details>
+  <details><summary>Posso comungar sem me confessar?</summary><p>Quem tem consciência de pecado grave na consciência, não deve em hipótese alguma ir para a fila da comunhão. Confesse-se antes de comungar. Em caso de dúvida, converse com um padre.</p></details>
   <details><summary>Estas respostas substituem um padre?</summary><p>Não. São orientações gerais. Para dúvidas pessoais, procure um padre.</p></details>
 </details>
 </aside>
@@ -757,15 +757,7 @@ Perdoei de coração quem me ofendeu?
 Pedi perdão a quem eu ofendi?
 Estou disposto a reparar os danos que causei, devolvendo, corrigindo ou pedindo desculpas?
 </script>
-</div>
-<section id="quiz-app" role="dialog" aria-modal="true" aria-labelledby="quiz-title" hidden><div class="quiz-wrap">
-<div class="quiz-head"><div><h2 id="quiz-title">Quiz católico</h2><p class="quiz-muted">Bíblia e fé católica · perguntas novas a cada semana</p></div><button type="button" class="chip" id="quiz-close">Fechar</button></div>
-<div class="quiz-grid">
-<section class="quiz-card" id="quiz-solo"><h3>Quiz da semana</h3><p id="quiz-week-label" class="quiz-muted"></p><div id="quiz-daily-message" role="status"></div><div class="quiz-actions"><button type="button" class="chip" id="quiz-start">Começar</button></div>
-<div id="quiz-play" hidden><div class="quiz-progress"><span id="quiz-progress-bar"></span></div><p class="quiz-muted"><span id="quiz-count"></span> · <span id="quiz-clock"></span> s</p><h3 id="quiz-question"></h3><div id="quiz-options" class="quiz-answers"></div><button type="button" class="chip" id="quiz-confirm">Confirmar resposta</button><p id="quiz-feedback" role="status"></p><div id="quiz-next-wrap" class="quiz-actions" hidden><button type="button" class="chip" id="quiz-next">Próxima</button></div></div></section>
-<section class="quiz-card" id="online-card"><h3>Sala online</h3><p class="quiz-muted">Crie uma sala e convide o grupo pelo código. As respostas e os pontos são conferidos no servidor durante a partida.</p><label>Seu nome <input id="room-name" maxlength="24" autocomplete="nickname" placeholder="Nome para a partida"></label><div class="quiz-actions"><button type="button" class="chip" id="room-create">Criar sala</button></div><label>Código da sala <input id="room-code-input" maxlength="6" autocomplete="off" placeholder="ABC123"></label><div class="quiz-actions"><button type="button" class="chip" id="room-join">Entrar com código</button></div><p id="room-status" class="quiz-muted" role="status" aria-live="polite"></p>
-<div id="room-panel" hidden><p>Convide as pessoas com este código:</p><div id="room-code-display" class="quiz-room-code"></div><div id="room-host-settings" hidden><label>Tempo por pergunta <select id="room-seconds"><option value="10">10 segundos</option><option value="15">15 segundos</option><option value="20" selected>20 segundos</option><option value="30">30 segundos</option><option value="45">45 segundos</option></select></label><label>Formato <select id="room-format"><option value="normal">Alternativas A–D</option><option value="vf">Verdadeiro ou falso</option></select></label><button type="button" class="chip" id="room-save-settings">Salvar opções</button><button type="button" class="chip" id="room-start">Iniciar partida</button></div><h4>Sala de espera</h4><ul id="room-players" class="quiz-lobby"></ul><div id="room-question-box" hidden><p class="quiz-muted"><span id="room-count"></span> · <span id="room-clock"></span> s restantes</p><div class="quiz-progress"><span id="room-progress-bar"></span></div><h3 id="room-question"></h3><div id="room-options" class="quiz-answers"></div><button type="button" class="chip" id="room-confirm">Confirmar resposta</button><p id="room-feedback" role="status"></p></div><p id="room-results" class="quiz-score"></p><button type="button" class="chip" id="room-leave">Sair da sala</button></div>
-</section></div><p class="quiz-muted">No quiz individual, o site registra apenas que você já jogou hoje neste aparelho; não guarda suas respostas nem sua pontuação.</p>
+<script> 
 </div></section>
 <div id="aviso" role="status" aria-live="polite"></div>
 <script>
@@ -933,35 +925,7 @@ P.p+=g;salvaP();desenhaLoja();if(msg.indexOf('terço')>-1||msg.indexOf('rosário
 window.fmUndo=function(k,oldN,newN){if(P.d!==dia())return;P.t=P.t||{};P.b=P.b||[];if((P.t[k]||0)!==oldN)return;var set=k.split(':')[0],retirar=oldN===10?10:1;P.p=Math.max(0,P.p-retirar);P.t[k]=newN;var feitas=Object.keys(P.t).filter(function(x){return x.indexOf(set+':')===0&&P.t[x]>=10}).length;if(feitas<5&&P.b.indexOf('t:'+set)>-1){P.b.splice(P.b.indexOf('t:'+set),1);P.p=Math.max(0,P.p-5);retirar+=5}var tot=Object.keys(P.t).filter(function(x){return P.t[x]>=10}).length;if(tot<20&&P.b.indexOf('r')>-1){P.b.splice(P.b.indexOf('r'),1);P.p=Math.max(0,P.p-10);retirar+=10}salvaP();desenhaLoja();aviso('Contagem corrigida'+(retirar?' · '+retirar+' ponto(s) devolvido(s)':''),1800)};
 usaConta();usaForma();usaTextura();desenhaLoja();
 /* conta, sincronização e backup */
-var ct={u:null,tmr:null},stt=$('ct-st');
-function msg(t){stt.textContent=t||''}
-function on(){msg('Criação indisponível por enquanto.')}
-function api(m,u,c){return fetch('/api/'+u,{method:m,credentials:'same-origin',headers:{'Content-Type':'application/json'},body:c?JSON.stringify(c):undefined}).then(function(r){if((r.headers.get('content-type')||'').indexOf('json')<0)throw new Error('off');return r.json().then(function(j){j._s=r.status;return j})})}
-function dadosLocais(){return{v:1,p:P}}
-function funde(a){if(!a||!a.p||typeof a.p.p!=='number')return false;var b=a.p,base=b.p>P.p?b:P,r=JSON.parse(JSON.stringify(base)),own=(P.own||[]).concat(b.own||[]).filter(function(x,i,l){return CORES[x]&&l.indexOf(x)===i});
-r.own=own.length?own:['padrao'];r.p=Math.max(P.p,b.p);if(!CORES[r.sel]||r.own.indexOf(r.sel)<0)r.sel='padrao';if(!FORMAS[r.fo])r.fo='circulo';var tox=(P.tox||['lisa']).concat(b.tox||[]).filter(function(x,i,l){return TEXTURAS[x]&&l.indexOf(x)===i});r.tox=tox.length?tox:['lisa'];if(!TEXTURAS[r.tx]||r.tox.indexOf(r.tx)<0)r.tx='lisa';r.t=r.t||{};r.b=r.b||[];P=r;salvaP(true);
-usaConta();usaForma();usaTextura();desenhaLoja();return true}
-function ctUI(){$('ct-fora').hidden=!!ct.u;$('ct-dentro').hidden=!ct.u;$('ct-nome').textContent=ct.u||''}
-function agenda(){if(!ct.u)return;clearTimeout(ct.tmr);ct.tmr=setTimeout(envia,3000)}
-function envia(){if(!ct.u)return Promise.resolve();return api('PUT','progresso',{dados:dadosLocais()}).then(function(j){if(j._s===401){ct.u=null;ctUI();msg('Sua sessão expirou. Entre de novo.')}}).catch(function(){})}
-function copia(x,ok){function f(){var a=document.createElement('textarea');a.value=x;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');aviso(ok)}catch(e){aviso('Não foi possível copiar')}a.remove()}
-if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(x).then(function(){aviso(ok)},f);else f()}
-$('ct-f1').addEventListener('submit',function(e){e.preventDefault();var u=$('ct-u').value.trim().toLowerCase();msg('Criando a conta...');
-api('POST','registrar',{usuario:u}).then(function(j){if(j._s!==201){msg(j.erro||'Não foi possível criar a conta.');return}ct.u=j.usuario;$('ct-senha').textContent=j.senha;$('ct-nova').hidden=false;ctUI();msg('Conta criada. Guarde a senha abaixo.');envia()}).catch(off)});
-$('ct-f2').addEventListener('submit',function(e){e.preventDefault();msg('Entrando...');
-api('POST','entrar',{usuario:$('ct-u2').value,senha:$('ct-s').value}).then(function(j){if(j._s!==200){msg(j.erro||'Não foi possível entrar.');return}ct.u=j.usuario;$('ct-s').value='';ctUI();msg('Conectado.');if(j.dados)funde(j.dados);envia()}).catch(off)});
-$('ct-cop').onclick=function(){copia($('ct-senha').textContent,'Senha copiada')};
-$('ct-ok').onclick=function(){$('ct-nova').hidden=true;$('ct-senha').textContent=''};
-$('ct-salva').onclick=function(){envia().then(function(){msg('Progresso salvo.')})};
-$('ct-nsen').onclick=function(){if(!confirm('Gerar uma nova senha? A senha atual deixará de funcionar.'))return;api('POST','nova-senha',{}).then(function(j){if(j.senha){$('ct-senha').textContent=j.senha;$('ct-nova').hidden=false;msg('Nova senha gerada. Guarde-a.')}else msg(j.erro||'Erro.')}).catch(off)};
-$('ct-sair').onclick=function(){api('POST','sair',{}).then(function(){ct.u=null;ctUI();msg('Você saiu. Seus dados continuam neste aparelho.')}).catch(off)};
-$('ct-exc').onclick=function(){var s=prompt('Para excluir a conta, digite a sua senha:');if(!s)return;api('DELETE','conta',{senha:s}).then(function(j){if(j.ok){ct.u=null;ctUI();msg('Conta excluída. Os dados continuam neste aparelho.')}else msg(j.erro||'Não foi possível excluir.')}).catch(off)};
-function b64(o){var b=new TextEncoder().encode(JSON.stringify(o)),s='';b.forEach(function(x){s+=String.fromCharCode(x)});return btoa(s)}
-function deb64(t){var s=atob(t),a=new Uint8Array(s.length);for(var i=0;i<s.length;i++)a[i]=s.charCodeAt(i);return JSON.parse(new TextDecoder().decode(a))}
-$('bk-g').onclick=function(){$('bk').value='FM1.'+b64(dadosLocais())};
-$('bk-c').onclick=function(){if($('bk').value)copia($('bk').value,'Código copiado')};
-$('bk-r').onclick=function(){try{var t=$('bk').value.trim();if(t.indexOf('FM1.')!==0)throw 0;if(!funde(deb64(t.slice(4))))throw 0;$('bk').value='';aviso('Backup restaurado');agenda()}catch(e){aviso('Código de backup inválido')}};
-api('GET','eu').then(function(j){var ok=j._s===200;if(ok){ct.u=j.usuario;ctUI();if(j.dados)funde(j.dados)}if(window.fmSessao)window.fmSessao(ok)}).catch(function(){if(window.fmSessao)window.fmSessao(false)});
+.
 /* tempo litúrgico */
 function pascoa(y){var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mes=Math.floor((h+l-7*m+114)/31),dd=((h+l-7*m+114)%31)+1;return new Date(y,mes-1,dd,12)}
 function somaD(d,n){return new Date(d.getFullYear(),d.getMonth(),d.getDate()+n,12)}
