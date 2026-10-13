@@ -8,7 +8,7 @@ directory = "./public"
 [[d1_databases]]
 binding = "DB"
 database_name = "filhosdemaria"
-database_id = "REPLACE_WITH_YOUR_D1_ID"
+database_id = "6946bee7-2532-4d10-8e46-66eb4f1b8450"
 
 [[durable_objects.bindings]]
 name = "ROOMS"
@@ -17,8 +17,3 @@ class_name = "Room"
 [[migrations]]
 tag = "v1"
 new_classes = ["Room"]
-
-# ...
-[observability]
-enabled = false
-# ...
