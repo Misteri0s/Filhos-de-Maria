@@ -426,7 +426,7 @@ article>b{box-shadow:none!important;background:#fff!important;border-color:#000!
 .nov-dia{display:inline-block;margin-right:.4rem;padding:.1rem .6rem;font-weight:600;color:var(--bg);background:var(--acc);border-radius:999px}
 @media print{.fm-sobre,.ini-ajuda,.ini-share-m{display:none!important}}
 :root{--halo:transparent;--bg:#F3F5F9;--bg2:#F3F5F9;--panel:#FFFFFF;--ink:#17202E;--soft:#556377;--bd:#E0E5EE;--line:#CBD3E0;--acc:#25417A;--lnk:#2D5AB0;--glow:#4C79CF;--barra:rgba(255,255,255,.97)}
-:root[data-tema=escuro]{--bg:#000000;--bg2:#000000;--panel:#000000;--ink:#F5F7FA;--soft:#78716C;--bd:#1A1A1A;--line:#404040;--acc:#D4C5A9;--lnk:#D4C5A9;--glow:#C5A059;--barra:rgba(22,31,54,.97)}
+:root[data-tema=escuro]{--bg:#0D1422;--bg2:#0D1422;--panel:#161F36;--ink:#EBF0FA;--soft:#9EACC5;--bd:#27334F;--line:#36476C;--acc:#9CBAFF;--lnk:#9CBAFF;--glow:#6B97F0;--barra:rgba(22,31,54,.97)}
 :root[data-tema=azul]{--bg:#EAF3FA;--bg2:#EAF3FA;--panel:#FFFFFF;--ink:#122638;--soft:#4A6074;--bd:#D2E3EF;--line:#B7D0E2;--acc:#14507A;--lnk:#1B6496;--glow:#3C93C4;--barra:rgba(255,255,255,.97)}
 :root[data-tema=roxo]{--bg:#F2EFFA;--bg2:#F2EFFA;--panel:#FFFFFF;--ink:#251F36;--soft:#5E5775;--bd:#E1DAF1;--line:#CFC5E6;--acc:#4A3A8C;--lnk:#5B47A6;--glow:#8468C9;--barra:rgba(255,255,255,.97)}
 :root[data-tema=rosa]{--bg:#FBF0F3;--bg2:#FBF0F3;--panel:#FFFFFF;--ink:#33202A;--soft:#6A5058;--bd:#F0D8E0;--line:#E4BFCB;--acc:#8A2F55;--lnk:#A23B66;--glow:#CB6B8D;--barra:rgba(255,255,255,.97)}
@@ -454,7 +454,7 @@ section::before,section::after{display:none}
 .ini-tile{background:var(--panel);border:1px solid var(--bd);border-radius:16px;min-height:5rem;padding:.75rem .3rem;box-shadow:0 1px 2px rgba(20,30,60,.04);transition:transform .15s,border-color .15s,box-shadow .15s}
 .ini-tile:hover{transform:translateY(-2px);border-color:var(--glow);box-shadow:0 12px 24px -16px rgba(20,30,60,.35)}
 .ini-tile svg{box-sizing:content-box;width:22px;height:22px;padding:8px;border-radius:12px;background:color-mix(in srgb,var(--glow) 13%,transparent);stroke:var(--acc)}
-.ini-atalhos{display:grid;grid-template-columns:repeat(auto-fit,minmax(5.1rem,1fr));gap:.5rem;margin-top:.9rem;padding-top:0;border-top:0}
+.ini-atalhos{display:grid;grid-template-columns:repeat(auto-fit,minmax(4.3rem,1fr));gap:.5rem;margin-top:.9rem;padding-top:0;border-top:0}
 .ini-tile span,.ini-set,.ini-prog button{overflow-wrap:anywhere}
 .ini-tile{font-size:.78rem;font-weight:500;color:var(--ink)}
 .ini-ajuda button{color:var(--lnk)}
@@ -543,6 +543,11 @@ header .marca small{font-size:.8rem;color:var(--soft);letter-spacing:.04em}
 .fam-opcao[data-fam=facil]{font-family:Verdana,Tahoma,sans-serif}
 .fam-opcoes{display:flex;flex-wrap:wrap;gap:.5rem}
 .fam-previa{margin:.7rem 0 0;font-size:1.05rem;line-height:1.6;color:var(--ink)}
+.redes{display:flex;justify-content:center;align-items:flex-start;flex-wrap:wrap;gap:1.2rem 2.4rem;margin-bottom:1.4rem}
+.redes .grupo{margin-bottom:0;max-width:11.5rem;text-align:center}
+.redes .insta svg{stroke:#c13584;filter:drop-shadow(0 0 6px rgba(193,53,132,.4))}
+.redes .insta svg circle:last-child{fill:#c13584}
+footer .grupo small{display:block;font-size:.82rem;color:var(--soft)}
 </style>
 </head>
 <body>
@@ -722,7 +727,10 @@ header .marca small{font-size:.8rem;color:var(--soft);letter-spacing:.04em}
 </main>
 
 <footer>
-  <a class="grupo" href="https://chat.whatsapp.com/IBENVrGTmVwHqc5P4eUObX?s=cl&amp;p=a&amp;mlu=0" target="_blank" rel="noopener noreferrer" aria-label="Entrar no grupo do WhatsApp Filhos de Maria"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5C13.5 5 5 13.3 5 23.6c0 3.7 1.1 7.1 3 10L6 43l9.7-2.5c2.4 1.3 5.1 2 8.3 2 10.5 0 19-8.3 19-18.9S34.5 5 24 5Z"/><path d="M17.5 14.5l3 4.8-1.7 2.3c1.6 3.2 3.6 5.2 6.8 6.8l2.3-1.7 4.8 3-.9 2.6c-.5 1.3-1.8 2.1-3.2 1.9-8-1.2-13.4-6.6-14.6-14.6-.2-1.4.6-2.7 1.9-3.2l1.6-.9Z"/></svg><span>Entre no nosso grupo do WhatsApp</span></a>
+  <div class="redes">
+<a class="grupo" href="https://chat.whatsapp.com/IBENVrGTmVwHqc5P4eUObX?s=cl&amp;p=a&amp;mlu=0" target="_blank" rel="noopener noreferrer" aria-label="Entrar no grupo do WhatsApp Filhos de Maria"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5C13.5 5 5 13.3 5 23.6c0 3.7 1.1 7.1 3 10L6 43l9.7-2.5c2.4 1.3 5.1 2 8.3 2 10.5 0 19-8.3 19-18.9S34.5 5 24 5Z"/><path d="M17.5 14.5l3 4.8-1.7 2.3c1.6 3.2 3.6 5.2 6.8 6.8l2.3-1.7 4.8 3-.9 2.6c-.5 1.3-1.8 2.1-3.2 1.9-8-1.2-13.4-6.6-14.6-14.6-.2-1.4.6-2.7 1.9-3.2l1.6-.9Z"/></svg><span>Entre no nosso grupo do WhatsApp</span></a>
+<a class="grupo insta" href="https://www.instagram.com/filhossdemaria_gp/" target="_blank" rel="noopener noreferrer" aria-label="Seguir o Filhos de Maria no Instagram: @filhossdemaria_gp"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="8" width="32" height="32" rx="10"/><circle cx="24" cy="24" r="7.5"/><circle cx="33" cy="15" r="1.7"/></svg><span>Siga no Instagram<br><small>@filhossdemaria_gp</small></span></a>
+</div>
   <span>Filhos de Maria</span>
   <a href="https://filhossdemaria.com.br/">Filhossdemaria.com.br</a>
   <details class="priv"><summary>Privacidade</summary><p>O site não envia suas intenções nem o exame de consciência. A contagem de visitas usa o Cloudflare Web Analytics, pensado para não identificar pessoas, e uma fonte de letra é carregada do Google. O tema e o tamanho do texto escolhidos ficam salvos neste aparelho. Se criar uma conta, ficam salvos o usuário escolhido, uma versão embaralhada da senha gerada e seu progresso. O contador de acessos guarda apenas um número total; não registra IP, nome ou qualquer dado que identifique o visitante. Para não contar a mesma pessoa várias vezes no mesmo dia, o navegador guarda a data da última contagem. Ao ativar os comandos por voz, o navegador pode usar seu serviço de reconhecimento; o site não grava nem armazena áudio. Não há e-mail nem anúncios. Você pode excluir sua conta no menu.</p></details>
@@ -811,8 +819,33 @@ header .marca small{font-size:.8rem;color:var(--soft);letter-spacing:.04em}
     <p><b>Pelos doentes.</b> Senhor Jesus, que curastes os enfermos e consolastes os aflitos, olhai com bondade para os nossos doentes. Dai-lhes alívio na dor, esperança no coração e força para a caminhada, e sustentai os que cuidam deles. Por intercessão de Maria, saúde dos enfermos, nós vos pedimos. Amém.</p>
     <p><b>Pela família.</b> Senhor, abençoai a nossa família. Dai-nos paz em casa, união entre nós, perdão nas ofensas e confiança na vossa providência. Maria, Mãe da Sagrada Família, guardai os nossos lares. Amém.</p>
     <p><b>Pelos falecidos.</b> Dai-lhes, Senhor, o eterno descanso. E a luz perpétua os ilumine. Descansem em paz. Amém.</p></details>
-  
+    <p><b>Alma de Cristo.</b> Alma de Cristo, santificai-me. 
+                              Corpo de Cristo, salvai-me. 
+                              Sangue de Cristo, inebriai-me. 
+                              Água do lado de Cristo, lavai-me 
+                              Paixão de Cristo, confortai-me. 
+                              Ó bom Jesus, ouvi-me. 
+                              Dentro das Vossas chagas, escondei-me. 
+                              Não permitais que eu me separe de Vós. 
+                              Do inimigo maligno defendei-me. 
+                              Na hora da minha morte, chamai-me. 
+                              Mandai-me ir para Vós, 
+                              Para que Vos louve com os Vossos Santos 
+                              Pelos séculos dos séculos. Ámen.
+    <p><b>Todos os Santos.</b> Ó, Deus, Onipotente e Eterno,
+    Que pela força do teu Espírito Santo
+    Santificastes a vida de tantos fiéis que vos serviram ao longo de todos os tempos e em todos os lugares,
+    Testemunhando a vossa grandeza,
+    Amor e bondade, fazei que, pela poderosa intercessão de Todos os Santos,
+    Que vós bem conheceis, cheguemos nós também à graça da vida eterna junto de vós,
+    Na companhia de Vosso Santíssimo Filho Jesus Cristo, Nossa Senhora e Todos os Santos e Santas.
+    Todos os Santos de Deus, rogai por nós. Amém.
+ 
    
+  <details><summary>Nossa Senhora das Dores</summary>
+    <p>Ó Mãe das Dores, Rainha dos mártires, que tanto chorastes vosso Filho, morto para me salvar, alcançai-me uma verdadeira contrição dos meus pecados e uma sincera mudança de vida.</p>
+    <p>Mãe, pela dor que experimentastes quando vosso divino Filho, no meio de tantos tormentos, inclinando a cabeça expirou à vossa vista sobre a cruz, eu vos suplico que me alcanceis uma boa morte. Por piedade, ó advogada dos pecadores, não deixeis de amparar a minha alma na aflição e no combate da terrível passagem desta vida à eternidade.</p>
+    <p>E, como é possível que, neste momento, a palavra e a voz me faltem para pronunciar o vosso nome e o de Jesus, rogo-vos, desde já, a vós e a vosso divino Filho, que me socorrais nessa hora extrema, e assim direi: Jesus e Maria, entrego-vos a minha alma. Amém.</p></details>
 <h3 id="m-la">Ladainhas</h3>
   <details><summary>Ladainha do Sagrado Coração de Jesus</summary>
     <p class="lad">Senhor, tende piedade de nós.<br>Cristo, tende piedade de nós.<br>Senhor, tende piedade de nós.<br>Jesus Cristo, ouvi-nos.<br>Jesus Cristo, atendei-nos.<br>Deus Pai do Céu, tende piedade de nós.<br>Deus Filho, Redentor do mundo, tende piedade de nós.<br>Deus Espírito Santo, tende piedade de nós.<br>Santíssima Trindade, que sois um só Deus, tende piedade de nós.</p>
