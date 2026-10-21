@@ -17,3 +17,11 @@ class_name = "Room"
 [[migrations]]
 tag = "v1"
 new_classes = ["Room"]
+
+[[ratelimits]]
+name = "RATE_LIMITER"
+namespace_id = "1001"
+
+  [ratelimits.simple]
+  limit = 30
+  period = 60
