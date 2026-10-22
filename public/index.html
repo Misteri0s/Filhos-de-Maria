@@ -1190,7 +1190,30 @@ usaConta();usaForma();usaTextura();desenhaLoja();
 var ct={u:null,tmr:null},stt=$('ct-st');
 function msg(t){stt.textContent=t||''}
 function off(){msg('Contas indisponíveis neste endereço no momento.')}
-function api(m,u,c){return fetch('/api/'+u,{method:m,credentials:'same-origin',headers:{'Content-Type':'application/json'},body:c?JSON.stringify(c):undefined}).then(function(r){if((r.headers.get('content-type')||'').indexOf('json')<0)throw new Error('off');return r.json().then(function(j){j._s=r.status;return j})})}
+var _csrfToken=null,_csrfBuscando=null;
+function _buscarCsrf(){
+  if(_csrfToken)return Promise.resolve(_csrfToken);
+  if(_csrfBuscando)return _csrfBuscando;
+  _csrfBuscando=fetch('/api/csrf',{method:'GET',credentials:'same-origin'})
+    .then(function(r){return r.ok?r.json():null})
+    .then(function(j){if(j&&j.token)_csrfToken=j.token;return _csrfToken})
+    .catch(function(){return null})
+    .finally(function(){_csrfBuscando=null});
+  return _csrfBuscando;
+}
+function api(m,u,c){
+  var precisa=!['GET','HEAD','OPTIONS'].includes(m)&&(u==='progresso'||u==='nova-senha'||u==='conta');
+  var pronto=precisa?_buscarCsrf():Promise.resolve(null);
+  return pronto.then(function(tok){
+    var h={'Content-Type':'application/json'};
+    if(tok&&precisa)h['X-CSRF-Token']=tok;
+    return fetch('/api/'+u,{method:m,credentials:'same-origin',headers:h,body:c?JSON.stringify(c):undefined});
+  }).then(function(r){
+    if(r.status===403){_csrfToken=null;return r.json().then(function(j){j._s=403;return j});}
+    if((r.headers.get('content-type')||'').indexOf('json')<0)throw new Error('off');
+    return r.json().then(function(j){j._s=r.status;return j});
+  });
+}
 function dadosLocais(){return{v:1,p:P}}
 function funde(a){if(!a||!a.p||typeof a.p.p!=='number')return false;var b=a.p,base=b.p>P.p?b:P,r=JSON.parse(JSON.stringify(base)),own=(P.own||[]).concat(b.own||[]).filter(function(x,i,l){return CORES[x]&&l.indexOf(x)===i});
 r.own=own.length?own:['padrao'];r.p=Math.max(P.p,b.p);if(!CORES[r.sel]||r.own.indexOf(r.sel)<0)r.sel='padrao';if(!FORMAS[r.fo])r.fo='circulo';var tox=(P.tox||['lisa']).concat(b.tox||[]).filter(function(x,i,l){return TEXTURAS[x]&&l.indexOf(x)===i});r.tox=tox.length?tox:['lisa'];if(!TEXTURAS[r.tx]||r.tox.indexOf(r.tx)<0)r.tx='lisa';r.t=r.t||{};r.b=r.b||[];P=r;salvaP(true);
