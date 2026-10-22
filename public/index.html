@@ -426,7 +426,7 @@ article>b{box-shadow:none!important;background:#fff!important;border-color:#000!
 .nov-dia{display:inline-block;margin-right:.4rem;padding:.1rem .6rem;font-weight:600;color:var(--bg);background:var(--acc);border-radius:999px}
 @media print{.fm-sobre,.ini-ajuda,.ini-share-m{display:none!important}}
 :root{--halo:transparent;--bg:#F3F5F9;--bg2:#F3F5F9;--panel:#FFFFFF;--ink:#17202E;--soft:#556377;--bd:#E0E5EE;--line:#CBD3E0;--acc:#25417A;--lnk:#2D5AB0;--glow:#4C79CF;--barra:rgba(255,255,255,.97)}
-:root[data-tema=escuro]{--bg:#0D1422;--bg2:#0D1422;--panel:#161F36;--ink:#EBF0FA;--soft:#9EACC5;--bd:#27334F;--line:#36476C;--acc:#9CBAFF;--lnk:#9CBAFF;--glow:#6B97F0;--barra:rgba(22,31,54,.97)}
+:root[data-tema=escuro]{--bg:#000000;--bg2:#000000;--panel:#161F36;--ink:#EBF0FA;--soft:#9EACC5;--bd:#27334F;--line:#36476C;--acc:#9CBAFF;--lnk:#9CBAFF;--glow:#6B97F0;--barra:rgba(22,31,54,.97)}
 :root[data-tema=azul]{--bg:#EAF3FA;--bg2:#EAF3FA;--panel:#FFFFFF;--ink:#122638;--soft:#4A6074;--bd:#D2E3EF;--line:#B7D0E2;--acc:#14507A;--lnk:#1B6496;--glow:#3C93C4;--barra:rgba(255,255,255,.97)}
 :root[data-tema=roxo]{--bg:#F2EFFA;--bg2:#F2EFFA;--panel:#FFFFFF;--ink:#251F36;--soft:#5E5775;--bd:#E1DAF1;--line:#CFC5E6;--acc:#4A3A8C;--lnk:#5B47A6;--glow:#8468C9;--barra:rgba(255,255,255,.97)}
 :root[data-tema=rosa]{--bg:#FBF0F3;--bg2:#FBF0F3;--panel:#FFFFFF;--ink:#33202A;--soft:#6A5058;--bd:#F0D8E0;--line:#E4BFCB;--acc:#8A2F55;--lnk:#A23B66;--glow:#CB6B8D;--barra:rgba(255,255,255,.97)}
@@ -586,7 +586,7 @@ footer .grupo small{display:block;font-size:.82rem;color:var(--soft)}
     <div class="ini-novs" id="ini-novs" hidden></div>
     <div class="ini-prog">
       <button type="button" class="ini-pts" id="ini-compartilhar" aria-label="Compartilhar os mistérios de hoje"><svg class="ini-ic16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>Compartilhar</button>
-      <button type="button" class="ini-pts" id="ini-pts" aria-label="0 pontos. Abrir a lojinha de contas"><b id="ini-pts-n">0</b> <span id="ini-pts-u">pontos</span></button>
+      <button type="button" class="ini-pts" id="ini-pts" aria-label="0 pontos. Abrir conquistas"><b id="ini-pts-n">0</b> <span id="ini-pts-u">pontos</span></button>
     </div>
   </div>
   <nav class="ini-atalhos" aria-label="Atalhos">
@@ -762,9 +762,9 @@ footer .grupo small{display:block;font-size:.82rem;color:var(--soft)}
     <button type="button" class="tema-opcao" data-tema-opcao="roxo"><span class="tema-amostra roxo" aria-hidden="true"></span>Roxo claro</button>
     <button type="button" class="tema-opcao" data-tema-opcao="rosa"><span class="tema-amostra rosa" aria-hidden="true"></span>Rosa claro</button>
   </div></div>
-<details class="menu-shop"><summary>Lojinha de contas</summary>
+<details class="menu-conquistas"><summary>Conquistas</summary>
   <details class="explicacao-curta"><summary>Explicação</summary><p class="nota">Cada ponto da contagem exige ao menos 4 segundos entre os pontos. As primeiras nove contas de cada dezena valem 1 ponto cada. Ao tocar a décima conta, ela vale 10 pontos, sem acrescentar outro ponto pela conta final (por isso a conclusão não dá 11). Completar os cinco mistérios do dia dá mais 5 pontos. Nos dias comuns, só os mistérios do dia pontuam; aos sábados, qualquer conjunto pode pontuar. Completar o Rosário inteiro aos sábados dá mais 10. Cada mistério pontua uma vez por dia. As formas são grátis; cores custam conforme indicado e cada textura especial custa 10 pontos. Os pontos ficam neste aparelho e não expiram.</p></details>
-  <div id="loja"></div>
+  <div id="conquistas"></div>
 </details></div>
 <button type="button" id="hb" class="hb" aria-label="Abrir menu" aria-controls="menu"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 14h32M8 24h32M8 34h32"/></svg></button>
 <div id="fundo" hidden></div>
