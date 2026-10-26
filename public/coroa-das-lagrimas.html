@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coroa das Lágrimas | Filhos de Maria</title>
   <style>
-    /* Estilos simples para organizar a leitura */
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
@@ -26,19 +26,84 @@
       text-decoration: none;
       font-weight: bold;
     }
-    .card-terco {
+
+    /* ESTILOS DA REPRESENTAÇÃO VISUAL DO TERÇO */
+    .mapa-terco {
       background: #ffffff;
-      border-left: 5px solid #4a90e2;
-      padding: 15px 20px;
-      margin: 15px 0;
-      border-radius: 4px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 25px 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     }
-    .tag-conta {
+    .passo-terco {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-bottom: 1px dashed #eee;
+    }
+    .passo-terco:last-child {
+      border-bottom: none;
+    }
+
+    /* Desenho das Contas */
+    .icone-medalha {
+      width: 32px;
+      height: 42px;
+      background: #d4af37;
+      border-radius: 50% / 40%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
       font-weight: bold;
-      color: #4a90e2;
-      text-transform: uppercase;
-      font-size: 0.9em;
+      font-size: 11px;
+      margin-right: 15px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .icone-conta-grande {
+      width: 26px;
+      height: 26px;
+      background: #4a90e2;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 12px;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    .grupo-contas-pequenas {
+      display: flex;
+      gap: 3px;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    .icone-conta-pequena {
+      width: 14px;
+      height: 14px;
+      background: #7ed321;
+      border-radius: 50%;
+    }
+    .info-passo h4 {
+      margin: 0 0 5px 0;
+      color: #2c3e50;
+    }
+    .info-passo p {
+      margin: 0;
+      font-size: 0.95em;
+    }
+    .oracao-texto {
+      background: #f0f7ff;
+      padding: 10px;
+      border-left: 3px solid #4a90e2;
+      border-radius: 4px;
+      margin-top: 5px;
+      font-style: italic;
     }
   </style>
 </head>
@@ -51,48 +116,94 @@
     <p><em>"Por meio desta Coroa, o demônio será derrotado e o império do inferno destruído."</em></p>
   </header>
 
-  <!-- Explicação sobre a devoção -->
+  <!-- Explicação rápida -->
   <section>
     <h2>O que é a Coroa das Lágrimas?</h2>
-    <p>A Coroa das Lágrimas (ou Terço das Lágrimas) foi revelada por Nosso Senhor Jesus Cristo e por Nossa Senhora das Lágrimas à Irmã Amália de Jesus Flagelado em 1930. Ela é composta por 49 contas brancas, divididas em grupos de 7 (septenários), e se reza para contemplar as dores e lágrimas de Maria Santíssima.</p>
+    <p>Revelada pela Santíssima Virgem à Irmã Amália de Jesus Flagelado em 1930, a Coroa é composta por <strong>49 contas brancas</strong> divididas em <strong>7 grupos de 7 contas</strong> (septenários), mais 3 contas finais e a medalha.</p>
   </section>
 
-  <hr>
-
-  <!-- Guia passo a passo nas contas do terço -->
+  <!-- GUIA VISUAL DO ROSÁRIO/TERÇO -->
   <section>
-    <h2>Como Rezar na Própria Coroa / Terço</h2>
+    <h2>Guia Ilustrado no Terço</h2>
+    <p>Acompanhe a indicação abaixo conforme avança as contas no seu terço:</p>
 
-    <div class="card-terco">
-      <span class="tag-conta">1. Medalha de Nossa Senhora das Lágrimas (Oração Inicial)</span>
-      <p><strong>De joelhos, diante da Imagem:</strong><br>
-      "Meu Jesus Crucificado! Ajoelhados aos Vossos pés, Vos oferecemos as lágrimas daquela que, com amor compadecido, Vos acompanhou no Vosso caminho doloroso da Cruz. Fazei, ó bom Mestre, que aproveitemos as lições que nos dão as lágrimas da Vossa Mãe Santíssima, a fim de que, cumprindo a Vossa Santa Vontade na terra, sejamos dignos de Vos louvar e glorificar no céu por toda a eternidade. Amém."</p>
-    </div>
+    <div class="mapa-terco">
 
-    <div class="card-terco">
-      <span class="tag-conta">2. Nas Contas Grandes (Separadoras)</span>
-      <p><strong>Em vez do Pai-Nosso, reza-se:</strong><br>
-      <em>"Ó Jesus, olhai para as lágrimas daquela que mais Vos amou na terra e mais intensamente Vos ama no céu."</em></p>
-    </div>
+      <!-- Passo 1: Medalha -->
+      <div class="passo-terco">
+        <div class="icone-medalha">MED</div>
+        <div class="info-passo">
+          <h4>1. Na Medalha de Nossa Senhora das Lágrimas</h4>
+          <p>Oferecimento inicial de joelhos:</p>
+          <div class="oracao-texto">
+            "Meu Jesus Crucificado! Ajoelhados aos Vossos pés, Vos oferecemos as lágrimas daquela que, com amor compadecido, Vos acompanhou no Vosso caminho doloroso da Cruz. Fazei, ó bom Mestre, que aproveitemos as lições que nos dão as lágrimas da Vossa Mãe Santíssima, a fim de que, cumprindo a Vossa Santa Vontade na terra, sejamos dignos de Vos louvar e glorificar no céu por toda a eternidade. Amém."
+          </div>
+        </div>
+      </div>
 
-    <div class="card-terco">
-      <span class="tag-conta">3. Nas Contas Pequenas (Grupos de 7 contas)</span>
-      <p><strong>Em vez da Ave-Maria, reza-se (7 vezes em cada septenário):</strong><br>
-      <em>"Ó Jesus, ouvi os nossos rogos, pelas lágrimas de Vossa Mãe Santíssima."</em></p>
-    </div>
+      <!-- Passo 2: Contas Grandes -->
+      <div class="passo-terco">
+        <div class="icone-conta-grande">7x</div>
+        <div class="info-passo">
+          <h4>2. Nas Contas Grandes (Substituem o Pai-Nosso)</h4>
+          <p>Reza-se 1 vez no início de cada um dos 7 septenários:</p>
+          <div class="oracao-texto">
+            "Ó Jesus, olhai para as lágrimas daquela que mais Vos amou na terra e mais intensamente Vos ama no céu."
+          </div>
+        </div>
+      </div>
 
-    <div class="card-terco">
-      <span class="tag-conta">4. No Final (As 3 contas junto à medalha)</span>
-      <p><strong>Repete-se 3 vezes nas contas finais:</strong><br>
-      <em>"Ó Jesus, olhai para as lágrimas daquela que mais Vos amou na terra e mais intensamente Vos ama no céu."</em></p>
-    </div>
+      <!-- Passo 3: Contas Pequenas -->
+      <div class="passo-terco">
+        <div class="grupo-contas-pequenas">
+          <div class="icone-conta-pequena"></div>
+          <div class="icone-conta-pequena"></div>
+          <div class="icone-conta-pequena"></div>
+          <div class="icone-conta-pequena"></div>
+          <div class="icone-conta-pequena"></div>
+          <div class="icone-conta-pequena"></div>
+          <div class="icone-conta-pequena"></div>
+        </div>
+        <div class="info-passo">
+          <h4>3. Nas Contas Pequenas (Grupos de 7 contas)</h4>
+          <p>Reza-se 7 vezes seguidas (uma para cada conta pequena):</p>
+          <div class="oracao-texto">
+            "Ó Jesus, ouvi os nossos rogos, pelas lágrimas de Vossa Mãe Santíssima."
+          </div>
+        </div>
+      </div>
 
-    <div class="card-terco">
-      <span class="tag-conta">5. Oração Final (Na Medalha)</span>
-      <p><strong>Para encerrar a Coroa:</strong><br>
-      "Ó Maria, Mãe de amor, de dores e de misericórdia! Nós Vos pedimos, uni as vossas súplicas às nossas, a fim de que Jesus, Vosso Divino Filho, a quem nos dirigimos, em nome das vossas lágrimas maternais, ouça as nossas preces e nos conceda, com as graças que Vos pedimos, a coroa da vida eterna. Amém."</p>
+      <!-- Passo 4: Contas Finais -->
+      <div class="passo-terco">
+        <div class="grupo-contas-pequenas">
+          <div class="icone-conta-pequena" style="background:#4a90e2;"></div>
+          <div class="icone-conta-pequena" style="background:#4a90e2;"></div>
+          <div class="icone-conta-pequena" style="background:#4a90e2;"></div>
+        </div>
+        <div class="info-passo">
+          <h4>4. Nas 3 Contas Finais (Junto à medalha)</h4>
+          <p>Ao terminar os 7 septenários, reza-se 3 vezes nas últimas 3 contas:</p>
+          <div class="oracao-texto">
+            "Ó Jesus, olhai para as lágrimas daquela que mais Vos amou na terra e mais intensamente Vos ama no céu."
+          </div>
+        </div>
+      </div>
+
+      <!-- Passo 5: Oração Final na Medalha -->
+      <div class="passo-terco">
+        <div class="icone-medalha">MED</div>
+        <div class="info-passo">
+          <h4>5. De volta à Medalha (Oração Final)</h4>
+          <p>Encerre a Coroa rezando na medalha:</p>
+          <div class="oracao-texto">
+            "Ó Maria, Mãe de amor, de dores e de misericórdia! Nós Vos pedimos, uni as vossas súplicas às nossas, a fim de que Jesus, Vosso Divino Filho, a quem nos dirigimos, em nome das vossas lágrimas maternais, ouça as nossas preces e nos conceda, com as graças que Vos pedimos, a coroa da vida eterna. Amém."
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
 </body>
 </html>
+```
