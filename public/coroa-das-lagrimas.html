@@ -1,109 +1,185 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coroa das Lágrimas | Filhos de Maria</title>
+  <title>Coroa das Lágrimas Interativa | Filhos de Maria</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
       color: #333;
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto;
       padding: 20px;
-      background-color: #f9f9f9;
+      background-color: #f4f6f9;
     }
     header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
     .btn-voltar {
       display: inline-block;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       color: #0056b3;
       text-decoration: none;
       font-weight: bold;
     }
 
-    /* ESTILOS DA REPRESENTAÇÃO VISUAL DO TERÇO */
-    .mapa-terco {
+    /* PAINEL DE ORAÇÃO ATUAL */
+    .painel-oracao {
       background: #ffffff;
-      border: 2px solid #e0e0e0;
       border-radius: 12px;
       padding: 20px;
-      margin: 25px 0;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+      border-top: 6px solid #4a90e2;
+      text-align: center;
+      position: sticky;
+      top: 10px;
+      z-index: 100;
     }
-    .passo-terco {
+    .painel-oracao h3 {
+      margin-top: 0;
+      color: #1a365d;
+    }
+    .texto-oracao {
+      font-size: 1.1em;
+      font-style: italic;
+      background: #f0f7ff;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #4a90e2;
+      margin: 15px 0;
+      min-height: 60px;
       display: flex;
       align-items: center;
-      margin-bottom: 15px;
-      padding: 10px;
-      border-bottom: 1px dashed #eee;
+      justify-content: center;
     }
-    .passo-terco:last-child {
-      border-bottom: none;
+    .controles {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .btn-control {
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      flex: 1;
+      transition: background 0.2s;
+    }
+    .btn-control:hover {
+      background-color: #357abd;
+    }
+    .btn-control:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
     }
 
-    /* Desenho das Contas */
-    .icone-medalha {
-      width: 32px;
-      height: 42px;
-      background: #d4af37;
+    /* DESENHO E REPRESENTAÇÃO VISUAL DO TERÇO */
+    .terco-container {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .instrucao-clique {
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    /* CIRCULO DO TERÇO (SEPTENÁRIOS) */
+    .circulo-terco {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      max-width: 600px;
+      margin: 0 auto 20px auto;
+      padding: 15px;
+      border: 2px dashed #e2e8f0;
+      border-radius: 50px;
+    }
+
+    .septenario-grupo {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: #f8fafc;
+      padding: 6px 10px;
+      border-radius: 20px;
+      border: 1px solid #edf2f7;
+    }
+
+    /* ESTILO DAS CONTAS / BOLINHAS */
+    .conta {
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: bold;
+      color: white;
+    }
+    .conta:hover {
+      transform: scale(1.3);
+    }
+
+    .conta-pequena {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #cbd5e0;
+      color: #4a5568;
+    }
+    .conta-grande {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #4a90e2;
+    }
+    .medalha {
+      width: 38px;
+      height: 48px;
       border-radius: 50% / 40%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: bold;
+      background-color: #d4af37;
       font-size: 11px;
-      margin-right: 15px;
-      flex-shrink: 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
-    .icone-conta-grande {
-      width: 26px;
-      height: 26px;
-      background: #4a90e2;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+
+    /* ESTADO DA CONTA ATIVA / SELECIONADA */
+    .conta.ativa {
+      background-color: #e53e3e !important;
+      color: white !important;
+      transform: scale(1.4);
+      box-shadow: 0 0 12px rgba(229, 62, 62, 0.8);
+      border: 2px solid #fff;
+    }
+    .conta.concluida {
+      background-color: #38a169;
       color: white;
-      font-weight: bold;
-      font-size: 12px;
-      margin-right: 15px;
-      flex-shrink: 0;
     }
-    .grupo-contas-pequenas {
+
+    /* HASTE INICIAL DO TERÇO */
+    .haste-terco {
       display: flex;
-      gap: 3px;
-      margin-right: 15px;
-      flex-shrink: 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
     }
-    .icone-conta-pequena {
-      width: 14px;
-      height: 14px;
-      background: #7ed321;
-      border-radius: 50%;
-    }
-    .info-passo h4 {
-      margin: 0 0 5px 0;
-      color: #2c3e50;
-    }
-    .info-passo p {
-      margin: 0;
-      font-size: 0.95em;
-    }
-    .oracao-texto {
-      background: #f0f7ff;
-      padding: 10px;
-      border-left: 3px solid #4a90e2;
-      border-radius: 4px;
-      margin-top: 5px;
-      font-style: italic;
+    .linha-conexao {
+      width: 2px;
+      height: 12px;
+      background-color: #cbd5e0;
     }
   </style>
 </head>
@@ -113,97 +189,165 @@
 
   <header>
     <h1>Coroa das Lágrimas de Nossa Senhora</h1>
-    <p><em>"Por meio desta Coroa, o demônio será derrotado e o império do inferno destruído."</em></p>
+    <p>Clique em qualquer bolinha do terço para selecionar a oração correspondente.</p>
   </header>
 
-  <!-- Explicação rápida -->
-  <section>
-    <h2>O que é a Coroa das Lágrimas?</h2>
-    <p>Revelada pela Santíssima Virgem à Irmã Amália de Jesus Flagelado em 1930, a Coroa é composta por <strong>49 contas brancas</strong> divididas em <strong>7 grupos de 7 contas</strong> (septenários), mais 3 contas finais e a medalha.</p>
-  </section>
-
-  <!-- GUIA VISUAL DO ROSÁRIO/TERÇO -->
-  <section>
-    <h2>Guia Ilustrado no Terço</h2>
-    <p>Acompanhe a indicação abaixo conforme avança as contas no seu terço:</p>
-
-    <div class="mapa-terco">
-
-      <!-- Passo 1: Medalha -->
-      <div class="passo-terco">
-        <div class="icone-medalha">MED</div>
-        <div class="info-passo">
-          <h4>1. Na Medalha de Nossa Senhora das Lágrimas</h4>
-          <p>Oferecimento inicial de joelhos:</p>
-          <div class="oracao-texto">
-            "Meu Jesus Crucificado! Ajoelhados aos Vossos pés, Vos oferecemos as lágrimas daquela que, com amor compadecido, Vos acompanhou no Vosso caminho doloroso da Cruz. Fazei, ó bom Mestre, que aproveitemos as lições que nos dão as lágrimas da Vossa Mãe Santíssima, a fim de que, cumprindo a Vossa Santa Vontade na terra, sejamos dignos de Vos louvar e glorificar no céu por toda a eternidade. Amém."
-          </div>
-        </div>
-      </div>
-
-      <!-- Passo 2: Contas Grandes -->
-      <div class="passo-terco">
-        <div class="icone-conta-grande">7x</div>
-        <div class="info-passo">
-          <h4>2. Nas Contas Grandes (Substituem o Pai-Nosso)</h4>
-          <p>Reza-se 1 vez no início de cada um dos 7 septenários:</p>
-          <div class="oracao-texto">
-            "Ó Jesus, olhai para as lágrimas daquela que mais Vos amou na terra e mais intensamente Vos ama no céu."
-          </div>
-        </div>
-      </div>
-
-      <!-- Passo 3: Contas Pequenas -->
-      <div class="passo-terco">
-        <div class="grupo-contas-pequenas">
-          <div class="icone-conta-pequena"></div>
-          <div class="icone-conta-pequena"></div>
-          <div class="icone-conta-pequena"></div>
-          <div class="icone-conta-pequena"></div>
-          <div class="icone-conta-pequena"></div>
-          <div class="icone-conta-pequena"></div>
-          <div class="icone-conta-pequena"></div>
-        </div>
-        <div class="info-passo">
-          <h4>3. Nas Contas Pequenas (Grupos de 7 contas)</h4>
-          <p>Reza-se 7 vezes seguidas (uma para cada conta pequena):</p>
-          <div class="oracao-texto">
-            "Ó Jesus, ouvi os nossos rogos, pelas lágrimas de Vossa Mãe Santíssima."
-          </div>
-        </div>
-      </div>
-
-      <!-- Passo 4: Contas Finais -->
-      <div class="passo-terco">
-        <div class="grupo-contas-pequenas">
-          <div class="icone-conta-pequena" style="background:#4a90e2;"></div>
-          <div class="icone-conta-pequena" style="background:#4a90e2;"></div>
-          <div class="icone-conta-pequena" style="background:#4a90e2;"></div>
-        </div>
-        <div class="info-passo">
-          <h4>4. Nas 3 Contas Finais (Junto à medalha)</h4>
-          <p>Ao terminar os 7 septenários, reza-se 3 vezes nas últimas 3 contas:</p>
-          <div class="oracao-texto">
-            "Ó Jesus, olhai para as lágrimas daquela que mais Vos amou na terra e mais intensamente Vos ama no céu."
-          </div>
-        </div>
-      </div>
-
-      <!-- Passo 5: Oração Final na Medalha -->
-      <div class="passo-terco">
-        <div class="icone-medalha">MED</div>
-        <div class="info-passo">
-          <h4>5. De volta à Medalha (Oração Final)</h4>
-          <p>Encerre a Coroa rezando na medalha:</p>
-          <div class="oracao-texto">
-            "Ó Maria, Mãe de amor, de dores e de misericórdia! Nós Vos pedimos, uni as vossas súplicas às nossas, a fim de que Jesus, Vosso Divino Filho, a quem nos dirigimos, em nome das vossas lágrimas maternais, ouça as nossas preces e nos conceda, com as graças que Vos pedimos, a coroa da vida eterna. Amém."
-          </div>
-        </div>
-      </div>
-
+  <!-- PAINEL FIXO COM A ORAÇÃO DO MOMENTO -->
+  <div class="painel-oracao">
+    <h3 id="titulo-passo">1. Oração Inicial (Medalha)</h3>
+    <div class="texto-oracao" id="texto-passo">
+      Carregando oração...
     </div>
-  </section>
+    <div class="controles">
+      <button class="btn-control" id="btn-ant" onclick="mudarPasso(-1)">← Anterior</button>
+      <button class="btn-control" id="btn-proximo" onclick="mudarPasso(1)">Próxima Conta →</button>
+    </div>
+  </div>
 
+  <!-- REPRESENTAÇÃO GRÁFICA CLICÁVEL DO ROSÁRIO/TERÇO -->
+  <div class="terco-container">
+    <p class="instrucao-clique">💡 <strong>Dica:</strong> Toque nas bolinhas abaixo se quiser se reorientar no terço:</p>
+
+    <!-- Circulo dos 7 Septenários (49 contas + 7 contas grandes) -->
+    <div class="circulo-terco" id="circulo-septenarios">
+      <!-- Gerado dinamicamente via JS -->
+    </div>
+
+    <!-- Haste Inferior (Medalha e 3 contas finais) -->
+    <div class="haste-terco">
+      <div class="linha-conexao"></div>
+      <!-- 3 Contas Finais -->
+      <div style="display:flex; gap:8px;">
+        <div class="conta conta-pequena" data-index="57" onclick="selecionarPasso(57)">57</div>
+        <div class="conta conta-pequena" data-index="58" onclick="selecionarPasso(58)">58</div>
+        <div class="conta conta-pequena" data-index="59" onclick="selecionarPasso(59)">59</div>
+      </div>
+      <div class="linha-conexao"></div>
+      <!-- Medalha Principal -->
+      <div class="conta medalha" data-index="0" id="medalha-inicio" onclick="selecionarPasso(0)">MED</div>
+    </div>
+  </div>
+
+  <script>
+    // Estrutura de dados de todas as orações da Coroa das Lágrimas
+    const oracaoOferecimento = `"Meu Jesus Crucificado! Ajoelhados aos Vossos pés, Vos oferecemos as lágrimas daquela que, com amor compadecido, Vos acompanhou no Vosso caminho doloroso da Cruz. Fazei, ó bom Mestre, que aproveitemos as lições que nos dão as lágrimas da Vossa Mãe Santíssima, a fim de que, cumprindo a Vossa Santa Vontade na terra, sejamos dignos de Vos louvar e glorificar no céu por toda a eternidade. Amém."`;
+    const oracaoContaGrande = `"Ó Jesus, olhai para as lágrimas daquela que mais Vos amou na terra e mais intensamente Vos ama no céu."`;
+    const oracaoContaPequena = `"Ó Jesus, ouvi os nossos rogos, pelas lágrimas de Vossa Mãe Santíssima."`;
+    const oracaoFinal = `"Ó Maria, Mãe de amor, de dores e de misericórdia! Nós Vos pedimos, uni as vossas súplicas às nossas, a fim de que Jesus, Vosso Divino Filho, a quem nos dirigimos, em nome das vossas lágrimas maternais, ouça as nossas preces e nos conceda, com as graças que Vos pedimos, a coroa da vida eterna. Amém."`;
+
+    // Mapeamento de todas as 61 etapas do Terço
+    const passos = [];
+
+    // Passo 0: Medalha Inicial
+    passos.push({ titulo: "Medalha - Oração Inicial", texto: oracaoOferecimento });
+
+    // Passos 1 a 56: 7 Septenários (Cada um tem 1 Conta Grande + 7 Contas Pequenas)
+    let idx = 1;
+    for (let s = 1; s <= 7; s++) {
+      passos.push({ titulo: `${s}º Septenário - Conta Grande`, texto: oracaoContaGrande });
+      idx++;
+      for (let p = 1; p <= 7; p++) {
+        passos.push({ titulo: `${s}º Septenário - Conta Pequena (${p}/7)`, texto: oracaoContaPequena });
+        idx++;
+      }
+    }
+
+    // Passos 57, 58, 59: 3 Contas Finais
+    passos.push({ titulo: "3 Contas Finais (1/3)", texto: oracaoContaGrande });
+    passos.push({ titulo: "3 Contas Finais (2/3)", texto: oracaoContaGrande });
+    passos.push({ titulo: "3 Contas Finais (3/3)", texto: oracaoContaGrande });
+
+    // Passo 60: Encerramento na Medalha
+    passos.push({ titulo: "Medalha - Oração Final de Encerramento", texto: oracaoFinal });
+
+    let passoAtual = 0;
+
+    // Gerar dinamicamente os 7 Septenários no HTML
+    function construirTercoHTML() {
+      const container = document.getElementById('circulo-septenarios');
+      let contadorPasso = 1;
+
+      for (let s = 1; s <= 7; s++) {
+        const grupo = document.createElement('div');
+        grupo.className = 'septenario-grupo';
+
+        // Conta Grande do Septenário
+        const cGrande = document.createElement('div');
+        cGrande.className = 'conta conta-grande';
+        cGrande.dataset.index = contadorPasso; // Atributo dataset [5]
+        cGrande.textContent = `G${s}`;
+        cGrande.setAttribute('onclick', `selecionarPasso(${contadorPasso})`); // Manipulação de evento onclick [1, 6]
+        grupo.appendChild(cGrande);
+        contadorPasso++;
+
+        // 7 Contas Pequenas do Septenário
+        for (let p = 1; p <= 7; p++) {
+          const cPequena = document.createElement('div');
+          cPequena.className = 'conta conta-pequena';
+          cPequena.dataset.index = contadorPasso;
+          cPequena.textContent = p;
+          cPequena.setAttribute('onclick', `selecionarPasso(${contadorPasso})`);
+          grupo.appendChild(cPequena);
+          contadorPasso++;
+        }
+
+        container.appendChild(grupo);
+      }
+    }
+
+    // Função para atualizar o painel de texto e destacar a bolinha selecionada
+    function atualizarInterface() {
+      // Atualizar textos [2]
+      document.getElementById('titulo-passo').textContent = passos[passoAtual].titulo;
+      document.getElementById('texto-passo').textContent = passos[passoAtual].texto;
+
+      // Atualizar botões
+      document.getElementById('btn-ant').disabled = (passoAtual === 0);
+      document.getElementById('btn-proximo').disabled = (passoAtual === passos.length - 1);
+
+      // Remover destaque de todas as contas [7]
+      const todasContas = document.querySelectorAll('.conta');
+      todasContas.forEach(c => {
+        c.classList.remove('ativa');
+        const index = parseInt(c.dataset.index);
+        if (index < passoAtual) {
+          c.classList.add('concluida');
+        } else {
+          c.classList.remove('concluida');
+        }
+      });
+
+      // Destacar a conta atual [3]
+      let contaAtiva = document.querySelector(`.conta[data-index="${passoAtual}"]`);
+      // Se for o passo final (60), destaca a medalha novamente
+      if (passoAtual === 60) {
+        contaAtiva = document.getElementById('medalha-inicio');
+      }
+
+      if (contaAtiva) {
+        contaAtiva.classList.add('ativa');
+      }
+    }
+
+    // Função para avançar ou recuar os passos
+    function mudarPasso(direcao) {
+      passoAtual += direcao;
+      if (passoAtual < 0) passoAtual = 0;
+      if (passoAtual >= passos.length) passoAtual = passos.length - 1;
+      atualizarInterface();
+    }
+
+    // Função chamada ao clicar diretamente em qualquer bolinha
+    function selecionarPasso(index) {
+      passoAtual = index;
+      atualizarInterface();
+    }
+
+    // Inicialização ao carregar a página [8]
+    window.onload = function() {
+      construirTercoHTML();
+      atualizarInterface();
+    };
+  </script>
 </body>
 </html>
-```
