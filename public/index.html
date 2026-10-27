@@ -548,6 +548,17 @@ header .marca small{font-size:.8rem;color:var(--soft);letter-spacing:.04em}
 .redes .insta svg{stroke:#c13584;filter:drop-shadow(0 0 6px rgba(193,53,132,.4))}
 .redes .insta svg circle:last-child{fill:#c13584}
 footer .grupo small{display:block;font-size:.82rem;color:var(--soft)}
+#coroa{position:fixed;inset:0;z-index:95;display:flex;flex-direction:column;background:var(--bg);color:var(--ink)}
+#coroa[hidden]{display:none}
+.cr-conta{display:flex;align-items:center;justify-content:center;margin:.2rem auto 1rem;width:84px;height:84px;border-radius:50%;background:var(--acc);color:var(--bg);border:3px solid var(--glow);box-shadow:0 0 0 6px var(--panel),0 0 0 7px var(--bd);font-family:var(--sans);font-size:1.5rem;font-weight:600;line-height:1}
+.cr-conta.menor{width:58px;height:58px;font-size:1.15rem}
+.cr-conta.maior{width:100px;height:100px}
+.cr-conta.medalha{width:82px;height:108px;border-radius:50%/42%}
+.cr-conta.cruz{width:86px;height:86px;border-radius:18px;font-size:2.2rem}
+.cr-pts{display:flex;justify-content:center;gap:.5rem;margin:-.2rem 0 1rem}
+.cr-pts i{width:11px;height:11px;border-radius:50%;background:var(--bd)}
+.cr-pts i.on{background:var(--glow)}
+#coroa .gd-txt{font-style:italic}
 </style>
 </head>
 <body>
@@ -880,6 +891,24 @@ Assim seja.</p>
 <p class="lad"><i>Jesus, manso e humilde de coração, ouvi-me.</i><br>Do desejo de ser estimado, livrai-me, ó Jesus.<br>Do desejo de ser amado, livrai-me, ó Jesus.<br>Do desejo de ser conhecido, livrai-me, ó Jesus.<br>Do desejo de ser honrado, livrai-me, ó Jesus.<br>Do desejo de ser louvado, livrai-me, ó Jesus.<br>Do desejo de ser preferido, livrai-me, ó Jesus.<br>Do desejo de ser consultado, livrai-me, ó Jesus.<br>Do desejo de ser aprovado, livrai-me, ó Jesus.<br><br>Do receio de ser humilhado, livrai-me, ó Jesus.<br>Do receio de ser desprezado, livrai-me, ó Jesus.<br>Do receio de sofrer repulsas, livrai-me, ó Jesus.<br>Do receio de ser caluniado, livrai-me, ó Jesus.<br>Do receio de ser esquecido, livrai-me, ó Jesus.<br>Do receio de ser ridicularizado, livrai-me, ó Jesus.<br>Do receio de ser infamado, livrai-me, ó Jesus.<br>Do receio de ser objeto de suspeita, livrai-me, ó Jesus.<br><br>Que os outros sejam amados mais do que eu, Jesus, dai-me a graça de desejá-lo.<br>Que os outros sejam estimados mais do que eu, Jesus, dai-me a graça de desejá-lo.<br>Que os outros possam elevar-se na opinião do mundo, e que eu possa ser diminuído, Jesus, dai-me a graça de desejá-lo.<br>Que os outros sejam escolhidos e eu posto de lado, Jesus, dai-me a graça de desejá-lo.<br>Que os outros sejam louvados e eu desprezado, Jesus, dai-me a graça de desejá-lo.<br>Que os outros sejam preferidos a mim em todas as coisas, Jesus, dai-me a graça de desejá-lo.<br>Que os outros possam ser mais santos do que eu, Jesus, dai-me a graça de desejá-lo.</p>
 <p class="nota">Oração tradicional atribuída ao Cardeal Merry del Val. <a href="https://www.montfort.org.br/bra/oracoes/ladainhas/humildade/index.php" target="_blank" rel="noopener noreferrer">Fonte do texto ↗</a></p>
    </details>
+</details>
+
+<details class="menu-grupo"><summary>COROA DAS LÁGRIMAS</summary>
+<h3 id="m-cl">Coroa das Lágrimas de Nossa Senhora</h3>
+<p class="nota">Reze conta por conta: a medalha, sete septenários (uma conta maior e sete menores em cada), as três últimas contas e as jaculatórias. São 62 passos, uma oração por tela.</p>
+<button type="button" class="chip" id="abrir-coroa">Coroa guiada</button>
+<p class="nota">Ou leia as orações aqui:</p>
+<details><summary>Oração inicial (medalha)</summary>
+<p data-cl="inicial">Eis-nos aqui aos Vossos pés, ó dulcíssimo Jesus Crucificado, para Vos oferecermos as lágrimas d’Aquela que, com tanto amor, Vos acompanhou no caminho doloroso do Calvário. Fazei, ó bom Mestre, que nós saibamos aproveitar da lição que elas nos dão, para que, na Terra, realizando a Vossa Santíssima Vontade, possamos um dia, no Céu, Vos louvar por toda a eternidade.</p></details>
+<details><summary>Conta maior (uma antes de cada septenário e as três últimas)</summary>
+<p data-cl="maior">Vêde, ó Jesus, que são as lágrimas d’Aquela que mais Vos amou na Terra, e que mais Vos ama no Céu.</p></details>
+<details><summary>Conta menor (sete em cada septenário)</summary>
+<p data-cl="menor">Meu Jesus, ouvi os nossos rogos, pelas Lágrimas de Vossa Mãe Santíssima.</p></details>
+<details><summary>Oração final (medalha)</summary>
+<p data-cl="final">Virgem Santíssima e Mãe das Dores, nós Vos pedimos que junteis os Vossos rogos aos nossos, a fim de que Jesus, Vosso Divino Filho, a quem nos dirigimos em nome das Vossas lágrimas de Mãe, ouça as nossas preces e nos conceda, com as graças que desejamos, a coroa da vida eterna. Amém.</p></details>
+<details><summary>Jaculatórias (beijando a cruz)</summary>
+<p data-cl="jac">Por Vossa mansidão divina, ó Jesus Manietado, salvai o mundo do erro que o ameaça!</p>
+<p data-cl="jac">– Ó Virgem Dolorosíssima, as Vossas Lágrimas derrubaram o império infernal!</p></details>
 </details>
 
   <details class="menu-grupo"><summary>PREPARAÇÃO</summary>
@@ -1357,6 +1386,12 @@ tema(temas.indexOf(root.dataset.tema)>-1?root.dataset.tema:get('fm-t','claro'));
 <div class="gd-meio"><div class="gd-card" id="gd-card"></div></div>
 <div class="gd-rodape"><button type="button" class="gd-ant" id="gd-ant">Anterior</button><button type="button" class="gd-prox" id="gd-prox">Próxima</button></div>
 </div>
+<div id="coroa" role="dialog" aria-modal="true" aria-label="Coroa das Lágrimas guiada" hidden>
+<div class="gd-topo"><button type="button" class="gd-x" id="cr-x" aria-label="Fechar a Coroa das Lágrimas">&times;</button><div class="gd-info" id="cr-info"></div></div>
+<div class="gd-barra"><span id="cr-prog"></span></div>
+<div class="gd-meio"><div class="gd-card" id="cr-card"></div></div>
+<div class="gd-rodape"><button type="button" class="gd-ant" id="cr-ant">Anterior</button><button type="button" class="gd-prox" id="cr-prox">Próxima</button></div>
+</div>
 <div class="fm-sobre" id="busca" role="dialog" aria-modal="true" aria-label="Buscar orações" hidden>
 <div class="fm-caixa">
 <div class="fm-cab"><input id="busca-q" type="search" placeholder="Buscar orações, mistérios e novenas" autocomplete="off" aria-label="Buscar"><button type="button" id="busca-x" aria-label="Fechar busca">&times;</button></div>
@@ -1652,6 +1687,50 @@ else if(e.key==='ArrowLeft'){e.preventDefault();anterior()}
 document.addEventListener('visibilitychange',function(){if(!box.hidden&&!document.hidden)acorda()});
 var g=$('abrir-guiado');if(g)g.addEventListener('click',function(){var mx=$('mx');if(mx)mx.click();setTimeout(abre,150)});
 window.fmGuiado={abre:abre};
+})();
+</script>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)},box=$('coroa');if(!box)return;
+var passos=[],i=0,lock=null,ultimo=null;
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e}
+function bloco(k){return [].map.call(document.querySelectorAll('[data-cl="'+k+'"]'),function(p){return '<p>'+p.innerHTML.trim()+'</p>'}).join('')}
+function monta(){
+passos=[];
+var ini=bloco('inicial'),mai=bloco('maior'),men=bloco('menor'),fin=bloco('final'),jac=bloco('jac');
+passos.push({sec:'Medalha',tipo:'Oração inicial',t:'Oração inicial',conta:'medalha',html:ini});
+for(var s=1;s<=7;s++){
+var sec=s+'º Septenário · '+s+' de 7';
+passos.push({sec:sec,tipo:'Conta maior',t:'Conta maior',conta:'maior',html:mai,pts:0});
+for(var m=1;m<=7;m++)passos.push({sec:sec,tipo:'Conta menor · '+m+' de 7',t:'Conta menor',conta:'menor',sigla:String(m),html:men,pts:m})}
+for(var u=1;u<=3;u++)passos.push({sec:'Três últimas contas',tipo:'Conta maior · '+u+' de 3',t:'Conta maior',conta:'maior',html:mai});
+passos.push({sec:'Medalha',tipo:'Oração final',t:'Oração final',conta:'medalha',html:fin});
+passos.push({sec:'Cruz',tipo:'Jaculatórias',t:'Beijando a Cruz',conta:'cruz',sigla:'\u271D',html:jac,fim:true})}
+function pinta(){
+var p=passos[i],card=$('cr-card');card.textContent='';
+var info=$('cr-info');info.textContent='';info.appendChild(el('b','',p.sec));info.appendChild(document.createTextNode('Passo '+(i+1)+' de '+passos.length));
+$('cr-prog').style.width=Math.round((i+1)/passos.length*100)+'%';
+var b=el('div','cr-conta '+p.conta,p.sigla||'');b.setAttribute('aria-hidden','true');card.appendChild(b);
+if(p.pts!==undefined){var d=el('div','cr-pts');d.setAttribute('aria-hidden','true');for(var k=1;k<=7;k++)d.appendChild(el('i',k<=p.pts?'on':''));card.appendChild(d)}
+card.appendChild(el('p','gd-tipo',p.tipo));card.appendChild(el('h2','',p.t));
+var x=el('div','gd-txt');x.innerHTML=p.html;card.appendChild(x);
+if(p.fim)card.appendChild(el('p','gd-aviso','Você concluiu a Coroa das Lágrimas de Nossa Senhora. Deus abençoe!'));
+$('cr-ant').disabled=i===0;$('cr-prox').textContent=p.fim?'Concluir':'Próxima';
+try{$('cr-prox').focus({preventScroll:true})}catch(e){}
+card.parentNode.scrollTop=0}
+function proxima(){if(passos[i].fim){fecha();return}if(i<passos.length-1){i++;pinta()}}
+function anterior(){if(i>0){i--;pinta()}}
+async function acorda(){try{if(navigator.wakeLock&&!lock){lock=await navigator.wakeLock.request('screen');lock.addEventListener('release',function(){lock=null})}}catch(e){}}
+function solta(){try{if(lock)lock.release()}catch(e){}lock=null}
+function abre(){monta();i=0;ultimo=document.activeElement;box.hidden=false;document.body.style.overflow='hidden';pinta();acorda()}
+function fecha(){box.hidden=true;document.body.style.overflow='';solta();if(ultimo&&ultimo.focus)ultimo.focus()}
+$('cr-prox').addEventListener('click',proxima);$('cr-ant').addEventListener('click',anterior);$('cr-x').addEventListener('click',fecha);
+document.addEventListener('keydown',function(e){if(box.hidden)return;
+if(e.key==='Escape'){fecha();return}
+if(e.key==='ArrowRight'){e.preventDefault();proxima()}
+else if(e.key==='ArrowLeft'){e.preventDefault();anterior()}});
+document.addEventListener('visibilitychange',function(){if(!box.hidden&&!document.hidden)acorda()});
+var g=$('abrir-coroa');if(g)g.addEventListener('click',function(){var mx=$('mx');if(mx)mx.click();setTimeout(abre,150)});
 })();
 </script>
 <script>(function(){
