@@ -43,35 +43,7 @@
 :root[data-tema=rosa]{--halo:rgba(199,111,137,.14);--bd:rgba(177,117,137,.32);--acc:#6d3d4d;--lnk:#88465d;--barra:rgba(255,242,246,.96);--bg:#fff1f4;--bg2:#f9e1e8;--ink:#35252b;--soft:#624a52;--line:#d9b2bd;--glow:#c6758d;--panel:rgba(255,255,255,.8)}
 *{box-sizing:border-box;margin:0}
 html{background:var(--bg);font-size:100%}
-body{font-family:var(--sans);font-weight:300;font-size:1.05rem;line-height:1.75;color:var(--ink);min-height:100vh;padding:0 1.25rem 6rem;
-```html
-<!-- ⚙️ Painel do Administrador -->
-<section id="painel-admin">
-    <h2>⚙️ Painel do Administrador</h2>
-
-    <p>
-        Escolha em qual dia da semana os pontos especiais do terço estarão ativos:
-    </p>
-
-    <select id="dia-terco-especial">
-        <option value="0">Domingo</option>
-        <option value="1">Segunda-feira</option>
-        <option value="2">Terça-feira</option>
-        <option value="3">Quarta-feira</option>
-        <option value="4">Quinta-feira</option>
-        <option value="5">Sexta-feira</option>
-        ```js
-const hoje = new Date();
-
-// Compara o dia atual com o dia configurado no painel do administrador
-if (hoje.getDay() === parseInt(diaEspecialAtivo)) {
-    // Concede a pontuação / liberação especial do dia
-}
-```
-    </select>
-</section>
-```
-background:radial-gradient(900px 420px at 50% -80px,var(--halo),transparent 70%),
+body{font-family:var(--sans);font-weight:300;font-size:1.05rem;line-height:1.75;color:var(--ink);min-height:100vh;padding:0 1.25rem 6rem;background:radial-gradient(900px 420px at 50% -80px,var(--halo),transparent 70%),
 linear-gradient(180deg,var(--bg),var(--bg2));background-attachment:fixed}
 main,header,footer{max-width:760px;margin:0 auto}
 header{text-align:center;padding:4.5rem 0 2.5rem}
@@ -664,7 +636,7 @@ footer .grupo small{display:block;font-size:.82rem;color:var(--soft)}
 <section id="gozosos" role="tabpanel" aria-labelledby="t-gozosos" tabindex="0">
   <svg class="ic" aria-hidden="true"><use href="#i-lirio"/></svg>
   <h2>Mistérios Gozosos</h2>
-  <p class="dias">Segundas-feiras e sábados</p>
+  <p class="dias">Segundas-feiras e <span class="dia-esp-n">sábados</span></p>
   <article><b>1º</b><div><h3>A Anunciação do Anjo a Maria</h3><small><a href="https://www.bibliacatolica.com.br/biblia-ave-maria/sao-lucas/1/" target="_blank" rel="noopener" title="Ler Lc 1,26-38 na Bíblia Ave-Maria (abre em outra página)">Lc 1,26-38</a>. Fruto: humildade.</small>
     <p>Contemplemos o momento em que o anjo Gabriel entra na casa de Nazaré e saúda Maria como cheia de graça. Ela se perturba, pergunta, escuta e, por fim, entrega tudo a Deus: “Eis aqui a serva do Senhor”. Naquele sim, o Filho de Deus começa a habitar entre nós. <i>Peçamos a Maria um coração humilde e disponível para acolher a vontade de Deus.</i></p></div></article>
   <article><b>2º</b><div><h3>A Visitação de Maria a Isabel</h3><small><a href="https://www.bibliacatolica.com.br/biblia-ave-maria/sao-lucas/1/" target="_blank" rel="noopener" title="Ler Lc 1,39-56 na Bíblia Ave-Maria (abre em outra página)">Lc 1,39-56</a>. Fruto: amor ao próximo.</small>
@@ -790,7 +762,7 @@ footer .grupo small{display:block;font-size:.82rem;color:var(--soft)}
     <button type="button" class="tema-opcao" data-tema-opcao="rosa"><span class="tema-amostra rosa" aria-hidden="true"></span>Rosa claro</button>
   </div></div>
 <details class="menu-shop"><summary>Lojinha de contas</summary>
-  <details class="explicacao-curta"><summary>Explicação</summary><p class="nota">Cada ponto da contagem exige ao menos 4 segundos entre os pontos. As primeiras nove contas de cada dezena valem 1 ponto cada. Ao tocar a décima conta, ela vale 10 pontos, sem acrescentar outro ponto pela conta final (por isso a conclusão não dá 11). Completar os cinco mistérios do dia dá mais 5 pontos. Nos dias comuns, só os mistérios do dia pontuam; aos sábados, qualquer conjunto pode pontuar. Completar o Rosário inteiro aos sábados dá mais 10. Cada mistério pontua uma vez por dia. As formas são grátis; cores custam conforme indicado e cada textura especial custa 10 pontos. Os pontos ficam neste aparelho e não expiram.</p></details>
+  <details class="explicacao-curta"><summary>Explicação</summary><p class="nota">Cada ponto da contagem exige ao menos 4 segundos entre os pontos. As primeiras nove contas de cada dezena valem 1 ponto cada. Ao tocar a décima conta, ela vale 10 pontos, sem acrescentar outro ponto pela conta final (por isso a conclusão não dá 11). Completar os cinco mistérios do dia dá mais 5 pontos. Nos dias comuns, só os mistérios do dia pontuam; <span class="dia-esp-f">aos sábados</span>, qualquer conjunto pode pontuar. Completar o Rosário inteiro <span class="dia-esp-f">aos sábados</span> dá mais 10. Cada mistério pontua uma vez por dia. As formas são grátis; cores custam conforme indicado e cada textura especial custa 10 pontos. Os pontos ficam neste aparelho e não expiram.</p></details>
   <div id="loja"></div>
 </details></div>
 <button type="button" id="hb" class="hb" aria-label="Abrir menu" aria-controls="menu"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 14h32M8 24h32M8 34h32"/></svg></button>
@@ -1212,7 +1184,7 @@ salvaP();usaConta();usaForma();usaTextura();desenhaLoja()});
 function dia(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
 var NOMES={gozosos:'Gozosos',luminosos:'Luminosos',dolorosos:'Dolorosos',gloriosos:'Gloriosos'};
 function flutua(a,t){var b=a&&a.querySelector('.cta');if(!b)return;var r=b.getBoundingClientRect(),m=document.createElement('span');m.className='mais';m.textContent=t;m.style.left=Math.max(8,r.right-44)+'px';m.style.top=(r.top+6)+'px';document.body.appendChild(m);setTimeout(function(){m.remove()},1000)}
-window.fmTap=function(k,n,a){var set=k.split(':')[0],sab=new Date().getDay()===6,hs=window.abaHoje,agora=Date.now();
+window.fmTap=function(k,n,a){var set=k.split(':')[0],sab=new Date().getDay()===(window.fmDiaEsp??6),hs=window.abaHoje,agora=Date.now();
 if(P.d!==dia()){P.d=dia();P.t={};P.b=[]}
 P.t=P.t||{};P.b=P.b||[];
 if(!sab&&set!==hs){if(n===1)aviso('Hoje os pontos valem só para os Mistérios '+NOMES[hs]+'. Você pode rezar este sem pontos.',3400);return}
@@ -1694,6 +1666,63 @@ if(grava){try{localStorage.setItem(K,v)}catch(e){}}}
 var atual='padrao';try{var s=localStorage.getItem(K);if(VAL.indexOf(s)>-1)atual=s}catch(e){}
 aplica(atual,false);
 bs.forEach(function(b){b.addEventListener('click',function(){aplica(b.dataset.fam,true)})});
+})();
+</script>
+
+<section id="painel-admin" hidden aria-labelledby="pa-tit" style="max-width:760px;margin:3rem auto 0;padding:1.25rem;border:1px solid var(--bd);border-radius:14px;background:var(--bg2)">
+  <h2 id="pa-tit" style="font-size:1.2rem">⚙️ Painel do administrador</h2>
+  <p class="nota">Escolha o dia em que todos ganham pontos em qualquer conjunto de mistérios. Nos outros dias, só valem os mistérios do dia.</p>
+  <form id="pa-form" style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center">
+    <label for="pa-dia">Dia especial:</label>
+    <select id="pa-dia" class="chip" style="padding:.4rem .6rem">
+      <option value="0">Domingo</option>
+      <option value="1">Segunda-feira</option>
+      <option value="2">Terça-feira</option>
+      <option value="3">Quarta-feira</option>
+      <option value="4">Quinta-feira</option>
+      <option value="5">Sexta-feira</option>
+      <option value="6">Sábado</option>
+    </select>
+    <button type="submit" class="chip">Salvar</button>
+  </form>
+  <p class="nota" id="pa-st" role="status"></p>
+</section>
+<script>
+(function(){
+var NOMES=['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+var NOUN=['domingos','segundas-feiras','terças-feiras','quartas-feiras','quintas-feiras','sextas-feiras','sábados'];
+var FRASE=['aos domingos','às segundas-feiras','às terças-feiras','às quartas-feiras','às quintas-feiras','às sextas-feiras','aos sábados'];
+var sec=document.getElementById('painel-admin'),sel=document.getElementById('pa-dia'),st=document.getElementById('pa-st');
+function valido(d){return typeof d==='number'&&d>=0&&d<=6&&Math.floor(d)===d}
+function aplicaDia(d){
+  if(!valido(d))return;
+  window.fmDiaEsp=d;
+  try{localStorage.setItem('fm-dia-esp',String(d))}catch(e){}
+  sel.value=String(d);
+  document.querySelectorAll('.dia-esp-n').forEach(function(e){e.textContent=NOUN[d]});
+  document.querySelectorAll('.dia-esp-f').forEach(function(e){e.textContent=FRASE[d]});
+}
+try{var c=parseInt(localStorage.getItem('fm-dia-esp'),10);if(valido(c))aplicaDia(c)}catch(e){}
+fetch('/api/config',{cache:'no-store'})
+  .then(function(r){return r.ok?r.json():null})
+  .then(function(j){if(j)aplicaDia(j.dia_terco_especial)})
+  .catch(function(){});
+fetch('/api/admin/config',{cache:'no-store',credentials:'same-origin'})
+  .then(function(r){return r.ok?r.json():null})
+  .then(function(j){if(!j)return;sec.hidden=false;aplicaDia(j.dia_terco_especial)})
+  .catch(function(){});
+document.getElementById('pa-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var d=parseInt(sel.value,10);
+  st.textContent='Salvando…';
+  fetch('/api/admin/config',{method:'PUT',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({dia_terco_especial:d})})
+    .then(function(r){return r.json().then(function(j){return{ok:r.ok,j:j}})})
+    .then(function(x){
+      if(x.ok){aplicaDia(d);st.textContent='Salvo: '+NOMES[d]+' é o dia dos pontos para todos.'}
+      else st.textContent=x.j.erro||'Não foi possível salvar.';
+    })
+    .catch(function(){st.textContent='Sem conexão com o servidor.'});
+});
 })();
 </script>
 </body>
