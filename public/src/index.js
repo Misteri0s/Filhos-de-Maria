@@ -130,3 +130,84 @@ async function excluirConta(request, env) {
   await env.DB.prepare("DELETE FROM users WHERE id = ?").bind(user.id).run();
   return json({ ok: true }, 200, { "Set-Cookie": "sid=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0" });
 }
+
+```js
+// GET /api/config - Retorna o dia especial do terço para qualquer visitante
+if (url.pathname === '/api/config' && request.method === 'GET') {
+    const result = await env.DB
+        .prepare(
+            "SELECT valor FROM config WHERE chave = 'dia_terco_especial'"
+        )
+        .first();
+
+    const diaEspecial = result
+        ? parseInt(result.valor)
+        : 6; // Padrão: 6 (Sábado)
+
+    return new Response(
+        JSON.stringify({
+            dia_terco_especial: diaEspecial
+        }),
+        {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+    );
+}
+
+
+// POST /api/admin/config - Permite apenas ao ADM alterar o dia especial
+if (url.pathname === '/api/admin/config' && request.method === 'POST') {
+    const sessionCookie = getCookie(request, 'session_id');
+
+    if (!sessionCookie) {
+        return new Response(
+            JSON.stringify({
+                erro: 'Não autorizado'
+            }),
+            {
+                status: 401
+            }
+        );
+    }
+
+    // Verifica se o usuário logado possui is_admin = 1
+    const user = await env.DB
+        .prepare(`
+            SELECT u.is_admin
+            FROM users u
+            JOIN sessions s ON u.id = s.user_id
+            WHERE s.id = ?
+              AND s.expires_at > datetime('now')
+        `)
+        .bind(sessionCookie)
+        .first();
+
+    if (!user || user.is_admin !== 1) {
+        return new Response(
+            JSON.stringify({
+                erro: 'Acesso negado. Apenas administradores.'
+            }),
+            {
+                status: 403
+            }
+        );
+    }
+
+    const body = await request.json();
+    const novoDia = body.dia;
+
+    // 0 = Domingo, 1 = Segunda ... 6 = Sábado
+    await env.DB
+        .prepare(
+            "INSERT OR REPLACE INTO config (chave, valor) VALUES ('dia_terco_especial', ?)"
+        )
+        .bind(String(novoDia))
+        .run();
+
+    return new Response(
+        JSON.stringify({
+            sucesso: true,
+            novo_dia: novoDia
+        }),
