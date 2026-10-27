@@ -1,4 +1,4 @@
--- schema.sql
+-- schema.sql (Cloudflare D1 / SQLite)
 CREATE TABLE IF NOT EXISTS users (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   usuario TEXT UNIQUE NOT NULL,
@@ -22,6 +22,17 @@ CREATE TABLE IF NOT EXISTS progress (
 
 CREATE INDEX IF NOT EXISTS idx_sessions_expires ON sessions(expires);
 
-\-- 1\. Adiciona a coluna para identificar administradores ALTER TABLE users ADD COLUMN is\_admin INTEGER DEFAULT 0; 
--- 2\. Cria a tabela de configurações do site CREATE TABLE IF NOT EXISTS config ( chave TEXT PRIMARY KEY, valor TEXT NOT NULL ); 
--- 3\. Define o sábado (dia 6) como dia padrão inicial INSERT OR REPLACE INTO config (chave, valor) VALUES ('dia\_terco\_especial', '6');
+-- Migração 1: administradores. Rode UMA vez (se a coluna já existir, o erro pode ser ignorado).
+ALTER TABLE users ADD COLUMN is_admin INTEGER NOT NULL DEFAULT 0;
+
+-- Migração 2: configurações do site
+CREATE TABLE IF NOT EXISTS config (
+  chave TEXT PRIMARY KEY,
+  valor TEXT NOT NULL
+);
+
+-- Dia especial inicial: 6 = sábado. OR IGNORE para não desfazer a escolha do admin.
+INSERT OR IGNORE INTO config (chave, valor) VALUES ('dia_terco_especial', '6');
+
+-- Para virar administrador depois de criar a conta no site:
+-- UPDATE users SET is_admin = 1 WHERE usuario = 'seu_usuario';
