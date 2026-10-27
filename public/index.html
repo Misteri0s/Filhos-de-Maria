@@ -44,6 +44,26 @@
 *{box-sizing:border-box;margin:0}
 html{background:var(--bg);font-size:100%}
 body{font-family:var(--sans);font-weight:300;font-size:1.05rem;line-height:1.75;color:var(--ink);min-height:100vh;padding:0 1.25rem 6rem;
+```html
+<!-- ⚙️ Painel do Administrador -->
+<section id="painel-admin">
+    <h2>⚙️ Painel do Administrador</h2>
+
+    <p>
+        Escolha em qual dia da semana os pontos especiais do terço estarão ativos:
+    </p>
+
+    <select id="dia-terco-especial">
+        <option value="0">Domingo</option>
+        <option value="1">Segunda-feira</option>
+        <option value="2">Terça-feira</option>
+        <option value="3">Quarta-feira</option>
+        <option value="4">Quinta-feira</option>
+        <option value="5">Sexta-feira</option>
+        <option value="6">Sábado</option>
+    </select>
+</section>
+```
 background:radial-gradient(900px 420px at 50% -80px,var(--halo),transparent 70%),
 linear-gradient(180deg,var(--bg),var(--bg2));background-attachment:fixed}
 main,header,footer{max-width:760px;margin:0 auto}
