@@ -1,0 +1,10 @@
+// GET /api/config (público): dia especial, 0 = domingo ... 6 = sábado
+export async function onRequestGet({ env }) {
+  const row = await env.DB.prepare(
+    "SELECT valor FROM config WHERE chave = 'dia_terco_especial'"
+  ).first();
+  const dia = parseInt(row?.valor ?? "6", 10);
+  return new Response(JSON.stringify({ dia_terco_especial: Number.isInteger(dia) ? dia : 6 }), {
+    headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+  });
+}
