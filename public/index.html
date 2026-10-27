@@ -60,7 +60,14 @@ body{font-family:var(--sans);font-weight:300;font-size:1.05rem;line-height:1.75;
         <option value="3">Quarta-feira</option>
         <option value="4">Quinta-feira</option>
         <option value="5">Sexta-feira</option>
-        <option value="6">Sábado</option>
+        ```js
+const hoje = new Date();
+
+// Compara o dia atual com o dia configurado no painel do administrador
+if (hoje.getDay() === parseInt(diaEspecialAtivo)) {
+    // Concede a pontuação / liberação especial do dia
+}
+```
     </select>
 </section>
 ```
