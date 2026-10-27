@@ -1,0 +1,19 @@
+name = "filhosdemaria"
+compatibility_date = "2026-10-01"
+main = "src/index.js"
+
+[assets]
+directory = "./public"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "filhosdemaria"
+database_id = "6946bee7-2532-4d10-8e46-66eb4f1b8450"
+
+[[durable_objects.bindings]]
+name = "ROOMS"
+class_name = "Room"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["Room"]
