@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coroa das Lágrimas | Filhos de Maria</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f4f6f9;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .btn-voltar {
+      display: inline-block;
+      margin-bottom: 15px;
+      color: #0056b3;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* CARD DA CONTA ÚNICA */
+    .card-conta-unica {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 30px 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      text-align: center;
+      position: relative;
+      margin-bottom: 25px;
+      border: 2px solid #e2e8f0;
+    }
+
+    /* EMBLEMA / NÚMERO NO CANTO */
+    .badge-numero {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: #1a365d;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 6px 14px;
+      border-radius: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    /* VISUAL DA CONTA CENTRAL */
+    .display-conta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+    }
+
+    .circulo-conta {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4a90e2, #2b6cb0);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(74, 144, 226, 0.35);
+      border: 4px solid #ffffff;
+      transition: all 0.3s ease;
+    }
+
+    .circulo-conta.conta-maior {
+      background: linear-gradient(135deg, #3182ce, #1a365d);
+      width: 100px;
+      height: 100px;
+      font-size: 32px;
+    }
+
+    .circulo-conta.medalha {
+      border-radius: 50% / 40%;
+      background: linear-gradient(135deg, #d4af37, #b8860b);
+      width: 85px;
+      height: 110px;
+      font-size: 22px;
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+    }
+
+    .circulo-conta.cruz {
+      border-radius: 12px;
+      background: linear-gradient(135deg, #805ad5, #553c9a);
+      width: 90px;
+      height: 90px;
+      font-size: 28px;
+      box-shadow: 0 8px 20px rgba(128, 90, 213, 0.35);
+    }
+
+    /* TÍTULO DO PASSO */
+    .titulo-passo {
+      font-size: 1.3em;
+      color: #1a365d;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+
+    /* CAIXA DO TEXTO DA ORAÇÃO */
+    .texto-oracao {
+      font-size: 1.15em;
+      font-style: italic;
+      background: #f0f7ff;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 5px solid #4a90e2;
+      margin: 20px 0;
+      text-align: center;
+      line-height: 1.7;
+      color: #2d3748;
+      white-space: pre-line;
+    }
+
+    /* BOTÕES DE NAVEGAÇÃO */
+    .controles {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .btn-control {
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1em;
+      cursor: pointer;
+      flex: 1;
+      transition: background 0.2s;
+    }
+
+    .btn-control:hover {
+      background-color: #357abd;
+    }
+
+    .btn-control:disabled {
+      background-color: #cbd5e0;
+      cursor: not-allowed;
+    }
+
+    .btn-finalizar {
+      background-color: #38a169 !important;
+    }
+
+    .btn-finalizar:hover {
+      background-color: #2f855a !important;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="btn-voltar">← Voltar para a Página Inicial</a>
+
+  <header>
+    <h1>Coroa das Lágrimas de Nossa Senhora</h1>
+    <p>Acompanhe e reze conta por conta</p>
+  </header>
+
+  <!-- CARD DA CONTA ATUAL -->
+  <div class="card-conta-unica">
+    <!-- NÚMERO INDICADOR NO CANTO -->
+    <div class="badge-numero" id="badge-numero">Conta 1 / 62</div>
+
+    <!-- REPRESENTAÇÃO DA CONTA ATUAL -->
+    <div class="display-conta">
+      <div class="circulo-conta" id="icone-conta">MED</div>
+    </div>
+
+    <h2 class="titulo-passo" id="titulo-passo">Oração Inicial (Medalha)</h2>
+
+    <div class="texto-oracao" id="texto-passo">
+      Carregando oração...
+    </div>
+
+    <div class="controles">
+      <button class="btn-control" id="btn-ant" onclick="mudarPasso(-1)">← Anterior</button>
+      <button class="btn-control" id="btn-proximo" onclick="mudarPasso(1)">Próxima Conta →</button>
+      <button class="btn-control btn-finalizar" id="btn-finalizar" onclick="finalizarOracao()" style="display: none;">✓ Finalizar Oração</button>
+    </div>
+  </div>
+
+  <script>
+    // Textos exatos das orações
+    const oracaoInicial = "Eis-nos aqui aos Vossos pés, ó dulcíssimo Jesus Crucificado, para Vos oferecermos as lágrimas d’Aquela que, com tanto amor, Vos acompanhou no caminho doloroso do Calvário. Fazei, ó bom Mestre, que nós saibamos aproveitar da lição que elas nos dão, para que, na Terra, realizando a Vossa Santíssima Vontade, possamos um dia, no Céu, Vos louvar por toda a eternidade.";
+    
+    // Invertido: Contas Maiores agora usam o texto "Vêde, ó Jesus..."
+    const oracaoContaMaior = "Vêde, ó Jesus, que são as lágrimas d’Aquela que mais Vos amou na Terra, e que mais Vos ama no Céu.";
+    
+    // Invertido: Contas Menores agora usam o texto "Meu Jesus, ouvi..."
+    const oracaoContaMenor = "Meu Jesus, ouvi os nossos rogos, pelas Lágrimas de Vossa Mãe Santíssima.";
+    
+    const oracaoFinal = "Virgem Santíssima e Mãe das Dores, nós Vos pedimos que junteis os Vossos rogos aos nossos, a fim de que Jesus, Vosso Divino Filho, a quem nos dirigimos em nome das Vossas lágrimas de Mãe, ouça as nossas preces e nos conceda, com as graças que desejamos, a coroa da vida eterna. Amém.";
+    const oracaoJaculatorias = "Por Vossa mansidão divina, ó Jesus Manietado, salvai o mundo do erro que o ameaça!\n\n– Ó Virgem Dolorosíssima, as Vossas Lágrimas derrubaram o império infernal!";
+
+    // Mapeamento de todas as etapas da Coroa das Lágrimas
+    const passos = [];
+
+    // 1. Medalha - Oração Inicial
+    passos.push({
+      titulo: "Oração Inicial (Medalha)",
+      texto: oracaoInicial,
+      tipo: "medalha",
+      sigla: "MED"
+    });
+
+    // 2. Os 7 Septenários (1 Conta Maior + 7 Contas Menores por grupo)
+    for (let s = 1; s <= 7; s++) {
+      // Conta Maior
+      passos.push({
+        titulo: `${s}º Septenário - Conta Maior`,
+        texto: oracaoContaMaior,
+        tipo: "conta-maior",
+        sigla: "G" + s
+      });
+
+      // 7 Contas Menores
+      for (let m = 1; m <= 7; m++) {
+        passos.push({
+          titulo: `${s}º Septenário - Conta Menor (${m}/7)`,
+          texto: oracaoContaMenor,
+          tipo: "conta-menor",
+          sigla: m
+        });
+      }
+    }
+
+    // 3. As 3 Últimas Contas
+    for (let u = 1; u <= 3; u++) {
+      passos.push({
+        titulo: `3 Últimas Contas (${u}/3)`,
+        texto: oracaoContaMaior,
+        tipo: "conta-maior",
+        sigla: "U" + u
+      });
+    }
+
+    // 4. Oração Final (Medalha)
+    passos.push({
+      titulo: "Oração Final (Medalha)",
+      texto: oracaoFinal,
+      tipo: "medalha",
+      sigla: "MED"
+    });
+
+    // 5. Jaculatórias (Beijando a Cruz)
+    passos.push({
+      titulo: "Jaculatórias (Beijando a Cruz)",
+      texto: oracaoJaculatorias,
+      tipo: "cruz",
+      sigla: "✝"
+    });
+
+    let passoAtual = 0;
+
+    function atualizarInterface() {
+      const passo = passos[passoAtual];
+
+      // Número no canto superior direito
+      document.getElementById('badge-numero').textContent = `Conta ${passoAtual + 1} / ${passos.length}`;
+
+      // Título e Texto da Oração
+      document.getElementById('titulo-passo').textContent = passo.titulo;
+      document.getElementById('texto-passo').innerText = passo.texto;
+
+      // Ícone visual da conta
+      const iconeEl = document.getElementById('icone-conta');
+      iconeEl.textContent = passo.sigla;
+      iconeEl.className = 'circulo-conta ' + passo.tipo;
+
+      // Controle dos Botões
+      document.getElementById('btn-ant').disabled = (passoAtual === 0);
+
+      const btnProximo = document.getElementById('btn-proximo');
+      const btnFinalizar = document.getElementById('btn-finalizar');
+
+      // Se for o último passo, oculta "Próxima Conta" e exibe "Finalizar Oração"
+      if (passoAtual === passos.length - 1) {
+        btnProximo.style.display = 'none';
+        btnFinalizar.style.display = 'inline-block';
+      } else {
+        btnProximo.style.display = 'inline-block';
+        btnFinalizar.style.display = 'none';
+      }
+    }
+
+    function mudarPasso(direcao) {
+      passoAtual += direcao;
+      if (passoAtual < 0) passoAtual = 0;
+      if (passoAtual >= passos.length) passoAtual = passos.length - 1;
+      atualizarInterface();
+    }
+
+    function finalizarOracao() {
+      alert("Deus abençoe! Você concluiu a Coroa das Lágrimas de Nossa Senhora.");
+      window.location.href = "index.html";
+    }
+
+    window.onload = function() {
+      atualizarInterface();
+    };
+  </script>
+</body>
+</html>
