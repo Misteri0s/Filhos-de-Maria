@@ -1231,9 +1231,8 @@ function flutua(a,t){var b=a&&a.querySelector('.cta');if(!b)return;var r=b.getBo
 window.fmTap=function(k,n,a){var set=k.split(':')[0],sab=new Date().getDay()===6,hs=window.abaHoje,agora=Date.now();
 if(P.d!==dia()){P.d=dia();P.t={};P.b=[]}
 P.t=P.t||{};P.b=P.b||[];
-if(!sab&&set!==hs){if(n===1)aviso('Hoje os pontos valem só para os Mistérios '+NOMES[hs]+'. Você pode rezar este sem pontos.',3400);return}
 if(n<=(P.t[k]||0))return;
-if(agora-(P.l||0)<4000){if(agora-(P.w||0)>3000){P.w=agora;aviso('Reze com calma: 1 ponto a cada 4 segundos, no mínimo.',2600)}return}
+if(agora-(P.l||0)< 10000){if(agora-(P.w||0)>3000){P.w=agora;aviso('Reze com calma: 1 ponto a cada 10 segundos, no mínimo.',2600)}return}
 P.l=agora;P.t[k]=n;var g=1,msg='+1 ponto';
 if(n===10){g=10;msg='+10 pontos: dezena completa';
 var feitas=Object.keys(P.t).filter(function(x){return x.indexOf(set+':')===0&&P.t[x]>=10}).length;
