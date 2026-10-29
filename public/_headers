@@ -1,0 +1,23 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/guia.css
+  Cache-Control: public, max-age=3600
+
+# Rascunhos e arquivos de projeto que não devem aparecer no Google (o ideal é apagá-los do repositório)
+/index.zv.html
+  X-Robots-Tag: noindex, nofollow
+/Ora*
+  X-Robots-Tag: noindex, nofollow
+/LICENSE
+  X-Robots-Tag: noindex
+/CONTRIBUTING.md
+  X-Robots-Tag: noindex
+/wrangler.jsonc
+  X-Robots-Tag: noindex, nofollow
