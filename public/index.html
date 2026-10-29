@@ -577,12 +577,36 @@ footer .grupo small{display:block;font-size:.82rem;color:var(--soft)}
 #coroa .cr-conta.medalha{width:62px;height:82px}
 #coroa .cr-conta.cruz{width:64px;height:64px;font-size:1.7rem}
 #coroa .cr-pts i{width:9px;height:9px}
-.sobre{max-width:34rem;margin:1.4rem auto 1.2rem;text-align:center}
-.sobre h2{font-family:var(--sans);font-weight:700;font-size:1rem;line-height:1.4;color:var(--ink);margin:0 0 .5rem}
-.sobre p{font-size:.88rem;line-height:1.65;color:var(--soft);margin:0 0 .8rem}
-.sobre nav{display:flex;flex-wrap:wrap;gap:.3rem .9rem;justify-content:center}
+.sobre p{font-size:.88rem;line-height:1.65;color:var(--soft);margin:.3rem 0 .7rem}
+.sobre nav{display:flex;flex-wrap:wrap;gap:.3rem .9rem;justify-content:center;margin:.2rem 0 .8rem}
 .sobre nav a{font-size:.88rem;color:var(--lnk);text-decoration:underline;text-underline-offset:3px}
 :root[data-reza] .sobre{display:none}
+.ini-seq{display:block;width:100%;margin:.1rem 0 0;min-height:34px;padding:.2rem .8rem;background:none;border:0;color:var(--soft);font:inherit;font-size:.85rem;line-height:1.4;text-align:center;cursor:pointer}
+.ini-seq[hidden]{display:none}
+.ini-seq.alerta{color:var(--ink);font-weight:600}
+#loja .seq{font-size:.9rem;line-height:1.5;color:var(--soft);margin:.2rem 0 .9rem}
+#loja .seq b{color:var(--ink);font-weight:600}
+#loja .seq small{font-size:.8rem}
+#quiz{position:fixed;inset:0;z-index:95;display:flex;flex-direction:column;background:var(--bg);color:var(--ink)}
+#quiz[hidden]{display:none}
+#quiz .gd-card{max-width:520px}
+#quiz .gd-card h2{font-size:1.3rem;line-height:1.35;margin:0 0 .8rem}
+#quiz .gd-tipo{font-size:.68rem;margin:0 0 .35rem}
+#quiz .gd-aviso{font-size:.88rem;line-height:1.55;margin:.9rem 0 0;text-align:left}
+#quiz .gd-info{font-size:.8rem}
+#quiz .gd-info b{font-size:.9rem}
+#quiz .gd-x{width:38px;height:38px;font-size:1.4rem}
+#quiz .gd-ant{min-width:5rem;min-height:2.8rem;font-size:.9rem;border-radius:12px}
+#quiz .gd-prox{min-height:2.8rem;font-size:.95rem;border-radius:12px}
+#quiz .gd-prox:disabled{opacity:.45;cursor:default}
+.qz-ops{display:grid;gap:.55rem;margin:.6rem 0 0;text-align:left}
+.qz-op{display:block;width:100%;min-height:2.8rem;padding:.6rem .9rem;text-align:left;font:inherit;font-size:.98rem;line-height:1.4;color:var(--ink);background:var(--panel);border:1.5px solid var(--bd);border-radius:14px;cursor:pointer}
+.qz-op:hover{border-color:var(--glow)}
+.qz-op:focus-visible{outline:2px solid var(--glow);outline-offset:2px}
+.qz-op:disabled{cursor:default}
+.qz-op.ok{border-color:var(--glow);background:var(--halo);font-weight:600}
+.qz-op.no{border-style:dashed;opacity:.85}
+.qz-op small{display:block;font-weight:400;color:var(--soft);font-size:.8rem}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.filhossdemaria.com.br/#website","url":"https://www.filhossdemaria.com.br/","name":"Filhos de Maria","alternateName":["Filhossdemaria"],"inLanguage":"pt-BR","description":"Roteiro para rezar o terço e o Santo Rosário, com orações católicas, novenas e exame de consciência.","publisher":{"@id":"https://www.filhossdemaria.com.br/#organization"}},{"@type":"Organization","@id":"https://www.filhossdemaria.com.br/#organization","name":"Filhos de Maria","url":"https://www.filhossdemaria.com.br/","logo":{"@type":"ImageObject","url":"https://www.filhossdemaria.com.br/icon-512.png","width":512,"height":512},"image":"https://www.filhossdemaria.com.br/og.jpg","description":"Site católico de oração e devoção, com foco no Santo Rosário.","sameAs":["https://www.instagram.com/filhossdemaria_gp/"]},{"@type":"WebPage","@id":"https://www.filhossdemaria.com.br/#webpage","url":"https://www.filhossdemaria.com.br/","name":"Filhos de Maria | Roteiro do Terço e do Santo Rosário","description":"Roteiro para rezar o terço e o Santo Rosário passo a passo, com os mistérios do dia, orações católicas, novenas e exame de consciência.","inLanguage":"pt-BR","isPartOf":{"@id":"https://www.filhossdemaria.com.br/#website"},"about":{"@type":"Thing","name":"Santo Rosário"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.filhossdemaria.com.br/og.jpg","width":1200,"height":630}}]}</script>
 </head>
@@ -624,6 +648,7 @@ footer .grupo small{display:block;font-size:.82rem;color:var(--soft)}
       <button type="button" class="ini-pts" id="ini-compartilhar" aria-label="Compartilhar os mistérios de hoje"><svg class="ini-ic16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>Compartilhar</button>
       <button type="button" class="ini-pts" id="ini-pts" aria-label="0 pontos. Abrir a lojinha de contas"><b id="ini-pts-n">0</b> <span id="ini-pts-u">pontos</span></button>
     </div>
+    <button type="button" class="ini-seq" id="ini-seq" hidden></button>
   </div>
   <nav class="ini-atalhos" aria-label="Atalhos">
     <button type="button" class="ini-tile" id="ini-buscar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>Buscar</span></button>
@@ -769,11 +794,10 @@ footer .grupo small{display:block;font-size:.82rem;color:var(--soft)}
 </div>
   <span>Filhos de Maria</span>
   <a href="https://www.filhossdemaria.com.br/">Filhossdemaria.com.br</a>
-  <div class="sobre">
-    <h2>Sobre o Filhos de Maria</h2>
+  <details class="priv sobre"><summary>Sobre o Filhos de Maria</summary>
     <p>O Filhos de Maria é um site católico de oração e devoção, com foco no Santo Rosário. Aqui você reza o terço passo a passo, com o roteiro completo, os mistérios do dia (Gozosos, Luminosos, Dolorosos e Gloriosos), meditações e um contador de Ave-Marias. Há também orações católicas, novenas, Via-Sacra e um exame de consciência para preparar a confissão. O uso é gratuito e a conta é opcional.</p>
     <nav aria-label="Guias de oração"><a href="/como-rezar-o-terco/">Como rezar o terço</a> <a href="/misterios-do-rosario/">Mistérios do Rosário</a> <a href="/santo-rosario/">O que é o Santo Rosário</a> <a href="/oracoes-catolicas/">Orações católicas</a> <a href="/novenas-catolicas/">Novenas católicas</a> <a href="/exame-de-consciencia/">Exame de consciência</a></nav>
-  </div>
+  </details>
   <details class="priv"><summary>Privacidade</summary><p>O site não envia suas intenções nem o exame de consciência. A contagem de visitas usa o Cloudflare Web Analytics, pensado para não identificar pessoas, e uma fonte de letra é carregada do Google. O tema e o tamanho do texto escolhidos ficam salvos neste aparelho. Se criar uma conta, ficam salvos o usuário escolhido, uma versão embaralhada da senha gerada e seu progresso. O contador de acessos guarda apenas um número total; não registra IP, nome ou qualquer dado que identifique o visitante. Para não contar a mesma pessoa várias vezes no mesmo dia, o navegador guarda a data da última contagem. Ao ativar os comandos por voz, o navegador pode usar seu serviço de reconhecimento; o site não grava nem armazena áudio. Não há e-mail nem anúncios. Você pode excluir sua conta no menu.</p></details>
 <details class="priv"><summary>Créditos e fontes</summary><p>As orações do Rosário e as demais orações tradicionais pertencem à tradição da Igreja. As meditações dos mistérios foram elaboradas com o auxílio de inteligência artificial (Claude, da Anthropic). As meditações resumidas partiram de referências bíblicas e da Igreja e de materiais de formação, entre eles os da Minha Biblioteca Católica. As meditações completas foram escritas em palavras próprias, diretamente a partir dos relatos bíblicos de cada mistério, sem copiar textos de outros sites. São textos de apoio à oração, não documentos oficiais da Igreja. A Litania da Humildade é uma oração tradicional atribuída ao Cardeal Merry del Val; a fonte do texto em português está indicada junto a ela.</p><p>Este site não copia conteúdo de terceiros, apenas indica links: a Bíblia (versão Ave-Maria, em bibliacatolica.com.br), o Catecismo e os documentos da Igreja (vatican.va, © Libreria Editrice Vaticana), o Evangelho do dia (Vatican News), as novenas (Minha Biblioteca Católica e Canção Nova) e a Via-Sacra (Padre Paulo Ricardo e outros). Esses conteúdos pertencem aos seus respectivos autores e editoras.</p><p>Fontes de letra: Dancing Script (© The Dancing Script Project Authors) e Outfit (© The Outfit Project Authors), ambas sob a SIL Open Font License 1.1.</p><p>Se você é titular de algum conteúdo e deseja corrigir ou remover um crédito, fale conosco pelo grupo do WhatsApp.</p></details>
 <p class="contador" id="contador" hidden title="Acessos ao site"><svg aria-hidden="true"><use href="#i-olho"/></svg><b id="contador-n">0</b><span class="sr"> acessos ao site</span></p>
@@ -804,7 +828,7 @@ footer .grupo small{display:block;font-size:.82rem;color:var(--soft)}
     <button type="button" class="tema-opcao" data-tema-opcao="rosa"><span class="tema-amostra rosa" aria-hidden="true"></span>Rosa claro</button>
   </div></div>
 <details class="menu-shop"><summary>Lojinha de contas</summary>
-  <details class="explicacao-curta"><summary>Explicação</summary><p class="nota">Cada ponto da contagem exige ao menos 4 segundos entre os pontos. As primeiras nove contas de cada dezena valem 1 ponto cada. Ao tocar a décima conta, ela vale 10 pontos, sem acrescentar outro ponto pela conta final (por isso a conclusão não dá 11). Completar os cinco mistérios do dia dá mais 5 pontos. Nos dias comuns, só os mistérios do dia pontuam; aos sábados, qualquer conjunto pode pontuar. Completar o Rosário inteiro aos sábados dá mais 10. Cada mistério pontua uma vez por dia. As formas são grátis; cores custam conforme indicado e cada textura especial custa 10 pontos. Os pontos ficam neste aparelho e não expiram.</p></details>
+  <details class="explicacao-curta"><summary>Explicação</summary><p class="nota">Cada ponto da contagem exige ao menos 4 segundos entre os pontos. As primeiras nove contas de cada dezena valem 1 ponto cada. Ao tocar a décima conta, ela vale 10 pontos, sem acrescentar outro ponto pela conta final (por isso a conclusão não dá 11). Completar os cinco mistérios do dia dá mais 5 pontos. Nos dias comuns, só os mistérios do dia pontuam; aos sábados, qualquer conjunto pode pontuar. Completar o Rosário inteiro aos sábados dá mais 10. Cada mistério pontua uma vez por dia. As formas são grátis; cores custam conforme indicado e cada textura especial custa 10 pontos. Os pontos ficam neste aparelho e não expiram com o tempo.</p><p class="nota">Sequência: rezar e ganhar pontos em dias seguidos forma uma sequência. A partir do segundo dia seguido, todos os pontos valem em dobro. Se você perder um dia, pode recuperar a sequência rezando no dia seguinte, uma vez; depois disso, é preciso manter a sequência por mais 5 dias para a recuperação voltar a ficar disponível. Se uma sequência de 2 dias ou mais acabar sem recuperação, você perde 50 pontos (nunca abaixo de zero).</p></details>
   <div id="loja"></div>
 </details></div>
 <button type="button" id="hb" class="hb" aria-label="Abrir menu" aria-controls="menu"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 14h32M8 24h32M8 34h32"/></svg></button>
@@ -939,6 +963,12 @@ Assim seja.</p>
 <details><summary>Jaculatórias (beijando a cruz)</summary>
 <p data-cl="jac">Por Vossa mansidão divina, ó Jesus Manietado, salvai o mundo do erro que o ameaça!</p>
 <p data-cl="jac">– Ó Virgem Dolorosíssima, as Vossas Lágrimas derrubaram o império infernal!</p></details>
+</details>
+
+<details class="menu-grupo"><summary>QUIZ</summary>
+<h3 id="m-qz">Quiz do Rosário <small>(protótipo)</small></h3>
+<p class="nota">Protótipo para testarmos o formato: algumas perguntas de exemplo sobre o terço e o Rosário. Ainda não vale pontos.</p>
+<button type="button" class="chip" id="abrir-quiz">Começar o quiz</button>
 </details>
 
   <details class="menu-grupo"><summary>PREPARAÇÃO</summary>
@@ -1228,22 +1258,45 @@ function usaTextura(){if(!TEXTURAS[P.tx]||P.tox.indexOf(P.tx)<0)P.tx='lisa';if(P
 function usaForma(){var pol=FORMAS[P.fo][2];if(P.fo==='circulo'){delete R.dataset.forma;R.style.removeProperty('--forma')}else{R.dataset.forma=P.fo;if(pol)R.style.setProperty('--forma',pol);else R.style.removeProperty('--forma')}}
 function est(cor,fo){var g=CORES[cor][2],s=fo==='circulo'?'border-radius:50%;':fo==='arredondada'?'border-radius:30%;':'border-radius:0;clip-path:'+FORMAS[fo][2]+';';
 if(g)s+='background:'+g+';border-color:transparent;';else if(fo!=='circulo')s+='background:var(--glow);border-color:transparent;';return s}
-function desenhaLoja(){var h='<p class="pts">Pontos: <b>'+P.p+'</b></p><p class="rot">Forma das contas (grátis)</p><div>';
+function desenhaLoja(){var h='<p class="pts">Pontos: <b>'+P.p+'</b></p>'+seqLoja()+'<p class="rot">Forma das contas (grátis)</p><div>';
 Object.keys(FORMAS).forEach(function(k){h+='<button type="button" class="chip" data-loja="forma" data-v="'+k+'" aria-pressed="'+(P.fo===k)+'">'+FORMAS[k][0]+' '+FORMAS[k][1]+'</button>'});
 h+='</div><p class="rot">Texturas extras (10 pontos cada; Lisa é grátis)</p><div class="texturas">';
 Object.keys(TEXTURAS).forEach(function(k){var t=TEXTURAS[k],tem=P.tox.indexOf(k)>-1,em=P.tx===k;h+='<button type="button" class="chip textura-op" data-loja="'+(tem?'textura-usar':'textura-comprar')+'" data-v="'+k+'" aria-pressed="'+(tem&&em)+'"'+(!tem&&P.p<t[1]?' disabled':'')+'><i class="textura-amostra textura-'+k+'"></i> '+t[0]+(tem?(em?' · Em uso':' · Usar'):' · '+t[1]+' pontos')+'</button>'});
 h+='</div><p class="rot">Cor das contas (conquiste com pontos)</p><div class="cores">';
 Object.keys(CORES).forEach(function(k){var c=CORES[k],tem=P.own.indexOf(k)>-1,em=P.sel===k,st=est(k,P.fo);
 h+='<div class="cor"><span class="amostra"><i style="'+st+'"></i><i style="'+st+'"></i><i style="'+st+'"></i></span><span class="nm">'+c[0]+'</span>'+(tem?'<button type="button" class="chip" data-loja="usar" data-v="'+k+'" aria-pressed="'+em+'">'+(em?'Em uso':'Usar')+'</button>':'<button type="button" class="chip" data-loja="comprar" data-v="'+k+'"'+(P.p<c[1]?' disabled':'')+'>'+c[1]+' pontos</button>')+'</div>'});
-$('loja').innerHTML=h+'</div>'}
+$('loja').innerHTML=h+'</div>';seqUI()}
 $('loja').addEventListener('click',function(e){var b=e.target.closest('[data-loja]');if(!b)return;var k=b.dataset.v,a=b.dataset.loja;
 if(a==='forma'){P.fo=k}else if(a==='textura-usar'){P.tx=k}else if(a==='textura-comprar'){var pt=TEXTURAS[k][1];if(P.p<pt||P.tox.indexOf(k)>-1)return;P.p-=pt;P.tox.push(k);P.tx=k;aviso('Textura '+TEXTURAS[k][0].toLowerCase()+' conquistada')}else{if(a==='comprar'){var pr=CORES[k][1];if(P.p<pr||P.own.indexOf(k)>-1)return;P.p-=pr;P.own.push(k);aviso('Contas '+CORES[k][0].toLowerCase()+' conquistadas')}P.sel=k}
 salvaP();usaConta();usaForma();usaTextura();desenhaLoja()});
 function dia(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
+var SEQ_PROT=5,SEQ_PENA=50,seqAv='';
+function seqLimpa(s){var o={q:0,u:'',r:1,k:0};if(s&&typeof s==='object'){var q=parseInt(s.q,10),k=parseInt(s.k,10);if(isFinite(q)&&q>0&&q<=100000&&/^\d{4}-\d{1,2}-\d{1,2}$/.test(String(s.u))){o.q=q;o.u=String(s.u);o.r=s.r===0?0:1;o.k=(k>0&&k<=SEQ_PROT)?k:0}}return o}
+function SQ(){if(!P.s||typeof P.s!=='object'||typeof P.s.q!=='number')P.s=seqLimpa(P.s);return P.s}
+function ddias(a,b){var x=a.split('-'),y=b.split('-');return Math.round((Date.UTC(+y[0],y[1]-1,+y[2])-Date.UTC(+x[0],x[1]-1,+x[2]))/864e5)}
+function seqPend(){var s=SQ();return s.q>0&&s.r===1&&s.u!==dia()&&ddias(s.u,dia())===2}
+function seqPerde(ms){var s=SQ(),pen=s.q>=2;if(pen)P.p=Math.max(0,P.p-SEQ_PENA);P.s={q:0,u:'',r:1,k:0};salvaP();desenhaLoja();setTimeout(function(){aviso(pen?'Sua sequência acabou. Você perdeu '+SEQ_PENA+' pontos.':'Sua sequência acabou. Comece outra hoje!',5200)},ms||900)}
+function seqEstado(ms){var s=SQ();if(s.q<=0)return false;var g=ddias(s.u,dia());if(g>=3||(g===2&&s.r!==1)){seqPerde(ms);return true}return false}
+function seqAvanca(){seqEstado();var s=SQ(),h=dia(),av=null;
+if(s.q>0&&s.u===h){}
+else if(s.q>0&&ddias(s.u,h)===1){s.q++;s.u=h;if(s.k>0){s.k--;if(s.k===0){s.r=1;av='Recuperação de sequência disponível de novo.'}}}
+else if(s.q>0&&ddias(s.u,h)===2&&s.r===1){s.r=0;s.k=SEQ_PROT;s.q++;s.u=h;av='Sequência recuperada! Mantenha por mais '+SEQ_PROT+' dias.'}
+else{s=P.s={q:1,u:h,r:1,k:0}}
+P.m=s.q>=2?2:1;if(av)setTimeout(function(){aviso(av,4200)},900);return P.m}
+function seqFunde(a,b){a=seqLimpa(a);b=seqLimpa(b);if(!b.q)return a;if(!a.q)return b;var d=ddias(a.u,b.u);return d>0?b:d<0?a:(b.q>a.q?b:a)}
+function plural(n,s,p){return n+' '+(n===1?s:p)}
+function seqTexto(){var s=SQ(),h=dia();if(s.q<=0)return '';if(seqPend())return 'Você perdeu ontem. Reze hoje para recuperar sua sequência de '+plural(s.q,'dia','dias')+'.';
+if(s.q===1)return s.u===h?'Sequência: 1 dia. Reze amanhã para ganhar pontos em dobro.':'Sequência: 1 dia. Reze hoje para ganhar pontos em dobro.';
+return 'Sequência: '+plural(s.q,'dia','dias')+' · pontos em dobro'}
+function seqLoja(){var s=SQ(),t=seqTexto();if(!t)return '<p class="seq">Sem sequência ainda. Reze em dias seguidos para ganhar pontos em dobro.</p>';
+var p=s.r===1?'Recuperação de sequência: disponível.':'Recuperação de sequência: volta depois de '+plural(s.k,'dia','dias')+' de sequência.';
+return '<p class="seq"><b>'+t+'</b><br><small>'+p+'</small></p>'}
+function seqUI(){var b=$('ini-seq');if(!b)return;var t=seqTexto();b.hidden=!t;b.textContent=t;b.classList.toggle('alerta',seqPend())}
+function seqInicio(){seqEstado(3200);if(seqPend()&&seqAv!==dia()){seqAv=dia();setTimeout(function(){aviso('Você perdeu ontem. Reze hoje para recuperar sua sequência.',5200)},3200)}seqUI()}
 var NOMES={gozosos:'Gozosos',luminosos:'Luminosos',dolorosos:'Dolorosos',gloriosos:'Gloriosos'};
 function flutua(a,t){var b=a&&a.querySelector('.cta');if(!b)return;var r=b.getBoundingClientRect(),m=document.createElement('span');m.className='mais';m.textContent=t;m.style.left=Math.max(8,r.right-44)+'px';m.style.top=(r.top+6)+'px';document.body.appendChild(m);setTimeout(function(){m.remove()},1000)}
 window.fmTap=function(k,n,a){var set=k.split(':')[0],sab=new Date().getDay()===6,hs=window.abaHoje,agora=Date.now();
-if(P.d!==dia()){P.d=dia();P.t={};P.b=[]}
+if(P.d!==dia()){P.d=dia();P.t={};P.b=[];P.m=1}
 P.t=P.t||{};P.b=P.b||[];
 if(!sab&&set!==hs){if(n===1)aviso('Hoje os pontos valem só para os Mistérios '+NOMES[hs]+'. Você pode rezar este sem pontos.',3400);return}
 if(n<=(P.t[k]||0))return;
@@ -1254,17 +1307,20 @@ var feitas=Object.keys(P.t).filter(function(x){return x.indexOf(set+':')===0&&P.
 if(feitas===5&&P.b.indexOf('t:'+set)<0){P.b.push('t:'+set);g+=5;msg='+'+g+' pontos: terço completo'}
 var tot=Object.keys(P.t).filter(function(x){return P.t[x]>=10}).length;
 if(sab&&tot>=20&&P.b.indexOf('r')<0){P.b.push('r');g+=10;msg='+'+g+' pontos: rosário completo'}}
+var mu=seqAvanca();if(mu>1){g*=mu;msg=msg.replace(/^\+\d+/,'+'+g)+' · em dobro'}
 P.p+=g;salvaP();desenhaLoja();if(msg.indexOf('terço')>-1||msg.indexOf('rosário')>-1)aviso(msg,2800);else flutua(a,'+'+g)};
-window.fmUndo=function(k,oldN,newN){if(P.d!==dia())return;P.t=P.t||{};P.b=P.b||[];if((P.t[k]||0)!==oldN)return;var set=k.split(':')[0],retirar=oldN===10?10:1;P.p=Math.max(0,P.p-retirar);P.t[k]=newN;var feitas=Object.keys(P.t).filter(function(x){return x.indexOf(set+':')===0&&P.t[x]>=10}).length;if(feitas<5&&P.b.indexOf('t:'+set)>-1){P.b.splice(P.b.indexOf('t:'+set),1);P.p=Math.max(0,P.p-5);retirar+=5}var tot=Object.keys(P.t).filter(function(x){return P.t[x]>=10}).length;if(tot<20&&P.b.indexOf('r')>-1){P.b.splice(P.b.indexOf('r'),1);P.p=Math.max(0,P.p-10);retirar+=10}salvaP();desenhaLoja();aviso('Contagem corrigida'+(retirar?' · '+retirar+' ponto(s) devolvido(s)':''),1800)};
-usaConta();usaForma();usaTextura();desenhaLoja();
+window.fmUndo=function(k,oldN,newN){if(P.d!==dia())return;P.t=P.t||{};P.b=P.b||[];if((P.t[k]||0)!==oldN)return;var set=k.split(':')[0],mm=P.m||1,retirar=(oldN===10?10:1)*mm;P.p=Math.max(0,P.p-retirar);P.t[k]=newN;var feitas=Object.keys(P.t).filter(function(x){return x.indexOf(set+':')===0&&P.t[x]>=10}).length;if(feitas<5&&P.b.indexOf('t:'+set)>-1){P.b.splice(P.b.indexOf('t:'+set),1);P.p=Math.max(0,P.p-5*mm);retirar+=5*mm}var tot=Object.keys(P.t).filter(function(x){return P.t[x]>=10}).length;if(tot<20&&P.b.indexOf('r')>-1){P.b.splice(P.b.indexOf('r'),1);P.p=Math.max(0,P.p-10*mm);retirar+=10*mm}salvaP();desenhaLoja();aviso('Contagem corrigida'+(retirar?' · '+retirar+' ponto(s) devolvido(s)':''),1800)};
+usaConta();usaForma();usaTextura();desenhaLoja();seqInicio();
+document.addEventListener('visibilitychange',function(){if(!document.hidden)seqInicio()});
+var sqb=$('ini-seq');if(sqb)sqb.addEventListener('click',function(){var pb=$('ini-pts');if(pb)pb.click()});
 var ct={u:null,tmr:null},stt=$('ct-st');
 function msg(t){stt.textContent=t||''}
 function off(){msg('Contas indisponíveis neste endereço no momento.')}
 function api(m,u,c){return fetch('/api/'+u,{method:m,credentials:'same-origin',headers:{'Content-Type':'application/json'},body:c?JSON.stringify(c):undefined}).then(function(r){if((r.headers.get('content-type')||'').indexOf('json')<0)throw new Error('off');return r.json().then(function(j){j._s=r.status;return j})})}
 function dadosLocais(){return{v:1,p:P}}
 function funde(a){if(!a||!a.p||typeof a.p.p!=='number')return false;var b=a.p,base=b.p>P.p?b:P,r=JSON.parse(JSON.stringify(base)),own=(P.own||[]).concat(b.own||[]).filter(function(x,i,l){return CORES[x]&&l.indexOf(x)===i});
-r.own=own.length?own:['padrao'];r.p=Math.max(P.p,b.p);if(!CORES[r.sel]||r.own.indexOf(r.sel)<0)r.sel='padrao';if(!FORMAS[r.fo])r.fo='circulo';var tox=(P.tox||['lisa']).concat(b.tox||[]).filter(function(x,i,l){return TEXTURAS[x]&&l.indexOf(x)===i});r.tox=tox.length?tox:['lisa'];if(!TEXTURAS[r.tx]||r.tox.indexOf(r.tx)<0)r.tx='lisa';r.t=r.t||{};r.b=r.b||[];P=r;salvaP(true);
-usaConta();usaForma();usaTextura();desenhaLoja();return true}
+r.own=own.length?own:['padrao'];r.p=Math.max(P.p,b.p);if(!CORES[r.sel]||r.own.indexOf(r.sel)<0)r.sel='padrao';if(!FORMAS[r.fo])r.fo='circulo';var tox=(P.tox||['lisa']).concat(b.tox||[]).filter(function(x,i,l){return TEXTURAS[x]&&l.indexOf(x)===i});r.tox=tox.length?tox:['lisa'];if(!TEXTURAS[r.tx]||r.tox.indexOf(r.tx)<0)r.tx='lisa';r.t=r.t||{};r.b=r.b||[];r.s=seqFunde(P.s,b.s);P=r;salvaP(true);
+usaConta();usaForma();usaTextura();desenhaLoja();seqInicio();return true}
 function ctUI(){$('ct-fora').hidden=!!ct.u;$('ct-dentro').hidden=!ct.u;$('ct-nome').textContent=ct.u||''}
 function agenda(){if(!ct.u)return;clearTimeout(ct.tmr);ct.tmr=setTimeout(envia,3000)}
 function envia(){if(!ct.u)return Promise.resolve();return api('PUT','progresso',{dados:dadosLocais()}).then(function(j){if(j._s===401){ct.u=null;ctUI();msg('Sua sessão expirou. Entre de novo.')}}).catch(function(){})}
@@ -1421,6 +1477,12 @@ tema(temas.indexOf(root.dataset.tema)>-1?root.dataset.tema:get('fm-t','claro'));
 <div class="gd-barra"><span id="cr-prog"></span></div>
 <div class="gd-meio"><div class="gd-card" id="cr-card"></div></div>
 <div class="gd-rodape"><button type="button" class="gd-ant" id="cr-ant">Anterior</button><button type="button" class="gd-prox" id="cr-prox">Próxima</button></div>
+</div>
+<div id="quiz" role="dialog" aria-modal="true" aria-label="Quiz do Rosário (protótipo)" hidden>
+<div class="gd-topo"><button type="button" class="gd-x" id="qz-x" aria-label="Fechar o quiz">&times;</button><div class="gd-info" id="qz-info"></div></div>
+<div class="gd-barra"><span id="qz-prog"></span></div>
+<div class="gd-meio"><div class="gd-card" id="qz-card"></div></div>
+<div class="gd-rodape"><button type="button" class="gd-ant" id="qz-ant">Sair</button><button type="button" class="gd-prox" id="qz-prox" disabled>Próxima</button></div>
 </div>
 <div class="fm-sobre" id="busca" role="dialog" aria-modal="true" aria-label="Buscar orações" hidden>
 <div class="fm-caixa">
@@ -1765,7 +1827,7 @@ var g=$('abrir-coroa');if(g)g.addEventListener('click',function(){var mx=$('mx')
 </script>
 <script>
 (function(){
-var MAPA={oracoes:'ORAÇÕES',novenas:'DEVOÇÕES',exame:'PREPARAÇÃO',ajuda:'AJUDA',coroa:'COROA DAS LÁGRIMAS'},q;
+var MAPA={oracoes:'ORAÇÕES',novenas:'DEVOÇÕES',exame:'PREPARAÇÃO',ajuda:'AJUDA',coroa:'COROA DAS LÁGRIMAS',quiz:'QUIZ'},q;
 try{q=new URLSearchParams(location.search).get('abrir')}catch(e){return}
 if(!q||!MAPA[q])return;
 function ir(){
@@ -1778,6 +1840,54 @@ if(s&&s.textContent.trim()===MAPA[q]){gs[i].open=true;try{gs[i].scrollIntoView({
 try{history.replaceState(null,'',location.pathname)}catch(e){}
 },250)}
 if(document.readyState==='complete')setTimeout(ir,300);else window.addEventListener('load',function(){setTimeout(ir,300)});
+})();
+</script>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)},box=$('quiz');if(!box)return;
+/* PROTÓTIPO DO QUIZ. Para editar as perguntas, mexa só nesta lista: p = pergunta, o = opções, c = posição da certa (começa em 0), e = explicação. */
+var PERGUNTAS=[
+{p:'Quantas dezenas tem o terço?',o:['3','5','10','20'],c:1,e:'O terço tem cinco dezenas, isto é, os cinco mistérios de um conjunto.'},
+{p:'E quantas dezenas tem o Rosário completo, com os Mistérios Luminosos?',o:['15','20','25','30'],c:1,e:'São vinte dezenas: quatro conjuntos de cinco mistérios.'},
+{p:'Qual conjunto de mistérios se reza às segundas-feiras e aos sábados?',o:['Gozosos','Luminosos','Dolorosos','Gloriosos'],c:0,e:'Segunda e sábado: Gozosos. Terça e sexta: Dolorosos. Quarta e domingo: Gloriosos. Quinta: Luminosos.'},
+{p:'Qual conjunto de mistérios se reza às quintas-feiras?',o:['Gozosos','Luminosos','Dolorosos','Gloriosos'],c:1,e:'Os Mistérios Luminosos, também chamados Mistérios da Luz, são os de quinta-feira.'},
+{p:'Quantas Ave-Marias são rezadas em cada dezena?',o:['3','5','10','12'],c:2,e:'Cada dezena tem um Pai-Nosso, dez Ave-Marias e um Glória.'},
+{p:'Qual é o primeiro mistério gozoso?',o:['A Visitação de Maria a Isabel','A Anunciação do Anjo a Maria','O Nascimento de Jesus','A Apresentação de Jesus no Templo'],c:1,e:'A Anunciação (Lc 1,26-38). O fruto do mistério é a humildade.'},
+{p:'Quem acrescentou os Mistérios Luminosos ao Rosário, em 2002?',o:['São Pio V','Leão XIII','São João Paulo II','Paulo VI'],c:2,e:'São João Paulo II, na carta apostólica Rosarium Virginis Mariae.'},
+{p:'Em que dia é celebrada a festa de Nossa Senhora do Rosário?',o:['13 de maio','7 de outubro','15 de agosto','8 de dezembro'],c:1,e:'Em 7 de outubro. Por isso outubro é conhecido como o mês do Rosário.'}
+];
+var i=0,acertos=0,resp=false,ultimo=null,opts=[];
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e}
+function embaralha(a){var b=a.slice(),j,k,x;for(j=b.length-1;j>0;j--){k=Math.floor(Math.random()*(j+1));x=b[j];b[j]=b[k];b[k]=x}return b}
+function info(t){var n=$('qz-info');n.textContent='';n.appendChild(el('b','','Quiz do Rosário · protótipo'));n.appendChild(document.createTextNode(t))}
+function pergunta(){
+var q=PERGUNTAS[i],card=$('qz-card');card.textContent='';resp=false;
+info('Pergunta '+(i+1)+' de '+PERGUNTAS.length);
+$('qz-prog').style.width=Math.round(i/PERGUNTAS.length*100)+'%';
+card.appendChild(el('p','gd-tipo','Pergunta '+(i+1)));card.appendChild(el('h2','',q.p));
+var g=el('div','qz-ops');g.setAttribute('role','group');g.setAttribute('aria-label','Respostas');
+opts=embaralha(q.o.map(function(_,k){return k}));
+opts.forEach(function(k){var b=el('button','qz-op',q.o[k]);b.type='button';b.dataset.k=k;b.addEventListener('click',function(){responde(k)});g.appendChild(b)});
+card.appendChild(g);var fb=el('p','gd-aviso');fb.id='qz-fb';fb.setAttribute('aria-live','polite');card.appendChild(fb);
+var pr=$('qz-prox');pr.disabled=true;pr.textContent=i===PERGUNTAS.length-1?'Ver resultado':'Próxima';
+card.parentNode.scrollTop=0}
+function responde(k){if(resp)return;resp=true;var q=PERGUNTAS[i],certo=k===q.c;if(certo)acertos++;
+[].forEach.call(document.querySelectorAll('#qz-card .qz-op'),function(b){var bk=+b.dataset.k;b.disabled=true;
+if(bk===q.c){b.classList.add('ok');b.appendChild(el('small','',certo?'Resposta certa':'Resposta certa'))}
+else if(bk===k){b.classList.add('no');b.appendChild(el('small','','Sua resposta'))}});
+$('qz-fb').textContent=(certo?'Certo! ':'Não foi dessa vez. ')+q.e;
+var pr=$('qz-prox');pr.disabled=false;try{pr.focus({preventScroll:true})}catch(e){}}
+function fim(){
+var card=$('qz-card');card.textContent='';$('qz-prog').style.width='100%';info('Resultado');
+card.appendChild(el('p','gd-tipo','Resultado'));card.appendChild(el('h2','','Você acertou '+acertos+' de '+PERGUNTAS.length));
+card.appendChild(el('p','gd-aviso','Este é um protótipo, com perguntas de exemplo. Ainda não vale pontos.'));
+var pr=$('qz-prox');pr.disabled=false;pr.textContent='Jogar de novo';i=PERGUNTAS.length}
+function proxima(){if(i>=PERGUNTAS.length){i=0;acertos=0;pergunta();return}if(!resp)return;if(i<PERGUNTAS.length-1){i++;pergunta()}else fim()}
+function abre(){i=0;acertos=0;ultimo=document.activeElement;box.hidden=false;document.body.style.overflow='hidden';pergunta()}
+function fecha(){box.hidden=true;document.body.style.overflow='';if(ultimo&&ultimo.focus)ultimo.focus()}
+$('qz-prox').addEventListener('click',proxima);$('qz-ant').addEventListener('click',fecha);$('qz-x').addEventListener('click',fecha);
+document.addEventListener('keydown',function(e){if(!box.hidden&&e.key==='Escape')fecha()});
+var g=$('abrir-quiz');if(g)g.addEventListener('click',function(){var mx=$('mx');if(mx)mx.click();setTimeout(abre,150)});
 })();
 </script>
 <script>(function(){
