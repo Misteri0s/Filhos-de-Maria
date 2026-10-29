@@ -1,20 +1,3 @@
-// ============================================================================
-// Worker "filhosdemaria" v2 (endurecido) - ARQUIVO COMPLETO (substitui o src/index.js)
-// PRIVADO: não publique este arquivo.
-//
-// O que há de novo em relação à v1 (veja AUDITORIA-DO-WORKER.md):
-//  - Cookie de sessão __Host-sid (HttpOnly, Secure, SameSite=Strict) e token guardado só como hash.
-//  - Proteção CSRF: confere Origin / Sec-Fetch-Site e exige JSON nas rotas que alteram dados.
-//  - Limite de requisições por IP (guarda só um identificador com hash, por no máximo 1 hora).
-//  - Senha: 8 a 128 caracteres, sem senhas comuns; sal aleatório por usuário; tempo de resposta igual
-//    para usuário que existe e que não existe.
-//  - Pontos: o servidor valida o formato dos dados e não aceita ganhos de pontos impossíveis.
-//  - Exclusão de conta atômica e protegida contra tentativas de adivinhar a senha.
-//  - Cabeçalhos de segurança em todas as respostas.
-// Tabelas opcionais (se faltarem, o Worker continua funcionando, só sem a proteção correspondente):
-//   tentativas, limites, visitas. Veja COMO-PUBLICAR-O-WORKER.md.
-// ============================================================================
-
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
@@ -254,15 +237,23 @@ const CORES_CUSTO = {"padrao": 0, "perola": 30, "madeira": 50, "ebano": 70, "cri
 const TEXTURAS_CUSTO = {"lisa": 0, "perolada": 10, "listrada": 10, "pontilhada": 10, "marmorizada": 10, "brilhante": 10, "trancada": 10};
 const FORMAS = new Set(["circulo", "arredondada", "oval", "losango", "coracao", "estrela", "cruz", "hexagono", "flor", "triangulo", "pentagono", "octogono", "gota", "sol"]);
 const SETS = ["gozosos", "luminosos", "dolorosos", "gloriosos"];
-const MAX_POR_DIA = 410;            // máximo de pontos que o site permite ganhar em um dia (sábado)
-const MAX_POR_TOQUE = 25;           // maior prêmio possível em um único toque
+const MAX_POR_DIA = 820;            // máximo de pontos em um dia (sábado, com a sequência em dobro: 410 x 2)
+const MAX_POR_TOQUE = 50;           // maior prêmio possível em um único toque (25 x 2)
 const TOQUE_MS = 4000;              // o site só dá ponto a cada 4 segundos
-const LIMITE_PRIMEIRA = 20000;      // primeira sincronização (pode vir de muitos dias jogando sem conta)
+const LIMITE_PRIMEIRA = 40000;      // primeira sincronização (pode vir de muitos dias jogando sem conta)
 const ehInt = (n, min, max) => Number.isInteger(n) && n >= min && n <= max;
 function unicos(lista, tabela) {
   const out = [];
   if (Array.isArray(lista)) for (const x of lista.slice(0, 50)) if (typeof x === "string" && Object.prototype.hasOwnProperty.call(tabela, x) && !out.includes(x)) out.push(x);
   return out;
+}
+// Sequência de dias: q = dias seguidos, u = último dia (AAAA-M-D), r = recuperação disponível (1/0), k = dias que faltam para ela voltar.
+function limparSequencia(s) {
+  const o = { q: 0, u: "", r: 1, k: 0 };
+  if (s && typeof s === "object" && ehInt(s.q, 1, 100000) && typeof s.u === "string" && /^\d{4}-\d{1,2}-\d{1,2}$/.test(s.u)) {
+    o.q = s.q; o.u = s.u; o.r = s.r === 0 ? 0 : 1; o.k = ehInt(s.k, 1, 5) ? s.k : 0;
+  }
+  return o;
 }
 // Devolve os dados limpos (só campos conhecidos, com tipos certos) ou null se o formato for inválido.
 function limparProgresso(d) {
@@ -291,6 +282,8 @@ function limparProgresso(d) {
       tx: tox.includes(p.tx) ? p.tx : "lisa",
       d: typeof p.d === "string" && /^\d{4}-\d{1,2}-\d{1,2}$/.test(p.d) ? p.d : "",
       t, b,
+      m: p.m === 2 ? 2 : 1,
+      s: limparSequencia(p.s),
     },
   };
 }
