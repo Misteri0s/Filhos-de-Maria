@@ -441,3 +441,533 @@ export class Room {
   constructor(state, env) { this.state = state; this.env = env; }
   async fetch() { return new Response("Recurso removido", { status: 410 }); }
 }
+
+// ============================================================
+// AUXILIARES
+// ============================================================
+
+function getCookie(request, name) {
+    const cookieHeader = request.headers.get("Cookie");
+
+    if (!cookieHeader) {
+        return null;
+    }
+
+    const cookies = cookieHeader.split(";");
+
+    for (const cookie of cookies) {
+        const [cName, cValue] = cookie.trim().split("=");
+
+        if (cName === name) {
+            return cValue;
+        }
+    }
+
+    return null;
+}
+
+
+// Auxiliar para gerar hash anônimo do IP
+async function hashIP(ip) {
+    const msgUint8 = new TextEncoder().encode(
+        ip + "_salt_filhos_de_maria"
+    );
+
+    const hashBuffer = await crypto.subtle.digest(
+        "SHA-256",
+        msgUint8
+    );
+
+    const hashArray = Array.from(
+        new Uint8Array(hashBuffer)
+    );
+
+    return hashArray
+        .map((b) => b.toString(16).padStart(2, "0"))
+        .join("");
+}
+
+
+// Resposta JSON padronizada
+function jsonResponse(data, status = 200) {
+    return new Response(
+        JSON.stringify(data),
+        {
+            status,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+    );
+}
+
+
+// ============================================================
+// WORKER
+// ============================================================
+
+export default {
+
+    async fetch(request, env, ctx) {
+
+        const url = new URL(request.url);
+
+
+        // ====================================================
+        // 1. CONTAGEM DE VISITAS ÚNICAS
+        // ====================================================
+
+        if (
+            url.pathname === "/api/visitas" &&
+            request.method === "POST"
+        ) {
+
+            const clientIP =
+                request.headers.get("cf-connecting-ip") ||
+                request.headers.get("x-real-ip") ||
+                "127.0.0.1";
+
+            const ipHash = await hashIP(clientIP);
+
+            const hoje = new Date()
+                .toISOString()
+                .split("T")[0];
+
+
+            try {
+
+                // Registra a visita.
+                // Se o IP já visitou hoje, ignora.
+                await env.DB
+                    .prepare(`
+                        INSERT OR IGNORE INTO visitas_unicas
+                        (ip_hash, data)
+                        VALUES (?, ?)
+                    `)
+                    .bind(ipHash, hoje)
+                    .run();
+
+
+                // Conta visitantes únicos
+                const res = await env.DB
+                    .prepare(`
+                        SELECT COUNT(*) AS total
+                        FROM visitas_unicas
+                    `)
+                    .first();
+
+
+                return jsonResponse({
+                    total: res ? res.total : 0
+                });
+
+            } catch (err) {
+
+                console.error(
+                    "Erro ao registrar visita:",
+                    err
+                );
+
+                return jsonResponse({
+                    total: 0
+                });
+            }
+        }
+
+
+        // ====================================================
+        // 1.1 CONSULTAR TOTAL DE VISITAS
+        // ====================================================
+
+        if (
+            url.pathname === "/api/visitas" &&
+            request.method === "GET"
+        ) {
+
+            const res = await env.DB
+                .prepare(`
+                    SELECT COUNT(*) AS total
+                    FROM visitas_unicas
+                `)
+                .first();
+
+
+            return jsonResponse({
+                total: res ? res.total : 0
+            });
+        }
+
+
+        // ====================================================
+        // 2. VERIFICAR USUÁRIO / SESSÃO
+        // ====================================================
+
+        if (
+            url.pathname === "/api/eu" &&
+            request.method === "GET"
+        ) {
+
+            const sessionCookie = getCookie(
+                request,
+                "session_id"
+            );
+
+
+            if (!sessionCookie) {
+
+                return jsonResponse(
+                    {
+                        erro: "Não autenticado"
+                    },
+                    401
+                );
+            }
+
+
+            const user = await env.DB
+                .prepare(`
+                    SELECT
+                        u.id,
+                        u.usuario,
+                        u.is_admin
+
+                    FROM users u
+
+                    JOIN sessions s
+                        ON u.id = s.user_id
+
+                    WHERE
+                        s.id = ?
+                        AND s.expires_at > datetime('now')
+                `)
+                .bind(sessionCookie)
+                .first();
+
+
+            if (!user) {
+
+                return jsonResponse(
+                    {
+                        erro: "Sessão inválida"
+                    },
+                    401
+                );
+            }
+
+
+            return jsonResponse(user);
+        }
+
+
+        // ====================================================
+        // 3. QUIZ — CRIAR SALA
+        // ====================================================
+
+        if (
+            url.pathname === "/api/quiz/criar" &&
+            request.method === "POST"
+        ) {
+
+            const body = await request.json();
+
+            const codigo = Math
+                .random()
+                .toString(36)
+                .substring(2, 8)
+                .toUpperCase();
+
+            const {
+                usuario,
+                tempo,
+                modo,
+                perguntas
+            } = body;
+
+
+            await env.DB
+                .prepare(`
+                    INSERT INTO quiz_salas
+                    (
+                        codigo,
+                        host_usuario,
+                        tempo_pergunta,
+                        modo,
+                        dados_jogo
+                    )
+
+                    VALUES (?, ?, ?, ?, ?)
+                `)
+                .bind(
+                    codigo,
+                    usuario,
+                    tempo || 30,
+                    modo || "multipla",
+                    JSON.stringify(perguntas)
+                )
+                .run();
+
+
+            await env.DB
+                .prepare(`
+                    INSERT INTO quiz_jogadores
+                    (
+                        sala_codigo,
+                        usuario,
+                        pontos
+                    )
+
+                    VALUES (?, ?, 0)
+                `)
+                .bind(
+                    codigo,
+                    usuario
+                )
+                .run();
+
+
+            return jsonResponse({
+                sucesso: true,
+                codigo
+            });
+        }
+
+
+        // ====================================================
+        // 4. QUIZ — ENTRAR NA SALA
+        // ====================================================
+
+        if (
+            url.pathname === "/api/quiz/entrar" &&
+            request.method === "POST"
+        ) {
+
+            const {
+                codigo,
+                usuario
+            } = await request.json();
+
+            const codigoSala =
+                codigo.toUpperCase();
+
+
+            const sala = await env.DB
+                .prepare(`
+                    SELECT *
+                    FROM quiz_salas
+                    WHERE codigo = ?
+                `)
+                .bind(codigoSala)
+                .first();
+
+
+            if (!sala) {
+
+                return jsonResponse(
+                    {
+                        erro: "Sala não encontrada"
+                    },
+                    404
+                );
+            }
+
+
+            await env.DB
+                .prepare(`
+                    INSERT OR REPLACE INTO quiz_jogadores
+                    (
+                        sala_codigo,
+                        usuario,
+                        pontos
+                    )
+
+                    VALUES (?, ?, 0)
+                `)
+                .bind(
+                    codigoSala,
+                    usuario
+                )
+                .run();
+
+
+            return jsonResponse({
+                sucesso: true,
+                codigo: codigoSala,
+                tempo: sala.tempo_pergunta,
+                modo: sala.modo
+            });
+        }
+
+
+        // ====================================================
+        // 5. QUIZ — ESTADO DA SALA
+        // ====================================================
+
+        if (
+            url.pathname === "/api/quiz/estado" &&
+            request.method === "GET"
+        ) {
+
+            const codigo =
+                url.searchParams.get("codigo");
+
+
+            if (!codigo) {
+
+                return jsonResponse(
+                    {
+                        erro: "Código da sala não informado"
+                    },
+                    400
+                );
+            }
+
+
+            const sala = await env.DB
+                .prepare(`
+                    SELECT *
+                    FROM quiz_salas
+                    WHERE codigo = ?
+                `)
+                .bind(codigo)
+                .first();
+
+
+            if (!sala) {
+
+                return jsonResponse(
+                    {
+                        erro: "Sala não existe"
+                    },
+                    404
+                );
+            }
+
+
+            const jogadores = await env.DB
+                .prepare(`
+                    SELECT
+                        usuario,
+                        pontos,
+                        resposta_atual
+
+                    FROM quiz_jogadores
+
+                    WHERE sala_codigo = ?
+
+                    ORDER BY pontos DESC
+                `)
+                .bind(codigo)
+                .all();
+
+
+            let dadosJogo = [];
+
+            try {
+                dadosJogo = JSON.parse(
+                    sala.dados_jogo || "[]"
+                );
+            } catch (err) {
+                console.error(
+                    "Erro ao ler dados do jogo:",
+                    err
+                );
+            }
+
+
+            return jsonResponse({
+                estado: sala.estado,
+                pergunta_atual: sala.pergunta_atual,
+                tempo: sala.tempo_pergunta,
+                modo: sala.modo,
+                dados_jogo: dadosJogo,
+                jogadores: jogadores.results || []
+            });
+        }
+
+
+        // ====================================================
+        // 6. QUIZ — INICIAR
+        // ====================================================
+
+        if (
+            url.pathname === "/api/quiz/iniciar" &&
+            request.method === "POST"
+        ) {
+
+            const {
+                codigo
+            } = await request.json();
+
+
+            await env.DB
+                .prepare(`
+                    UPDATE quiz_salas
+
+                    SET
+                        estado = 'em_jogo',
+                        pergunta_atual = 0
+
+                    WHERE codigo = ?
+                `)
+                .bind(codigo)
+                .run();
+
+
+            return jsonResponse({
+                sucesso: true
+            });
+        }
+
+
+        // ====================================================
+        // 7. QUIZ — RESPONDER
+        // ====================================================
+
+        if (
+            url.pathname === "/api/quiz/responder" &&
+            request.method === "POST"
+        ) {
+
+            const {
+                codigo,
+                usuario,
+                pontosGanhos
+            } = await request.json();
+
+
+            await env.DB
+                .prepare(`
+                    UPDATE quiz_jogadores
+
+                    SET pontos = pontos + ?
+
+                    WHERE
+                        sala_codigo = ?
+                        AND usuario = ?
+                `)
+                .bind(
+                    pontosGanhos,
+                    codigo,
+                    usuario
+                )
+                .run();
+
+
+            return jsonResponse({
+                sucesso: true
+            });
+        }
+
+
+        // ====================================================
+        // ROTA NÃO ENCONTRADA
+        // ====================================================
+
+        return jsonResponse(
+            {
+                erro: "Rota não encontrada"
+            },
+            404
+        );
+    }
+};
