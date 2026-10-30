@@ -813,7 +813,47 @@ footer .grupo small{display:block;font-size:.82rem;color:var(--soft)}
 <div id="painel-aparencia" class="painel-aparencia" role="dialog" aria-label="Aparência e leitura" hidden>
   <div class="apar-cab"><strong>Aparência e leitura</strong><button type="button" id="aparencia-fechar" aria-label="Fechar personalização">&times;</button></div>
   <div class="apar-bloco"><span class="apar-titulo">Tamanho do texto</span><div class="apar-fonte"><button type="button" id="fonte-menos" aria-label="Diminuir o texto">A&minus;</button><output id="fonte-valor" aria-live="polite">100%</output><button type="button" id="fonte-mais" aria-label="Aumentar o texto">A+</button></div></div>
-  <div class="apar-bloco"><span class="apar-titulo">Fonte das letras</span><div class="temas-opcoes fam-opcoes" role="group" aria-label="Fonte das letras">
+  <!-- PAINEL DO ADM (ESCONDIDO NO MENU DE PERSONALIZAÇÃO) -->
+
+<div
+  id="painel-admin-menu"
+  style="display: none; border-top: 1px dashed #cca028; margin-top: 15px; padding-top: 15px; text-align: left;"
+>
+
+  <h4 style="margin: 0 0 8px 0; color: #856404; font-size: 1em;">
+    ⚙️ Painel de Administração
+  </h4>
+
+  <p style="font-size: 0.85em; color: #666; margin: 0 0 10px 0;">
+    Dia ativo para pontos especiais do terço:
+  </p>
+
+  <div style="display: flex; gap: 8px; align-items: center;">
+
+    <select
+      id="select-dia-terco"
+      style="padding: 6px; border-radius: 6px; font-size: 14px; border: 1px solid #ccc;"
+    >
+      <option value="0">Domingo</option>
+      <option value="1">Segunda-feira</option>
+      <option value="2">Terça-feira</option>
+      <option value="3">Quarta-feira</option>
+      <option value="4">Quinta-feira</option>
+      <option value="5">Sexta-feira</option>
+      <option value="6">Sábado</option>
+    </select>
+
+    <button
+      onclick="salvarDiaEspecial()"
+      style="background-color: #28a745; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px;"
+    >
+      Salvar
+    </button>
+
+  </div>
+
+</div>
+ <div class="apar-bloco"><span class="apar-titulo">Fonte das letras</span><div class="temas-opcoes fam-opcoes" role="group" aria-label="Fonte das letras">
 <button type="button" class="tema-opcao fam-opcao" data-fam="padrao" aria-pressed="true">Padrão</button>
 <button type="button" class="tema-opcao fam-opcao" data-fam="elegante" aria-pressed="false">Elegante</button>
 <button type="button" class="tema-opcao fam-opcao" data-fam="classica" aria-pressed="false">Clássica</button>
