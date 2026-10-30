@@ -1979,5 +1979,134 @@ aplica(atual,false);
 bs.forEach(function(b){b.addEventListener('click',function(){aplica(b.dataset.fam,true)})});
 })();
 </script>
+<script>
+
+  let diaEspecialAtivo = 6;
+
+
+  window.addEventListener('load', async () => {
+
+    // 1. Consulta o dia do terço salvo no banco D1
+
+    try {
+
+      const resConfig =
+        await fetch('/api/config');
+
+      if (resConfig.ok) {
+
+        const dadosConfig =
+          await resConfig.json();
+
+        diaEspecialAtivo =
+          dadosConfig.dia_terco_especial;
+
+      }
+
+    } catch (err) {
+
+      console.error(
+        "Erro ao carregar configuracoes:",
+        err
+      );
+
+    }
+
+
+    // 2. Verifica se a conta ativada na sessão é de Administrador
+
+    try {
+
+      const resEu =
+        await fetch('/api/eu');
+
+      if (resEu.ok) {
+
+        const usuario =
+          await resEu.json();
+
+        if (usuario && usuario.is_admin === 1) {
+
+          // Revela a aba de ADM oculta no menu de personalização
+
+          const painelMenu =
+            document.getElementById('painel-admin-menu');
+
+          const selectDia =
+            document.getElementById('select-dia-terco');
+
+          if (painelMenu) painelMenu.style.display = 'block';
+
+          if (selectDia) selectDia.value = diaEspecialAtivo;
+
+        }
+
+      }
+
+    } catch (err) {
+
+      console.log("Visitante ou usuario comum.");
+
+    }
+
+  });
+
+
+  async function salvarDiaEspecial() {
+
+    const select =
+      document.getElementById('select-dia-terco');
+
+    if (!select) return;
+
+    const novoDia =
+      select.value;
+
+
+    try {
+
+      const resposta = await fetch('/api/admin/config', {
+
+        method: 'POST',
+
+        headers: {
+          'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+          dia: novoDia
+        })
+
+      });
+
+
+      const resultado =
+        await resposta.json();
+
+
+      if (resposta.ok && resultado.sucesso) {
+
+        alert("✅ Configuração salva com sucesso!");
+
+        location.reload();
+
+      } else {
+
+        alert(
+          "❌ Erro ao salvar: " +
+          (resultado.erro || "Falha na requisição")
+        );
+
+      }
+
+    } catch (err) {
+
+      alert("❌ Erro de conexão com o servidor.");
+
+    }
+
+  }
+
+</script>
 </body>
 </html>
